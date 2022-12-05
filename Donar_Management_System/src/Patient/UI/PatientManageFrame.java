@@ -4,6 +4,11 @@
  */
 package Patient.UI;
 
+//import Hospital.UI.AdminHospitalManageFrame;
+import Administration.UI.*;
+import Donar.UI.DonarSignUpPage;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Gayatri
@@ -11,10 +16,12 @@ package Patient.UI;
 public class PatientManageFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form PatientManageFrame
+     * Creates new form AdministratorSplitPage
      */
     public PatientManageFrame() {
         initComponents();
+        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -26,447 +33,119 @@ public class PatientManageFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_admintitle = new javax.swing.JLabel();
-        txtFullName = new javax.swing.JTextField();
-        lbl_name = new javax.swing.JLabel();
-        lbl_uname = new javax.swing.JLabel();
-        txtUsrName = new javax.swing.JTextField();
-        lbl_pswd = new javax.swing.JLabel();
-        txtPass = new javax.swing.JPasswordField();
-        lbl_address = new javax.swing.JLabel();
-        txtAdd = new javax.swing.JTextField();
-        txt_City = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
-        txt_state = new javax.swing.JLabel();
-        txtState = new javax.swing.JTextField();
-        txt_Zip = new javax.swing.JLabel();
-        txtZip = new javax.swing.JTextField();
-        lbl_gender = new javax.swing.JLabel();
-        cmb_gender = new javax.swing.JComboBox<>();
-        lbl_telenum = new javax.swing.JLabel();
-        txt_telenum = new javax.swing.JTextField();
-        lbl_dob = new javax.swing.JLabel();
-        txt_dob = new javax.swing.JTextField();
-        lbl_diag = new javax.swing.JLabel();
-        txt_diag = new javax.swing.JTextField();
-        hospitalList = new javax.swing.JComboBox<>();
-        lbl_hosplist = new javax.swing.JLabel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        PersonalDetails = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
+        SendRequest = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_admintitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbl_admintitle.setText("Create Patient Profile");
-
-        txtFullName.addActionListener(new java.awt.event.ActionListener() {
+        PersonalDetails.setBackground(new java.awt.Color(0, 204, 204));
+        PersonalDetails.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PersonalDetails.setText("Personal Details");
+        PersonalDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFullNameActionPerformed(evt);
-            }
-        });
-        txtFullName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtFullNameKeyReleased(evt);
+                PersonalDetailsActionPerformed(evt);
             }
         });
 
-        lbl_name.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_name.setText("Name:");
-
-        lbl_uname.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_uname.setText("Username:");
-
-        txtUsrName.addActionListener(new java.awt.event.ActionListener() {
+        Logout.setBackground(new java.awt.Color(153, 0, 153));
+        Logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Logout.setText("Logout");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsrNameActionPerformed(evt);
+                LogoutActionPerformed(evt);
             }
         });
 
-        lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_pswd.setText("Password:");
-
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
+        SendRequest.setBackground(new java.awt.Color(0, 204, 204));
+        SendRequest.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SendRequest.setText("Send Request");
+        SendRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
+                SendRequestActionPerformed(evt);
             }
         });
 
-        lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_address.setText("Address:");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146)
+                .addComponent(Logout)
+                .addGap(84, 84, 84))
+        );
 
-        txtAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddActionPerformed(evt);
-            }
-        });
-        txtAdd.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtAddKeyReleased(evt);
-            }
-        });
+        jSplitPane1.setLeftComponent(jPanel1);
 
-        txt_City.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txt_City.setText("City:");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 806, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 461, Short.MAX_VALUE)
+        );
 
-        txtCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCityActionPerformed(evt);
-            }
-        });
-        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCityKeyReleased(evt);
-            }
-        });
-
-        txt_state.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txt_state.setText("State:");
-
-        txtState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStateActionPerformed(evt);
-            }
-        });
-        txtState.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtStateKeyReleased(evt);
-            }
-        });
-
-        txt_Zip.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txt_Zip.setText("Zip Code:");
-
-        txtZip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtZipActionPerformed(evt);
-            }
-        });
-        txtZip.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtZipKeyReleased(evt);
-            }
-        });
-
-        lbl_gender.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_gender.setText("Gender:");
-
-        cmb_gender.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cmb_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
-
-        lbl_telenum.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_telenum.setText("Phone no.:");
-
-        txt_telenum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_telenumActionPerformed(evt);
-            }
-        });
-        txt_telenum.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_telenumKeyReleased(evt);
-            }
-        });
-
-        lbl_dob.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_dob.setText("Date of Birth:");
-
-        txt_dob.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_dobActionPerformed(evt);
-            }
-        });
-        txt_dob.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_dobKeyReleased(evt);
-            }
-        });
-
-        lbl_diag.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_diag.setText("Diagnosis:");
-
-        txt_diag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_diagActionPerformed(evt);
-            }
-        });
-        txt_diag.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_diagKeyReleased(evt);
-            }
-        });
-
-        hospitalList.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        hospitalList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
-
-        lbl_hosplist.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_hosplist.setText("Hospital:");
+        jSplitPane1.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(381, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUsrName, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(305, 305, 305))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(73, 73, 73)
-                            .addComponent(lbl_admintitle))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addComponent(lbl_name))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(lbl_uname))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(lbl_pswd))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addComponent(lbl_hosplist))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addComponent(lbl_address)
-                            .addGap(6, 6, 6)
-                            .addComponent(txtAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(51, 51, 51)
-                            .addComponent(txt_City)
-                            .addGap(5, 5, 5)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(41, 41, 41)
-                            .addComponent(txt_state)
-                            .addGap(7, 7, 7)
-                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addComponent(txt_Zip)
-                            .addGap(4, 4, 4)
-                            .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(31, 31, 31)
-                            .addComponent(lbl_gender)
-                            .addGap(6, 6, 6)
-                            .addComponent(cmb_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addComponent(lbl_telenum)
-                            .addGap(4, 4, 4)
-                            .addComponent(txt_telenum, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbl_dob)
-                            .addGap(5, 5, 5)
-                            .addComponent(txt_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(lbl_diag)
-                            .addGap(4, 4, 4)
-                            .addComponent(txt_diag, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUsrName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(hospitalList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(328, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(lbl_admintitle)
-                    .addGap(13, 13, 13)
-                    .addComponent(lbl_name)
-                    .addGap(24, 24, 24)
-                    .addComponent(lbl_uname)
-                    .addGap(18, 18, 18)
-                    .addComponent(lbl_pswd)
-                    .addGap(23, 23, 23)
-                    .addComponent(lbl_hosplist)
-                    .addGap(19, 19, 19)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(lbl_address))
-                        .addComponent(txtAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(16, 16, 16)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(txt_City))
-                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(16, 16, 16)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(txt_state))
-                        .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(16, 16, 16)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(9, 9, 9)
-                            .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(12, 12, 12)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addComponent(lbl_gender))
-                        .addComponent(cmb_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(24, 24, 24)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(lbl_telenum))
-                        .addComponent(txt_telenum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(13, 13, 13)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(lbl_dob))
-                        .addComponent(txt_dob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(16, 16, 16)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(lbl_diag))
-                        .addComponent(txt_diag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 22, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jSplitPane1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFullNameActionPerformed
+    private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFullNameActionPerformed
+        PatientPersonalDetails alp = new PatientPersonalDetails();
+        jSplitPane1.setRightComponent(alp);
+        
+        
+    }//GEN-LAST:event_PersonalDetailsActionPerformed
 
-    private void txtFullNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFullNameKeyReleased
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         // TODO add your handling code here:
-        //        String nameconv = "^[a-zA-Z ]{1,17}$";
-        //        Pattern pat = Pattern.compile(nameconv);
-        //        Matcher mat = pat.matcher(txtFullName.getText());
-        //
-        //        if (!mat.matches()) {
-            //            name_chk.setText("Name is incorrect");
-            //        } else {
-            //            name_chk.setText("");
-            //        }
-    }//GEN-LAST:event_txtFullNameKeyReleased
+        dispose();
+    }//GEN-LAST:event_LogoutActionPerformed
 
-    private void txtUsrNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsrNameActionPerformed
+    private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsrNameActionPerformed
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
-
-    private void txtAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddActionPerformed
-
-    private void txtAddKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddKeyReleased
-        // TODO add your handling code here:
-
-        //        String addrconv = "^[a-zA-Z0-9 ]{0,30}$";
-        //        Pattern pat = Pattern.compile(addrconv);
-        //        Matcher mat = pat.matcher(txtAdd.getText());
-        //
-        //        if (!mat.matches()) {
-            //            add_chk.setText("Address is incorrect");
-            //        } else {
-            //            add_chk.setText("");
-            //        }
-    }//GEN-LAST:event_txtAddKeyReleased
-
-    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityActionPerformed
-
-    private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
-        // TODO add your handling code here:
-        //        String cityconv = "^[a-zA-Z ]{0,30}$";
-        //        Pattern pat = Pattern.compile(cityconv);
-        //        Matcher mat = pat.matcher(txtCity.getText());
-        //
-        //        if (!mat.matches()) {
-            //            city_chk.setText("City is incorrect");
-            //        } else {
-            //            city_chk.setText("");
-            //        }
-    }//GEN-LAST:event_txtCityKeyReleased
-
-    private void txtStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStateActionPerformed
-
-    private void txtStateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStateKeyReleased
-        // TODO add your handling code here:
-
-        //        String stateconv = "^[a-zA-Z ]{0,30}$";
-        //        Pattern pat = Pattern.compile(stateconv);
-        //        Matcher mat = pat.matcher(txtState.getText());
-        //
-        //        if (!mat.matches()) {
-            //            state_chk.setText("State is incorrect");
-            //        } else {
-            //            state_chk.setText("");
-            //        }
-    }//GEN-LAST:event_txtStateKeyReleased
-
-    private void txtZipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtZipActionPerformed
-
-    private void txtZipKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtZipKeyReleased
-        // TODO add your handling code here:
-        //        String zipconv = "^[0-9]{5}$";
-        //        Pattern pat = Pattern.compile(zipconv);
-        //        Matcher mat = pat.matcher(txtZip.getText());
-        //
-        //        if (!mat.matches()) {
-            //            zip_chk.setText("Zipcode is incorrect");
-            //        } else {
-            //            zip_chk.setText("");
-            //        }
-    }//GEN-LAST:event_txtZipKeyReleased
-
-    private void txt_telenumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telenumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_telenumActionPerformed
-
-    private void txt_telenumKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telenumKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_telenumKeyReleased
-
-    private void txt_dobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dobActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dobActionPerformed
-
-    private void txt_dobKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_dobKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dobKeyReleased
-
-    private void txt_diagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_diagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_diagActionPerformed
-
-    private void txt_diagKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_diagKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_diagKeyReleased
+        
+    }//GEN-LAST:event_SendRequestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -494,6 +173,7 @@ public class PatientManageFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PatientManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -504,30 +184,11 @@ public class PatientManageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmb_gender;
-    private javax.swing.JComboBox<String> hospitalList;
-    private javax.swing.JLabel lbl_address;
-    private javax.swing.JLabel lbl_admintitle;
-    private javax.swing.JLabel lbl_diag;
-    private javax.swing.JLabel lbl_dob;
-    private javax.swing.JLabel lbl_gender;
-    private javax.swing.JLabel lbl_hosplist;
-    private javax.swing.JLabel lbl_name;
-    private javax.swing.JLabel lbl_pswd;
-    private javax.swing.JLabel lbl_telenum;
-    private javax.swing.JLabel lbl_uname;
-    private javax.swing.JTextField txtAdd;
-    private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtFullName;
-    private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtState;
-    private javax.swing.JTextField txtUsrName;
-    private javax.swing.JTextField txtZip;
-    private javax.swing.JLabel txt_City;
-    private javax.swing.JLabel txt_Zip;
-    private javax.swing.JTextField txt_diag;
-    private javax.swing.JTextField txt_dob;
-    private javax.swing.JLabel txt_state;
-    private javax.swing.JTextField txt_telenum;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton PersonalDetails;
+    private javax.swing.JButton SendRequest;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

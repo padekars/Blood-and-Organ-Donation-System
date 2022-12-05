@@ -4,7 +4,7 @@
  */
 package Administration.UI;
 
-import Hospital.UI.HospitalManageFrame;
+//import Hospital.UI.AdminHospitalManageFrame;
 import javax.swing.JFrame;
 
 /**
@@ -173,7 +173,7 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
     private void ManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageHospitalActionPerformed
         // TODO add your handling code here:
-        HospitalManageFrame pjf =  new HospitalManageFrame();
+        AdminHospitalManageFrame pjf =  new AdminHospitalManageFrame();
         pjf.show();
         
         
@@ -196,10 +196,14 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        AdminPatientManageFrame pjf =  new AdminPatientManageFrame();
+        pjf.show();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        AdminDonarManageFrame pjf =  new AdminDonarManageFrame();
+        pjf.show();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

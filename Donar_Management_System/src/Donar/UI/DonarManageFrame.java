@@ -4,6 +4,12 @@
  */
 package Donar.UI;
 
+//import Hospital.UI.AdminHospitalManageFrame;
+import Patient.UI.*;
+import Administration.UI.*;
+import Donar.UI.DonarSignUpPage;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Gayatri
@@ -11,10 +17,12 @@ package Donar.UI;
 public class DonarManageFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form DonarManageFrame
+     * Creates new form AdministratorSplitPage
      */
     public DonarManageFrame() {
         initComponents();
+        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -26,21 +34,120 @@ public class DonarManageFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        PersonalDetails = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
+        DonationDetails = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        PersonalDetails.setBackground(new java.awt.Color(0, 204, 204));
+        PersonalDetails.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        PersonalDetails.setText("Personal Details");
+        PersonalDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PersonalDetailsActionPerformed(evt);
+            }
+        });
+
+        Logout.setBackground(new java.awt.Color(153, 0, 153));
+        Logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Logout.setText("Logout");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutActionPerformed(evt);
+            }
+        });
+
+        DonationDetails.setBackground(new java.awt.Color(0, 204, 204));
+        DonationDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DonationDetails.setText("Donation Details");
+        DonationDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonationDetailsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(DonationDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(50, 50, 50))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(DonationDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(146, 146, 146)
+                .addComponent(Logout)
+                .addGap(84, 84, 84))
+        );
+
+        jSplitPane1.setLeftComponent(jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 806, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 461, Short.MAX_VALUE)
+        );
+
+        jSplitPane1.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSplitPane1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
+        // TODO add your handling code here:
+        DonarPersonalDetails alp = new DonarPersonalDetails();
+        jSplitPane1.setRightComponent(alp);
+        
+        
+    }//GEN-LAST:event_PersonalDetailsActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_LogoutActionPerformed
+
+    private void DonationDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonationDetailsActionPerformed
+        // TODO add your handling code here:
+        DonarDonationDetails alp = new DonarDonationDetails();
+        jSplitPane1.setRightComponent(alp);
+    }//GEN-LAST:event_DonationDetailsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +175,13 @@ public class DonarManageFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(DonarManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +192,11 @@ public class DonarManageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DonationDetails;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton PersonalDetails;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
