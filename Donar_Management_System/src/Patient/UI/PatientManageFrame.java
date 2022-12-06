@@ -8,6 +8,7 @@ package Patient.UI;
 import Administration.UI.*;
 import Donar.UI.DonarSignUpPage;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +39,8 @@ public class PatientManageFrame extends javax.swing.JFrame {
         PersonalDetails = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
         SendRequest = new javax.swing.JButton();
+        SendRequest1 = new javax.swing.JButton();
+        SendRequest2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,10 +65,28 @@ public class PatientManageFrame extends javax.swing.JFrame {
 
         SendRequest.setBackground(new java.awt.Color(0, 204, 204));
         SendRequest.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        SendRequest.setText("Send Request");
+        SendRequest.setText("Send Request For Oragn");
         SendRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SendRequestActionPerformed(evt);
+            }
+        });
+
+        SendRequest1.setBackground(new java.awt.Color(0, 204, 204));
+        SendRequest1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SendRequest1.setText("Send Request For Blood");
+        SendRequest1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SendRequest1ActionPerformed(evt);
+            }
+        });
+
+        SendRequest2.setBackground(new java.awt.Color(0, 204, 204));
+        SendRequest2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SendRequest2.setText("Request Status");
+        SendRequest2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SendRequest2ActionPerformed(evt);
             }
         });
 
@@ -75,11 +96,14 @@ public class PatientManageFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SendRequest2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(SendRequest1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Logout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
@@ -87,11 +111,15 @@ public class PatientManageFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
+                .addComponent(SendRequest1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146)
+                .addGap(18, 18, 18)
+                .addComponent(SendRequest2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addComponent(Logout)
-                .addGap(84, 84, 84))
+                .addGap(35, 35, 35))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -104,7 +132,7 @@ public class PatientManageFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+            .addGap(0, 522, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -144,8 +172,19 @@ public class PatientManageFrame extends javax.swing.JFrame {
 
     private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
+        PatientSendRequest alp = new PatientSendRequest();
+        jSplitPane1.setRightComponent(alp);
         
     }//GEN-LAST:event_SendRequestActionPerformed
+
+    private void SendRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"Request Sent for Blood!");
+    }//GEN-LAST:event_SendRequest1ActionPerformed
+
+    private void SendRequest2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SendRequest2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +226,8 @@ public class PatientManageFrame extends javax.swing.JFrame {
     private javax.swing.JButton Logout;
     private javax.swing.JButton PersonalDetails;
     private javax.swing.JButton SendRequest;
+    private javax.swing.JButton SendRequest1;
+    private javax.swing.JButton SendRequest2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

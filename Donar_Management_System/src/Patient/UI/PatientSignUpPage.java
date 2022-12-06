@@ -33,20 +33,25 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         lbl_gender = new javax.swing.JLabel();
         lbl_telenum = new javax.swing.JLabel();
         lbl_dob = new javax.swing.JLabel();
-        cmb_gender = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtPatientGender = new javax.swing.JComboBox<>();
+        txtPatientUsername = new javax.swing.JTextField();
+        txtPatientName = new javax.swing.JTextField();
+        txtPatientStreet = new javax.swing.JTextField();
+        txtPatientPassword = new javax.swing.JTextField();
+        txtPatientContact = new javax.swing.JTextField();
+        txtPatientZip = new javax.swing.JTextField();
+        txtPatientDOB = new javax.swing.JTextField();
+        txtPatientCommunity = new javax.swing.JComboBox<>();
         lbl_title = new javax.swing.JLabel();
         lbl_donorname = new javax.swing.JLabel();
         lbl_uname = new javax.swing.JLabel();
         lbl_pswd = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
+        PatientSignUpBtn = new javax.swing.JButton();
+        lbl_dob1 = new javax.swing.JLabel();
+        lbl_dob2 = new javax.swing.JLabel();
+        txtPatientBG = new javax.swing.JComboBox<>();
+        lbl_telenum1 = new javax.swing.JLabel();
+        txtPatientEmail = new javax.swing.JTextField();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
         Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -75,22 +80,22 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         lbl_dob.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_dob.setText("Date of Birth:");
 
-        cmb_gender.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cmb_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        txtPatientGender.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtPatientGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtPatientName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtPatientNameActionPerformed(evt);
             }
         });
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        txtPatientDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                txtPatientDOBActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allston", "Back Bay", "Bay Village", "Beacon Hill", "Brighton", "Charlestown", "Chinatown – Leather District", "Dorchester", "Downtown", "East Boston", "Fenway-Kenmore", "Hyde Park", "Jamaica Plain", "Mattapan", "Mid-Dorchester", "Mission Hill", "North End", "Roslindale", "Roxbury", "South Boston", "South End", "West End", "West Roxbury", " ", " ", " " }));
+        txtPatientCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allston", "Back Bay", "Bay Village", "Beacon Hill", "Brighton", "Charlestown", "Chinatown – Leather District", "Dorchester", "Downtown", "East Boston", "Fenway-Kenmore", "Hyde Park", "Jamaica Plain", "Mattapan", "Mid-Dorchester", "Mission Hill", "North End", "Roslindale", "Roxbury", "South Boston", "South End", "West End", "West Roxbury", " ", " ", " " }));
 
         lbl_title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_title.setText("                             Patient Details");
@@ -104,12 +109,29 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        jButton9.setBackground(new java.awt.Color(0, 204, 204));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jButton9.setText("SIGN UP");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        PatientSignUpBtn.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSignUpBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        PatientSignUpBtn.setText("SIGN UP");
+        PatientSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                PatientSignUpBtnActionPerformed(evt);
+            }
+        });
+
+        lbl_dob1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_dob1.setText("Blood Group:");
+
+        lbl_dob2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_dob2.setText("Contact Details");
+
+        txtPatientBG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A +ve ", "A  -ve", "B +ve", "B -ve", "AB +ve", "AB -ve", "O +ve", "O  -ve", "Kidneys", "Liver", "Lungs", "Heart", "Pancreas", "Intestines", "Eyes", " " }));
+
+        lbl_telenum1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_telenum1.setText("Email ID:");
+
+        txtPatientEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientEmailActionPerformed(evt);
             }
         });
 
@@ -118,123 +140,144 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton9)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_pswd)
-                                    .addComponent(lbl_donorname)
-                                    .addComponent(lbl_uname)
-                                    .addComponent(lbl_address)
-                                    .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_Zip)
-                                    .addComponent(lbl_gender)
-                                    .addComponent(lbl_telenum)
-                                    .addComponent(lbl_dob))
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, 0, 390, Short.MAX_VALUE)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                                    .addComponent(cmb_gender, 0, 390, Short.MAX_VALUE)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField9))))))
-                .addGap(200, 200, 200))
+                .addGap(183, 183, 183)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_pswd)
+                    .addComponent(lbl_donorname)
+                    .addComponent(lbl_uname)
+                    .addComponent(lbl_address)
+                    .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Zip)
+                    .addComponent(lbl_gender)
+                    .addComponent(lbl_telenum)
+                    .addComponent(lbl_dob)
+                    .addComponent(lbl_dob1)
+                    .addComponent(lbl_dob2)
+                    .addComponent(lbl_telenum1))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientStreet, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientCommunity, 0, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientZip, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientGender, 0, 390, Short.MAX_VALUE)
+                    .addComponent(txtPatientContact)
+                    .addComponent(txtPatientDOB)
+                    .addComponent(txtPatientBG, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPatientEmail))
+                .addGap(202, 202, 202))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PatientSignUpBtn))
+                .addGap(189, 189, 189))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
                 .addComponent(lbl_title)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_donorname)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_uname)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(txtPatientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtPatientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_address)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtPatientStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_City)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtPatientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(txtPatientZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_gender)
-                    .addComponent(cmb_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_telenum)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                    .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dob)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(txtPatientDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_dob1)
+                    .addComponent(txtPatientBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(lbl_dob2)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_telenum)
+                    .addComponent(txtPatientContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_telenum1)
+                    .addComponent(txtPatientEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(PatientSignUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtPatientNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtPatientNameActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txtPatientDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientDOBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txtPatientDOBActionPerformed
 
     private void Logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout1ActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_Logout1ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void PatientSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientSignUpBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_PatientSignUpBtnActionPerformed
+
+    private void txtPatientEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientEmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logout1;
-    private javax.swing.JComboBox<String> cmb_gender;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton PatientSignUpBtn;
     private javax.swing.JLabel lbl_address;
     private javax.swing.JLabel lbl_dob;
+    private javax.swing.JLabel lbl_dob1;
+    private javax.swing.JLabel lbl_dob2;
     private javax.swing.JLabel lbl_donorname;
     private javax.swing.JLabel lbl_gender;
     private javax.swing.JLabel lbl_pswd;
     private javax.swing.JLabel lbl_telenum;
+    private javax.swing.JLabel lbl_telenum1;
     private javax.swing.JLabel lbl_title;
     private javax.swing.JLabel lbl_uname;
+    private javax.swing.JComboBox<String> txtPatientBG;
+    private javax.swing.JComboBox<String> txtPatientCommunity;
+    private javax.swing.JTextField txtPatientContact;
+    private javax.swing.JTextField txtPatientDOB;
+    private javax.swing.JTextField txtPatientEmail;
+    private javax.swing.JComboBox<String> txtPatientGender;
+    private javax.swing.JTextField txtPatientName;
+    private javax.swing.JTextField txtPatientPassword;
+    private javax.swing.JTextField txtPatientStreet;
+    private javax.swing.JTextField txtPatientUsername;
+    private javax.swing.JTextField txtPatientZip;
     private javax.swing.JLabel txt_City;
     private javax.swing.JLabel txt_Zip;
     // End of variables declaration//GEN-END:variables

@@ -9,6 +9,7 @@ import Patient.UI.*;
 import Administration.UI.*;
 import Donar.UI.DonarSignUpPage;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,8 @@ public class DonarManageFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         PersonalDetails = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
-        DonationDetails = new javax.swing.JButton();
+        DonarDonateBlood = new javax.swing.JButton();
+        DonarDonateBlood1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,12 +63,21 @@ public class DonarManageFrame extends javax.swing.JFrame {
             }
         });
 
-        DonationDetails.setBackground(new java.awt.Color(0, 204, 204));
-        DonationDetails.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        DonationDetails.setText("Donation Details");
-        DonationDetails.addActionListener(new java.awt.event.ActionListener() {
+        DonarDonateBlood.setBackground(new java.awt.Color(0, 204, 204));
+        DonarDonateBlood.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DonarDonateBlood.setText("Donate Blood");
+        DonarDonateBlood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DonationDetailsActionPerformed(evt);
+                DonarDonateBloodActionPerformed(evt);
+            }
+        });
+
+        DonarDonateBlood1.setBackground(new java.awt.Color(0, 204, 204));
+        DonarDonateBlood1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DonarDonateBlood1.setText("Donate Organ");
+        DonarDonateBlood1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarDonateBlood1ActionPerformed(evt);
             }
         });
 
@@ -76,11 +87,13 @@ public class DonarManageFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DonationDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DonarDonateBlood1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DonarDonateBlood, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
@@ -89,8 +102,10 @@ public class DonarManageFrame extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(DonationDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146)
+                .addComponent(DonarDonateBlood, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(DonarDonateBlood1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
                 .addComponent(Logout)
                 .addGap(84, 84, 84))
         );
@@ -105,7 +120,7 @@ public class DonarManageFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+            .addGap(0, 553, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -143,11 +158,19 @@ public class DonarManageFrame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_LogoutActionPerformed
 
-    private void DonationDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonationDetailsActionPerformed
+    private void DonarDonateBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarDonateBloodActionPerformed
         // TODO add your handling code here:
-        DonarDonationDetails alp = new DonarDonationDetails();
+        JOptionPane.showMessageDialog(this," Blood Donated!");
+        
+        
+    }//GEN-LAST:event_DonarDonateBloodActionPerformed
+
+    private void DonarDonateBlood1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarDonateBlood1ActionPerformed
+        // TODO add your handling code here:
+        DonarOrganDonate alp = new DonarOrganDonate();
         jSplitPane1.setRightComponent(alp);
-    }//GEN-LAST:event_DonationDetailsActionPerformed
+        
+    }//GEN-LAST:event_DonarDonateBlood1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +215,8 @@ public class DonarManageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DonationDetails;
+    private javax.swing.JButton DonarDonateBlood;
+    private javax.swing.JButton DonarDonateBlood1;
     private javax.swing.JButton Logout;
     private javax.swing.JButton PersonalDetails;
     private javax.swing.JPanel jPanel1;

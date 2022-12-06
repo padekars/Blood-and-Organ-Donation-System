@@ -39,6 +39,7 @@ public class HospitalManageFrame extends javax.swing.JFrame {
         PersonalDetails = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
         SendRequest = new javax.swing.JButton();
+        SendRequest1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,27 +71,42 @@ public class HospitalManageFrame extends javax.swing.JFrame {
             }
         });
 
+        SendRequest1.setBackground(new java.awt.Color(0, 204, 204));
+        SendRequest1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SendRequest1.setText("Send Request To Blood/Oragan Bank");
+        SendRequest1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SendRequest1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(SendRequest1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                        .addComponent(SendRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addComponent(PersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGap(54, 54, 54)
                 .addComponent(SendRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(178, 178, 178)
+                .addGap(46, 46, 46)
+                .addComponent(SendRequest1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123)
                 .addComponent(Logout)
                 .addGap(84, 84, 84))
         );
@@ -132,7 +148,7 @@ public class HospitalManageFrame extends javax.swing.JFrame {
 
     private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
         // TODO add your handling code here:
-        PatientPersonalDetails alp = new PatientPersonalDetails();
+        HospitalPersonalDetails alp = new HospitalPersonalDetails();
         jSplitPane1.setRightComponent(alp);
         
         
@@ -147,6 +163,10 @@ public class HospitalManageFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_SendRequestActionPerformed
+
+    private void SendRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SendRequest1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +210,7 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     private javax.swing.JButton Logout;
     private javax.swing.JButton PersonalDetails;
     private javax.swing.JButton SendRequest;
+    private javax.swing.JButton SendRequest1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
