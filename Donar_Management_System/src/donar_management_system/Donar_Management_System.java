@@ -4,6 +4,13 @@
  */
 package donar_management_system;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import model.Administration;
+import mysqlconnection.sqlconnection;
+
 /**
  *
  * @author Gayatri
@@ -15,6 +22,21 @@ public class Donar_Management_System {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                Connection con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                //here sonoo is database name, root is username and password  
+                Administration a = new Administration();
+                a.getDetails(con);
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
     }
     
 }
+
+
