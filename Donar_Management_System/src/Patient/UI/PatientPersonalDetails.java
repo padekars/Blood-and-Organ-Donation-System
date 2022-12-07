@@ -52,6 +52,8 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
         txtPatientBG = new javax.swing.JComboBox<>();
         lbl_telenum1 = new javax.swing.JLabel();
         txtPatientEmail = new javax.swing.JTextField();
+        txtPatientHospital = new javax.swing.JComboBox<>();
+        txt_Zip1 = new javax.swing.JLabel();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
         Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -135,6 +137,15 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
             }
         });
 
+        txtPatientHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientHospitalActionPerformed(evt);
+            }
+        });
+
+        txt_Zip1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txt_Zip1.setText("Hospital Name:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,7 +171,8 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
                             .addComponent(lbl_dob)
                             .addComponent(lbl_dob1)
                             .addComponent(lbl_dob2)
-                            .addComponent(lbl_telenum1))
+                            .addComponent(lbl_telenum1)
+                            .addComponent(txt_Zip1))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
@@ -173,7 +185,8 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
                             .addComponent(txtPatientContact)
                             .addComponent(txtPatientDOB)
                             .addComponent(txtPatientBG, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPatientEmail))))
+                            .addComponent(txtPatientEmail)
+                            .addComponent(txtPatientHospital, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(202, 202, 202))
         );
         layout.setVerticalGroup(
@@ -205,6 +218,10 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPatientZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPatientHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Zip1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_gender)
@@ -254,6 +271,10 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatientEmailActionPerformed
 
+    private void txtPatientHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientHospitalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientHospitalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logout1;
@@ -275,6 +296,7 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
     private javax.swing.JTextField txtPatientDOB;
     private javax.swing.JTextField txtPatientEmail;
     private javax.swing.JComboBox<String> txtPatientGender;
+    private javax.swing.JComboBox<String> txtPatientHospital;
     private javax.swing.JTextField txtPatientName;
     private javax.swing.JTextField txtPatientPassword;
     private javax.swing.JTextField txtPatientStreet;
@@ -282,5 +304,6 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
     private javax.swing.JTextField txtPatientZip;
     private javax.swing.JLabel txt_City;
     private javax.swing.JLabel txt_Zip;
+    private javax.swing.JLabel txt_Zip1;
     // End of variables declaration//GEN-END:variables
 }

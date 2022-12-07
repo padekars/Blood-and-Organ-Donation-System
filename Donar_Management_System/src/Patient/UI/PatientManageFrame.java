@@ -6,7 +6,7 @@ package Patient.UI;
 
 //import Hospital.UI.AdminHospitalManageFrame;
 import Administration.UI.*;
-import Donar.UI.DonarSignUpPage;
+import Donor.UI.DonorSignUpPage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -179,6 +179,9 @@ public class PatientManageFrame extends javax.swing.JFrame {
 
     private void SendRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest1ActionPerformed
         // TODO add your handling code here:
+        
+        PatientBloodRequest alp = new PatientBloodRequest();
+        jSplitPane1.setRightComponent(alp);
         JOptionPane.showMessageDialog(this,"Request Sent for Blood!");
     }//GEN-LAST:event_SendRequest1ActionPerformed
 

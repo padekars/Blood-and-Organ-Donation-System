@@ -7,7 +7,7 @@ package Hospital.UI;
 //import Hospital.UI.AdminHospitalManageFrame;
 import Patient.UI.*;
 import Administration.UI.*;
-import Donar.UI.DonarSignUpPage;
+import Donor.UI.DonorSignUpPage;
 import javax.swing.JFrame;
 
 /**

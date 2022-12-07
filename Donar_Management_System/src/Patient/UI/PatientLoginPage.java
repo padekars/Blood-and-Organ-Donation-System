@@ -5,7 +5,7 @@
 package Patient.UI;
 
 import Administration.UI.*;
-import Donar.UI.DonarManageFrame;
+import Donor.UI.DonorManageFrame;
 
 /**
  *

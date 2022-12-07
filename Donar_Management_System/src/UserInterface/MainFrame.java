@@ -6,9 +6,11 @@ package UserInterface;
 
 import Administration.UI.AdministratorLoginPage;
 import Administration.UI.AdministratorSplitPage;
-import Donar.UI.DonarLoginPage;
-import Donar.UI.DonarSplitPage;
+import BloodDonorBank.UI.BankSplitPage;
+import Donor.UI.DonorLoginPage;
+import Donor.UI.DonorSplitPage;
 import Hospital.UI.HospitalSplitPage;
+import Lab.UI.LabSplitPage;
 import Patient.UI.PatientSplitPage;
 import javax.swing.JFrame;
 
@@ -68,6 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         admin1.setBackground(new java.awt.Color(0, 204, 204));
         admin1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -206,7 +209,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         bank.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         bank.setForeground(new java.awt.Color(255, 255, 255));
-        bank.setText("Blood & Oragan Bank");
+        bank.setText("Blood & Organ Bank");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -329,7 +332,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Donar");
+        jLabel10.setText("Donor");
 
         javax.swing.GroupLayout donarLayout = new javax.swing.GroupLayout(donar);
         donar.setLayout(donarLayout);
@@ -386,20 +389,28 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(Patient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(donar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
+
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(398, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(411, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -447,18 +458,21 @@ public class MainFrame extends javax.swing.JFrame {
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
         //Donor Bank
-        
+       BankSplitPage pjf =  new BankSplitPage();
+        pjf.show();
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
         // TODO add your handling code here:
         //Laboratory
+        LabSplitPage pjf =  new LabSplitPage();
+        pjf.show();
         
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
         // TODO add your handling code here:
-        //Admin
+        //Fund Raiser
         
     }//GEN-LAST:event_jPanel9MouseClicked
 
@@ -479,7 +493,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void donarjPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donarjPanel4MouseClicked
         // TODO add your handling code here:
-        DonarSplitPage pjf =  new DonarSplitPage();
+        DonorSplitPage pjf =  new DonorSplitPage();
         pjf.show();
         
     }//GEN-LAST:event_donarjPanel4MouseClicked
@@ -530,6 +544,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel fundraiser;
     private javax.swing.JPanel hospital;
     private javax.swing.JPanel hospital1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

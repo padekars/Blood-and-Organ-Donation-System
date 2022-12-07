@@ -7,7 +7,7 @@ package Hospital.UI;
 //import Hospital.UI.AdminHospitalManageFrame;
 import Patient.UI.*;
 import Administration.UI.*;
-import Donar.UI.DonarSignUpPage;
+import Donor.UI.DonorSignUpPage;
 import javax.swing.JFrame;
 
 /**
@@ -162,10 +162,16 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
         
+        HospitalPatientTable alp = new HospitalPatientTable();
+        jSplitPane1.setRightComponent(alp);
+        
     }//GEN-LAST:event_SendRequestActionPerformed
 
     private void SendRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest1ActionPerformed
         // TODO add your handling code here:
+        HospitalSendRequest alp = new HospitalSendRequest();
+        jSplitPane1.setRightComponent(alp);
+        
     }//GEN-LAST:event_SendRequest1ActionPerformed
 
     /**

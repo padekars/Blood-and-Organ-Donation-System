@@ -4,6 +4,8 @@
  */
 package Patient.UI;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Gayatri
@@ -52,6 +54,8 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         txtPatientBG = new javax.swing.JComboBox<>();
         lbl_telenum1 = new javax.swing.JLabel();
         txtPatientEmail = new javax.swing.JTextField();
+        txt_Zip1 = new javax.swing.JLabel();
+        txtPatientHospital = new javax.swing.JComboBox<>();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
         Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -86,6 +90,23 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         txtPatientName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPatientNameActionPerformed(evt);
+            }
+        });
+        txtPatientName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPatientNameKeyPressed(evt);
+            }
+        });
+
+        txtPatientStreet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPatientStreetKeyPressed(evt);
+            }
+        });
+
+        txtPatientZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPatientZipKeyPressed(evt);
             }
         });
 
@@ -135,52 +156,71 @@ public class PatientSignUpPage extends javax.swing.JPanel {
             }
         });
 
+        txt_Zip1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txt_Zip1.setText("Hospital Name:");
+
+        txtPatientHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientHospitalActionPerformed(evt);
+            }
+        });
+        txtPatientHospital.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPatientHospitalKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_pswd)
-                    .addComponent(lbl_donorname)
-                    .addComponent(lbl_uname)
-                    .addComponent(lbl_address)
-                    .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_Zip)
-                    .addComponent(lbl_gender)
-                    .addComponent(lbl_telenum)
-                    .addComponent(lbl_dob)
-                    .addComponent(lbl_dob1)
-                    .addComponent(lbl_dob2)
-                    .addComponent(lbl_telenum1))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientStreet, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientCommunity, 0, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientZip, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientGender, 0, 390, Short.MAX_VALUE)
-                    .addComponent(txtPatientContact)
-                    .addComponent(txtPatientDOB)
-                    .addComponent(txtPatientBG, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPatientEmail))
-                .addGap(202, 202, 202))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PatientSignUpBtn))
+                .addGap(457, 457, 457)
+                .addComponent(PatientSignUpBtn)
                 .addGap(189, 189, 189))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_Zip1)
+                            .addComponent(lbl_pswd)
+                            .addComponent(lbl_donorname)
+                            .addComponent(lbl_uname)
+                            .addComponent(lbl_address)
+                            .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_Zip)
+                            .addComponent(lbl_gender)
+                            .addComponent(lbl_telenum)
+                            .addComponent(lbl_dob)
+                            .addComponent(lbl_dob1)
+                            .addComponent(lbl_dob2)
+                            .addComponent(lbl_telenum1))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtPatientContact, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientBG, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPatientDOB, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientGender, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPatientHospital, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPatientZip)
+                            .addComponent(txtPatientCommunity, javax.swing.GroupLayout.Alignment.LEADING, 0, 461, Short.MAX_VALUE)
+                            .addComponent(txtPatientStreet, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPatientEmail)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(200, 200, 200))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lbl_title)
                 .addGap(32, 32, 32)
+                .addComponent(lbl_title)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_donorname)
                     .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,9 +245,14 @@ public class PatientSignUpPage extends javax.swing.JPanel {
                     .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPatientZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_gender)
-                    .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPatientHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txt_Zip1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_gender)
+                            .addComponent(txtPatientGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_dob)
@@ -246,11 +291,105 @@ public class PatientSignUpPage extends javax.swing.JPanel {
 
     private void PatientSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientSignUpBtnActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_PatientSignUpBtnActionPerformed
 
     private void txtPatientEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatientEmailActionPerformed
+
+    private void txtPatientHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientHospitalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientHospitalActionPerformed
+
+    private void txtPatientNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientNameKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtPatientName.setEditable(true);
+        }else{
+            txtPatientName.setEditable(false);
+        }
+    }//GEN-LAST:event_txtPatientNameKeyPressed
+
+    private void txtPatientStreetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientStreetKeyPressed
+        // TODO add your handling code here:
+       char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtPatientStreet.setEditable(true);
+        }else{
+            txtPatientStreet.setEditable(false);
+        }
+        
+    }//GEN-LAST:event_txtPatientStreetKeyPressed
+
+    private void txtPatientZipKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientZipKeyPressed
+        // TODO add your handling code here:
+        String age= txtPatientZip.getText();
+        
+        // get length of the string 
+        int length = age.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<6){
+                //editable true 
+                txtPatientZip.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtPatientZip.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtPatientZip.setEditable(true);
+            }else{
+                txtPatientZip.setEditable(false);
+            }
+        }
+        
+    }//GEN-LAST:event_txtPatientZipKeyPressed
+
+    private void txtPatientHospitalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientHospitalKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtPatientHospital.setEditable(true);
+        }else{
+            txtPatientHospital.setEditable(false);
+        }
+        
+    }//GEN-LAST:event_txtPatientHospitalKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -273,6 +412,7 @@ public class PatientSignUpPage extends javax.swing.JPanel {
     private javax.swing.JTextField txtPatientDOB;
     private javax.swing.JTextField txtPatientEmail;
     private javax.swing.JComboBox<String> txtPatientGender;
+    private javax.swing.JComboBox<String> txtPatientHospital;
     private javax.swing.JTextField txtPatientName;
     private javax.swing.JTextField txtPatientPassword;
     private javax.swing.JTextField txtPatientStreet;
@@ -280,5 +420,6 @@ public class PatientSignUpPage extends javax.swing.JPanel {
     private javax.swing.JTextField txtPatientZip;
     private javax.swing.JLabel txt_City;
     private javax.swing.JLabel txt_Zip;
+    private javax.swing.JLabel txt_Zip1;
     // End of variables declaration//GEN-END:variables
 }

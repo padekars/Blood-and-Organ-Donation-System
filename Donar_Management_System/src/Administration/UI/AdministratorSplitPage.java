@@ -5,6 +5,10 @@
 package Administration.UI;
 
 //import Hospital.UI.AdminHospitalManageFrame;
+import BloodDonorBank.UI.BankSplitPage;
+import BloodDonorBank.UI.RequestByHospital;
+import Donor.UI.DonorManageFrame;
+import Lab.UI.LabSplitPage;
 import javax.swing.JFrame;
 
 /**
@@ -63,7 +67,7 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton5.setText("Manage Mismatch");
+        jButton5.setText("Manage Labarotory");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -90,7 +94,7 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(0, 204, 204));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton7.setText("Manage Doctor");
+        jButton7.setText("Manage Donor");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -173,19 +177,22 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
     private void ManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageHospitalActionPerformed
         // TODO add your handling code here:
-        AdminHospitalManageFrame pjf =  new AdminHospitalManageFrame();
-        pjf.show();
         
+        AdminHospitalManagePage alp = new AdminHospitalManagePage();
+        jSplitPane1.setRightComponent(alp);
         
     }//GEN-LAST:event_ManageHospitalActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        BankSplitPage pjf =  new BankSplitPage();
+            pjf.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        LabSplitPage pjf =  new LabSplitPage();
+        pjf.show();
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -196,14 +203,15 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        AdminPatientManageFrame pjf =  new AdminPatientManageFrame();
-        pjf.show();
+        AdminPatientManagePage alp = new AdminPatientManagePage();
+        jSplitPane1.setRightComponent(alp);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        AdminDonarManageFrame pjf =  new AdminDonarManageFrame();
-        pjf.show();
+        
+        AdminHospitalManagePage alp = new AdminHospitalManagePage();
+        jSplitPane1.setRightComponent(alp);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
@@ -245,8 +253,6 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
     private javax.swing.JButton Logout;
     private javax.swing.JButton ManageHospital;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
