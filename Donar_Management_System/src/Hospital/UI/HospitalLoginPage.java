@@ -119,7 +119,7 @@ public class HospitalLoginPage extends javax.swing.JPanel {
         String password = txtpassword.getText();
          if(username.equals("hospital") && password.equals("hospital"))
         {
-            HospitalSplitPage pjf =  new HospitalSplitPage();
+            HospitalManageFrame pjf =  new HospitalManageFrame();
             pjf.show();
             
             

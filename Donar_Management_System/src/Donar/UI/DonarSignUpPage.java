@@ -4,6 +4,8 @@
  */
 package Donar.UI;
 
+import Patient.UI.*;
+
 /**
  *
  * @author Gayatri
@@ -11,7 +13,7 @@ package Donar.UI;
 public class DonarSignUpPage extends javax.swing.JPanel {
 
     /**
-     * Creates new form DonarSignUpPage
+     * Creates new form PatientRegistration1
      */
     public DonarSignUpPage() {
         initComponents();
@@ -26,28 +28,41 @@ public class DonarSignUpPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Logout1 = new javax.swing.JButton();
         lbl_address = new javax.swing.JLabel();
         txt_City = new javax.swing.JLabel();
         txt_Zip = new javax.swing.JLabel();
         lbl_gender = new javax.swing.JLabel();
         lbl_telenum = new javax.swing.JLabel();
         lbl_dob = new javax.swing.JLabel();
-        cmb_gender = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        txt_bldgrp = new javax.swing.JTextField();
+        txtDonarGender = new javax.swing.JComboBox<>();
+        txtDonarUsername = new javax.swing.JTextField();
+        txtDonarName = new javax.swing.JTextField();
+        txtDonarStreet = new javax.swing.JTextField();
+        txtDonarPassword = new javax.swing.JTextField();
+        txtDonarContact = new javax.swing.JTextField();
+        txtDonarZip = new javax.swing.JTextField();
+        txtDonarDOB = new javax.swing.JTextField();
+        txtDonarCommunity = new javax.swing.JComboBox<>();
         lbl_title = new javax.swing.JLabel();
         lbl_donorname = new javax.swing.JLabel();
-        lbl_bldgrp = new javax.swing.JLabel();
         lbl_uname = new javax.swing.JLabel();
         lbl_pswd = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        DonarSignUpBtn = new javax.swing.JButton();
+        lbl_dob1 = new javax.swing.JLabel();
+        lbl_dob2 = new javax.swing.JLabel();
+        txtDonarBG = new javax.swing.JComboBox<>();
+        lbl_telenum1 = new javax.swing.JLabel();
+        txtDonarEmail = new javax.swing.JTextField();
+
+        Logout1.setBackground(new java.awt.Color(153, 0, 153));
+        Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Logout1.setText("Back");
+        Logout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Logout1ActionPerformed(evt);
+            }
+        });
 
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");
@@ -67,31 +82,28 @@ public class DonarSignUpPage extends javax.swing.JPanel {
         lbl_dob.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_dob.setText("Date of Birth:");
 
-        cmb_gender.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cmb_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
+        txtDonarGender.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtDonarGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other" }));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtDonarName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtDonarNameActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allston", "Back Bay", "Bay Village", "Beacon Hill", "Brighton", "Charlestown", "Chinatown – Leather District", "Dorchester", "Downtown", "East Boston", "Fenway-Kenmore", "Hyde Park", "Jamaica Plain", "Mattapan", "Mid-Dorchester", "Mission Hill", "North End", "Roslindale", "Roxbury", "South Boston", "South End", "West End", "West Roxbury", " ", " ", " " }));
-
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        txtDonarDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                txtDonarDOBActionPerformed(evt);
             }
         });
+
+        txtDonarCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allston", "Back Bay", "Bay Village", "Beacon Hill", "Brighton", "Charlestown", "Chinatown – Leather District", "Dorchester", "Downtown", "East Boston", "Fenway-Kenmore", "Hyde Park", "Jamaica Plain", "Mattapan", "Mid-Dorchester", "Mission Hill", "North End", "Roslindale", "Roxbury", "South Boston", "South End", "West End", "West Roxbury", " ", " ", " " }));
 
         lbl_title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbl_title.setText("Donar Details");
+        lbl_title.setText("                             Donar Details");
 
         lbl_donorname.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_donorname.setText("Donor Name:");
-
-        lbl_bldgrp.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbl_bldgrp.setText("Blood Group:");
+        lbl_donorname.setText("Donar Name:");
 
         lbl_uname.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_uname.setText("Username:");
@@ -99,12 +111,29 @@ public class DonarSignUpPage extends javax.swing.JPanel {
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jButton1.setText("SIGN UP");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        DonarSignUpBtn.setBackground(new java.awt.Color(0, 204, 204));
+        DonarSignUpBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        DonarSignUpBtn.setText("SIGN UP");
+        DonarSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DonarSignUpBtnActionPerformed(evt);
+            }
+        });
+
+        lbl_dob1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_dob1.setText("Blood Group:");
+
+        lbl_dob2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_dob2.setText("Contact Details");
+
+        txtDonarBG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A +ve ", "A  -ve", "B +ve", "B -ve", "AB +ve", "AB -ve", "O +ve", "O  -ve", "Kidneys", "Liver", "Lungs", "Heart", "Pancreas", "Intestines", "Eyes", " " }));
+
+        lbl_telenum1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbl_telenum1.setText("Email ID:");
+
+        txtDonarEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonarEmailActionPerformed(evt);
             }
         });
 
@@ -112,136 +141,146 @@ public class DonarSignUpPage extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_pswd)
+                    .addComponent(lbl_donorname)
+                    .addComponent(lbl_uname)
+                    .addComponent(lbl_address)
+                    .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_Zip)
+                    .addComponent(lbl_gender)
+                    .addComponent(lbl_telenum)
+                    .addComponent(lbl_dob)
+                    .addComponent(lbl_dob1)
+                    .addComponent(lbl_dob2)
+                    .addComponent(lbl_telenum1))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDonarName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarStreet, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarCommunity, 0, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarZip, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarGender, 0, 390, Short.MAX_VALUE)
+                    .addComponent(txtDonarContact)
+                    .addComponent(txtDonarDOB)
+                    .addComponent(txtDonarBG, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDonarEmail))
+                .addGap(202, 202, 202))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(562, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(195, 195, 195))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(233, 233, 233)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(lbl_bldgrp)
-                            .addGap(40, 40, 40)
-                            .addComponent(txt_bldgrp))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lbl_donorname)
-                                .addComponent(lbl_uname)
-                                .addComponent(lbl_pswd)
-                                .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_gender)
-                                .addComponent(lbl_dob)
-                                .addComponent(lbl_address)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_Zip)
-                                    .addComponent(lbl_telenum)))
-                            .addGap(40, 40, 40)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField7)
-                                .addComponent(jTextField8)
-                                .addComponent(cmb_gender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField9)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(234, 234, 234)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DonarSignUpBtn))
+                .addGap(189, 189, 189))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(527, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lbl_title)
-                    .addGap(38, 38, 38)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbl_donorname))
-                    .addGap(30, 30, 30)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_uname)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbl_address)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(22, 22, 22)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_City)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(27, 27, 27)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbl_gender)
-                        .addComponent(cmb_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_telenum)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbl_dob)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(21, 21, 21)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_bldgrp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbl_bldgrp))
-                    .addContainerGap(77, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(lbl_title)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_donorname)
+                    .addComponent(txtDonarName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_uname)
+                    .addComponent(txtDonarUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDonarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_address)
+                    .addComponent(txtDonarStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_City)
+                    .addComponent(txtDonarCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDonarZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_gender)
+                    .addComponent(txtDonarGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_dob)
+                    .addComponent(txtDonarDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_dob1)
+                    .addComponent(txtDonarBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(lbl_dob2)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_telenum)
+                    .addComponent(txtDonarContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_telenum1)
+                    .addComponent(txtDonarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(DonarSignUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtDonarNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonarNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtDonarNameActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txtDonarDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonarDOBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txtDonarDOBActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_Logout1ActionPerformed
+
+    private void DonarSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarSignUpBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DonarSignUpBtnActionPerformed
+
+    private void txtDonarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonarEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDonarEmailActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmb_gender;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton DonarSignUpBtn;
+    private javax.swing.JButton Logout1;
     private javax.swing.JLabel lbl_address;
-    private javax.swing.JLabel lbl_bldgrp;
     private javax.swing.JLabel lbl_dob;
+    private javax.swing.JLabel lbl_dob1;
+    private javax.swing.JLabel lbl_dob2;
     private javax.swing.JLabel lbl_donorname;
     private javax.swing.JLabel lbl_gender;
     private javax.swing.JLabel lbl_pswd;
     private javax.swing.JLabel lbl_telenum;
+    private javax.swing.JLabel lbl_telenum1;
     private javax.swing.JLabel lbl_title;
     private javax.swing.JLabel lbl_uname;
+    private javax.swing.JComboBox<String> txtDonarBG;
+    private javax.swing.JComboBox<String> txtDonarCommunity;
+    private javax.swing.JTextField txtDonarContact;
+    private javax.swing.JTextField txtDonarDOB;
+    private javax.swing.JTextField txtDonarEmail;
+    private javax.swing.JComboBox<String> txtDonarGender;
+    private javax.swing.JTextField txtDonarName;
+    private javax.swing.JTextField txtDonarPassword;
+    private javax.swing.JTextField txtDonarStreet;
+    private javax.swing.JTextField txtDonarUsername;
+    private javax.swing.JTextField txtDonarZip;
     private javax.swing.JLabel txt_City;
     private javax.swing.JLabel txt_Zip;
-    private javax.swing.JTextField txt_bldgrp;
     // End of variables declaration//GEN-END:variables
 }
