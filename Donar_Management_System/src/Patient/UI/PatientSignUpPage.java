@@ -3,11 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Patient.UI;
+import model.*;
+import java.sql.*;
+
 
 /**
  *
  * @author Gayatri
  */
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class PatientSignUpPage extends javax.swing.JPanel {
 
     /**
@@ -212,6 +219,27 @@ public class PatientSignUpPage extends javax.swing.JPanel {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        String pname = jTextField2.getText();
+        String pusername = jTextField1.getText();
+        String ppassword = jTextField4.getText();
+        String streetname = jTextField3.getText();
+        String community = jComboBox1.getSelectedItem().toString();
+        String zipcode = jTextField8.getText();
+        String gender = cmb_gender.getSelectedItem().toString();
+        String phno = jTextField7.getText().toString();
+        String dob = jTextField9.getText().toString();
+        Connection con;
+        Statement stmt;
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                System.out.println("Connection established!");
+                ResultSet rs=stmt.executeQuery("select * from admin");  
+                while(rs.next())  
+                System.out.println(rs.getString(1)+"  "+rs.getString(2));
+        
     }//GEN-LAST:event_jButton9ActionPerformed
 
 
