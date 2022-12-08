@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.patient.Patient;
 public class PatientSignUpPage extends javax.swing.JPanel {
 
     /**
@@ -300,26 +301,22 @@ public class PatientSignUpPage extends javax.swing.JPanel {
         // TODO add your handling code here:
 
 
-//        String pname = jTextField2.getText();
-//        String pusername = jTextField1.getText();
-//        String ppassword = jTextField4.getText();
-//        String streetname = jTextField3.getText();
-//        String community = jComboBox1.getSelectedItem().toString();
-//        String zipcode = jTextField8.getText();
-//        String gender = cmb_gender.getSelectedItem().toString();
-//        String phno = jTextField7.getText().toString();
-//        String dob = jTextField9.getText().toString();
-//        Connection con;
-//        Statement stmt;
-//        try {
-//            stmt = con.createStatement();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//                System.out.println("Connection established!");
-//                ResultSet rs=stmt.executeQuery("select * from admin");  
-//                while(rs.next())  
-//                System.out.println(rs.getString(1)+"  "+rs.getString(2));
+         Patient p = new Patient();
+        p.setPname(txtPatientName.getText());
+        p.setPusername(txtPatientUsername.getText());
+        p.setPpassword(txtPatientPassword.getText());
+        p.setPstreetname(txtPatientStreet.getText());
+        p.setPcommunity(txtPatientCommunity.getSelectedItem().toString());
+        p.setPzipcode(Integer.parseInt(txtPatientZip.getText()));
+        p.setPgender(txtPatientGender.getSelectedItem().toString());
+        p.setPdateofbirth(txtPatientDOB.getText());
+        p.setPbloodgroup(txtPatientBG.getSelectedItem().toString());
+        p.setPphonenumber(Long.valueOf(txtPatientContact.getText()));
+        p.setPemailid(txtPatientEmail.getText());
+        
+        ServicePatient s = new ServicePatient();
+        System.out.println("patient sign up button clicked");
+        s.addpatientdetails(p);
         
     }                                        
                                 

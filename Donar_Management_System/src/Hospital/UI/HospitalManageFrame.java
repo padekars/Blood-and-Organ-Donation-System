@@ -8,7 +8,11 @@ package Hospital.UI;
 import Patient.UI.*;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import model.ServiceHospital;
 
 /**
  *
@@ -161,9 +165,14 @@ public class HospitalManageFrame extends javax.swing.JFrame {
 
     private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
-        
+        ServiceHospital s1 = new ServiceHospital();
         HospitalPatientTable alp = new HospitalPatientTable();
         jSplitPane1.setRightComponent(alp);
+        try {
+            s1.loadpatientrequests();
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_SendRequestActionPerformed
 
