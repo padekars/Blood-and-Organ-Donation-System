@@ -5,6 +5,10 @@
 package Donor.UI;
 
 import Patient.UI.*;
+import model.ServiceDonor;
+import model.ServicePatient;
+import model.donor.Donor;
+import model.patient.Patient;
 
 /**
  *
@@ -248,6 +252,24 @@ public class DonorSignUpPage extends javax.swing.JPanel {
 
     private void DonarSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarSignUpBtnActionPerformed
         // TODO add your handling code here:
+        
+        Donor d = new Donor();
+        d.setDname(txtDonarName.getText());
+        d.setDusername(txtDonarUsername.getText());
+        d.setDpassword(txtDonarPassword.getText());
+        d.setDstreetname(txtDonarStreet.getText());
+        d.setDcommunity(txtDonarCommunity.getSelectedItem().toString());
+        d.setDzipcode(Integer.parseInt(txtDonarZip.getText()));
+        d.setDgender(txtDonarGender.getSelectedItem().toString());
+        d.setDdateofbirth(txtDonarDOB.getText());
+        d.setDbloodgroup(txtDonarBG.getSelectedItem().toString());
+        d.setDphonenumber(Long.valueOf(txtDonarContact.getText()));
+        d.setDemailid(txtDonarEmail.getText());
+        
+        ServiceDonor s = new ServiceDonor();
+        System.out.println("donor sign up button clicked");
+        s.adddonordetails(d);
+        
     }//GEN-LAST:event_DonarSignUpBtnActionPerformed
 
     private void txtDonarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonarEmailActionPerformed

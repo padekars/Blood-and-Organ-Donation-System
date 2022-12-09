@@ -6,6 +6,11 @@ package Patient.UI;
 
 import Administration.UI.*;
 import Donor.UI.DonorManageFrame;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.ServicePatient;
 
 /**
  *
@@ -115,19 +120,33 @@ public class PatientLoginPage extends javax.swing.JPanel {
 //        } else {
 //            JOptionPane.showMessageDialog(this, "Incorrect credential");
 //        }
-
+        
         String username = txtusername.getText();
+         int i ;
         String password = txtpassword.getText();
-         if(username.equals("patient") && password.equals("patient"))
-        {
-            
-            PatientManageFrame pjf =  new PatientManageFrame();
-            pjf.show();
-            
+        ServicePatient sp = new ServicePatient();
+        
+        try {
+          i = sp.checklogin(username,password); 
+          if(i ==1)
+                {
+
+                    PatientManageFrame pjf =  new PatientManageFrame();
+                    pjf.show();
+
+                }
+                else{
+
+                         JOptionPane.showMessageDialog(null, "Patient Username and Password does not exist"); 
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientLoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
         
         
-          
+        
+        
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed

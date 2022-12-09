@@ -5,26 +5,51 @@
 package Patient.UI;
 import model.*;
 import java.sql.*;
-
-
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import model.patient.Patient;
 import java.awt.event.KeyEvent;
 
 /**
  *
  * @author Gayatri
  */
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.patient.Patient;
-public class PatientSignUpPage extends javax.swing.JPanel {
 
+
+
+public class PatientSignUpPage extends javax.swing.JPanel {
+Connection con;
     /**
      * Creates new form PatientRegistration1
      */
-    public PatientSignUpPage() {
+    public PatientSignUpPage() throws SQLException {
+        
         initComponents();
+        try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+        
+           Statement stmt = con.createStatement();
+         
+          String sql = "select hospital_name from hospital"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              txtPatientHospital.addItem(rs.getString(1));
+          }
+        
+        
     }
 
     /**

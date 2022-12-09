@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import model.hospital.Hospital;
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author snehal
@@ -71,4 +72,58 @@ public class ServiceHospital {
         
                
      }
+     
+     
+     public int  checklogin(String username, String password) throws SQLException{
+        
+     
+            Statement stmt = con.createStatement();
+            String queryString = "SELECT hospital_username, hospital_password FROM hospital";
+            ResultSet results = stmt.executeQuery(queryString);
+
+            while (results.next()) {
+            String uname = results.getString(1);
+            String pass =  results.getString(2);
+
+               if ((username.equals(uname)) && (password.equals(pass))) {
+
+                  JOptionPane.showMessageDialog(null, "Hospital Username and Password exist");  
+                  return 1;
+            }
+        
+                }
+            return 0;
+            }
+     
+      public void viewhospitaldetails() throws SQLException{
+          Statement stmt = con.createStatement();
+          String sql = "select * from hospital"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              System.out.println(rs.getString(2) );
+              System.out.println(rs.getString(3) );
+              System.out.println(rs.getString(4) );
+              System.out.println(rs.getString(5) );
+              System.out.println(rs.getString(6) );
+            }
+        
+               
+     }
+     public void viewhtable(String username, String password) throws SQLException{ 
+         Statement stmt = con.createStatement();
+         
+            System.out.println("in view details  "+username+ password);
+          String sql = "select * from hospital where hospital_username = '" + username + "' and hospital_password = '" + password+"'"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              System.out.println(rs.getString(2) );
+              System.out.println(rs.getString(3) );
+              System.out.println(rs.getString(4) );
+              System.out.println(rs.getString(5) );
+              System.out.println(rs.getString(6) );
+          }
+     }
+    
 }

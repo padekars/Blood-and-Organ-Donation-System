@@ -7,6 +7,9 @@ package Patient.UI;
 //import Hospital.UI.AdminHospitalManageFrame;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -130,9 +133,13 @@ public class PatientSplitPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignUpPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpPatientActionPerformed
-        // TODO add your handling code here:
-        PatientSignUpPage alp = new PatientSignUpPage();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            PatientSignUpPage alp = new PatientSignUpPage();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }//GEN-LAST:event_SignUpPatientActionPerformed

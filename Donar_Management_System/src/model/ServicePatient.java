@@ -13,6 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.patient.Patient;
 import java.sql.PreparedStatement;
+import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,5 +95,48 @@ public class ServicePatient {
         }
         
     }
-   
+    
+    public int  checklogin(String username, String password) throws SQLException{
+        
+     
+            Statement stmt = con.createStatement();
+            String queryString = "SELECT patient_username, patient_password FROM patient";
+            ResultSet results = stmt.executeQuery(queryString);
+
+            while (results.next()) {
+            String uname = results.getString(1);
+            String pass =  results.getString(2);
+
+               if ((username.equals(uname)) && (password.equals(pass))) {
+
+                  JOptionPane.showMessageDialog(null, "Patient Username and Password exist");  
+                  return 1;
+            }
+        
+                }
+            return 0;
+            }
+    
+    public void viewpatientdetails() throws SQLException{
+         Statement stmt = con.createStatement();
+         
+          String sql = "select * from patient"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              System.out.println(rs.getString(2) );
+              System.out.println(rs.getString(3) );
+              System.out.println(rs.getString(4) );
+              System.out.println(rs.getString(5) );
+              System.out.println(rs.getString(6) );
+              System.out.println(rs.getString(7) );
+              System.out.println(rs.getString(8) );
+              System.out.println(rs.getString(9) );
+              System.out.println(rs.getString(10) );
+              System.out.println(rs.getString(11) );
+          }
+        
+               
+     }
+    
 }

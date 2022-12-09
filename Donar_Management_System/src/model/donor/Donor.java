@@ -14,9 +14,37 @@ public class Donor {
     String dpassword;
     String dstreetname;
     String dcommunity;
-    String dzipcode;
+    int dzipcode;
     String dgender;
-    String dphonenumber;
+    String ddateofbirth;
+    String dbloodgroup;
+    long dphonenumber;
+    String demailid;
+
+    public String getDdateofbirth() {
+        return ddateofbirth;
+    }
+
+    public void setDdateofbirth(String ddateofbirth) {
+        this.ddateofbirth = ddateofbirth;
+    }
+
+    public String getDbloodgroup() {
+        return dbloodgroup;
+    }
+
+    public void setDbloodgroup(String dbloodgroup) {
+        this.dbloodgroup = dbloodgroup;
+    }
+
+    public String getDemailid() {
+        return demailid;
+    }
+
+    public void setDemailid(String demailid) {
+        this.demailid = demailid;
+    }
+
 
     public String getDname() {
         return dname;
@@ -58,11 +86,11 @@ public class Donor {
         this.dcommunity = dcommunity;
     }
 
-    public String getDzipcode() {
+    public int getDzipcode() {
         return dzipcode;
     }
 
-    public void setDzipcode(String dzipcode) {
+    public void setDzipcode(int dzipcode) {
         this.dzipcode = dzipcode;
     }
 
@@ -74,11 +102,11 @@ public class Donor {
         this.dgender = dgender;
     }
 
-    public String getDphonenumber() {
+    public long getDphonenumber() {
         return dphonenumber;
     }
 
-    public void setDphonenumber(String dphonenumber) {
+    public void setDphonenumber(long dphonenumber) {
         this.dphonenumber = dphonenumber;
     }
     

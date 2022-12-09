@@ -5,6 +5,14 @@
 package Hospital.UI;
 
 import Administration.UI.*;
+import Patient.UI.PatientLoginPage;
+import Patient.UI.PatientManageFrame;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.ServiceHospital;
+import model.ServicePatient;
 
 /**
  *
@@ -103,27 +111,31 @@ public class HospitalLoginPage extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        // TODO add your handling code here:
-//        if (txtUsername.getText().toString().equals("Admin") && txtPassword.getText().toString().equals("Admin")) {
-//            AdministrationSplitPage ap = new AdministrationSplitPage(mainScreen, dB4OUtil, ecoSystem);
-//
-//            mainScreen.setContentPane(ap);
-//            mainScreen.invalidate();
-//            mainScreen.validate();
-//            return;
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Incorrect credential");
-//        }
+        try {
+           
+            String username = txtusername.getText();
+            int i ;
+            String password = txtpassword.getText();
+            ServiceHospital sp = new ServiceHospital();
 
-        String username = txtusername.getText();
-        String password = txtpassword.getText();
-         if(username.equals("hospital") && password.equals("hospital"))
-        {
-            HospitalManageFrame pjf =  new HospitalManageFrame();
-            pjf.show();
-            
-            
-        }
+            i = sp.checklogin(username,password);
+            if(i ==1)
+            {
+
+                HospitalManageFrame pjf =  new HospitalManageFrame(username,password);
+                pjf.show();
+
+            }
+            else{
+
+                JOptionPane.showMessageDialog(null, "Hospital Username and Password does not exist");
+            }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(HospitalLoginPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+        
+       
         
         
           

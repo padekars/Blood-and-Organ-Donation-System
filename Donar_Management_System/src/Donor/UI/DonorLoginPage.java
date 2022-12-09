@@ -4,6 +4,15 @@
  */
 package Donor.UI;
 
+import Patient.UI.PatientLoginPage;
+import Patient.UI.PatientManageFrame;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.ServiceDonor;
+import model.ServicePatient;
+
 /**
  *
  * @author Gayatri
@@ -104,25 +113,29 @@ public class DonorLoginPage extends javax.swing.JPanel {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-        //        if (txtUsername.getText().toString().equals("Admin") && txtPassword.getText().toString().equals("Admin")) {
-            //            AdministrationSplitPage ap = new AdministrationSplitPage(mainScreen, dB4OUtil, ecoSystem);
-            //
-            //            mainScreen.setContentPane(ap);
-            //            mainScreen.invalidate();
-            //            mainScreen.validate();
-            //            return;
-            //        } else {
-            //            JOptionPane.showMessageDialog(this, "Incorrect credential");
-            //        }
-
         String username = txtusername.getText();
+         int i ;
         String password = txtpassword.getText();
-        if(username.equals("donor") && password.equals("donor"))
-        {
-            DonorManageFrame pjf =  new DonorManageFrame();
-            pjf.show();
+        ServiceDonor sd = new ServiceDonor();
+        
+        try {
+          i = sd.checklogin(username,password); 
+          if(i ==1)
+                {
 
+                    DonorManageFrame pjf =  new DonorManageFrame();
+                    pjf.show();
+
+
+                }
+                else{
+
+                         JOptionPane.showMessageDialog(null, "Donor Username and Password does not exist"); 
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientLoginPage.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
 
     }//GEN-LAST:event_btn_loginActionPerformed
 

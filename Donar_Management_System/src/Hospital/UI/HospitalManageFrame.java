@@ -23,10 +23,16 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     /**
      * Creates new form AdministratorSplitPage
      */
-    public HospitalManageFrame() {
+    String huser;
+    String pass;
+    public HospitalManageFrame(String username, String password) {
         initComponents();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+         huser = username;
+         pass = password;
+         
+        System.out.println("logged in hospital "+huser+ pass);
     }
 
     /**
@@ -151,9 +157,16 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
-        // TODO add your handling code here:
-        HospitalPersonalDetails alp = new HospitalPersonalDetails();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            
+            System.out.println("in hospital details  "+huser+ pass);
+            HospitalPersonalDetails alp = new HospitalPersonalDetails(huser,pass);
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         
     }//GEN-LAST:event_PersonalDetailsActionPerformed
@@ -214,11 +227,11 @@ public class HospitalManageFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HospitalManageFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new HospitalManageFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
