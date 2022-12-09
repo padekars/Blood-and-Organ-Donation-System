@@ -83,7 +83,7 @@ public class BankSplitPage extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton6.setText("Send Request to Labarotary");
+        jButton6.setText("Send Request to Laboratory");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);

@@ -6,6 +6,10 @@ package Administration.UI;
 
 import Donor.UI.*;
 import Patient.UI.*;
+import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +20,16 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegistration1
      */
+    
+    //for validating email id format 
+    String PATTERN= "^[a-zA-Z0-9]{0,30}@[a-zA-Z0-9]{0,20}[.][a-zA-Z]{0,5}$";
+    Pattern patt= Pattern.compile(PATTERN);
+    
+    //for validating date format 
+    String PATTERNEI = "^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$";
+    Pattern pattei = Pattern.compile(PATTERNEI);
+    
+    
     public AdminDonorManagePage() {
         initComponents();
     }
@@ -55,6 +69,10 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
         txtDonarBG = new javax.swing.JComboBox<>();
         lbl_telenum1 = new javax.swing.JLabel();
         txtDonarEmail = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        DonarUpdateBtn1 = new javax.swing.JButton();
+        DonarUpdateBtn2 = new javax.swing.JButton();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
         Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -64,6 +82,8 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
                 Logout1ActionPerformed(evt);
             }
         });
+
+        setBackground(new java.awt.Color(0, 153, 153));
 
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");
@@ -91,6 +111,29 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
                 txtDonarNameActionPerformed(evt);
             }
         });
+        txtDonarName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarNameKeyPressed(evt);
+            }
+        });
+
+        txtDonarStreet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarStreetKeyPressed(evt);
+            }
+        });
+
+        txtDonarContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarContactKeyPressed(evt);
+            }
+        });
+
+        txtDonarZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarZipKeyPressed(evt);
+            }
+        });
 
         txtDonarDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,9 +155,9 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        DonarUpdateBtn.setBackground(new java.awt.Color(0, 204, 204));
+        DonarUpdateBtn.setBackground(new java.awt.Color(0, 51, 51));
         DonarUpdateBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        DonarUpdateBtn.setText("Update");
+        DonarUpdateBtn.setText("SAVE");
         DonarUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DonarUpdateBtnActionPerformed(evt);
@@ -138,101 +181,149 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Donor Name", "Street Name", "Community", "Zipcode", "Gender", "Date of Birth", "Blood Group", "Phone no.", "Email ID"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        DonarUpdateBtn1.setBackground(new java.awt.Color(0, 51, 51));
+        DonarUpdateBtn1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        DonarUpdateBtn1.setText("VIEW");
+        DonarUpdateBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarUpdateBtn1ActionPerformed(evt);
+            }
+        });
+
+        DonarUpdateBtn2.setBackground(new java.awt.Color(0, 51, 51));
+        DonarUpdateBtn2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        DonarUpdateBtn2.setText("UPDATE");
+        DonarUpdateBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarUpdateBtn2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(221, 221, 221)
                 .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(189, 189, 189))
             .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(DonarUpdateBtn)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_pswd)
-                            .addComponent(lbl_donorname)
-                            .addComponent(lbl_uname)
-                            .addComponent(lbl_address)
-                            .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_Zip)
-                            .addComponent(lbl_gender)
-                            .addComponent(lbl_telenum)
-                            .addComponent(lbl_dob)
-                            .addComponent(lbl_dob1)
-                            .addComponent(lbl_dob2)
-                            .addComponent(lbl_telenum1))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDonarName, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarStreet, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarCommunity, 0, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarZip, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarGender, 0, 390, Short.MAX_VALUE)
-                            .addComponent(txtDonarContact)
-                            .addComponent(txtDonarDOB)
-                            .addComponent(txtDonarBG, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDonarEmail))))
-                .addGap(202, 202, 202))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lbl_pswd)
+                                .addComponent(lbl_donorname)
+                                .addComponent(lbl_uname)
+                                .addComponent(lbl_address)
+                                .addComponent(txt_City, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_Zip))
+                            .addGap(40, 40, 40)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtDonarZip, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtDonarCommunity, javax.swing.GroupLayout.Alignment.LEADING, 0, 280, Short.MAX_VALUE)
+                                    .addComponent(txtDonarStreet, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDonarPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDonarUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDonarName, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGap(30, 30, 30)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbl_gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl_dob1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(20, 20, 20)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtDonarDOB, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtDonarGender, javax.swing.GroupLayout.Alignment.LEADING, 0, 282, Short.MAX_VALUE))
+                                        .addComponent(txtDonarBG, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lbl_dob2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(DonarUpdateBtn)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lbl_telenum, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                            .addComponent(lbl_telenum1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(20, 20, 20)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtDonarContact, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                                            .addComponent(txtDonarEmail))))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(200, 200, 200)
+                            .addComponent(DonarUpdateBtn1)
+                            .addGap(300, 300, 300)
+                            .addComponent(DonarUpdateBtn2))))
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addComponent(lbl_title)
-                .addGap(32, 32, 32)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_donorname)
-                    .addComponent(txtDonarName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_uname)
-                    .addComponent(txtDonarUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDonarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_address)
-                    .addComponent(txtDonarStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_City)
-                    .addComponent(txtDonarCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDonarZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDonarName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_gender)
                     .addComponent(txtDonarGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_uname)
+                    .addComponent(txtDonarUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_dob)
                     .addComponent(txtDonarDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDonarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_dob1)
                     .addComponent(txtDonarBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(lbl_dob2)
-                .addGap(20, 20, 20)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_address)
+                    .addComponent(txtDonarStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_dob2))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_City)
+                    .addComponent(txtDonarCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_telenum)
                     .addComponent(txtDonarContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_telenum1)
-                    .addComponent(txtDonarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_telenum1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txt_Zip, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDonarZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDonarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15)
                 .addComponent(DonarUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DonarUpdateBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DonarUpdateBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(254, 254, 254))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -251,16 +342,187 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
 
     private void DonarUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarUpdateBtnActionPerformed
         // TODO add your handling code here:
+        String cn= txtDonarContact.getText();        
+        int celllength = cn.length();
+        
+        //for validating email address
+        Matcher match=patt.matcher(txtDonarEmail.getText());
+        
+        //for validating date 
+        Matcher matchei=pattei.matcher(txtDonarDOB.getText());
+        
+        if(txtDonarContact.getText().equals("") || txtDonarDOB.getText().equals("") 
+                || txtDonarContact.getText().equals("") || txtDonarName.getText().equals("") || 
+                txtDonarEmail.getText().equals("") || txtDonarPassword.getText().equals("") || 
+                txtDonarStreet.getText().equals("") || txtDonarUsername.getText().equals("") || 
+                txtDonarZip.getText().equals("")){ 
+         
+            JOptionPane.showMessageDialog(this," All details are not Filled ");
+            
+        }    
+        else if(!matchei.matches())
+                {
+                 JOptionPane.showMessageDialog(this," Invalid Date format (Valid Format is DD/MM/YYYY)");    
+        }
+                
+                
+                
+        else if(celllength<10)
+                {
+                JOptionPane.showMessageDialog(this," Enter 10 digit cell phone number ");
+                
+            }
+        
+        else if(!match.matches()){
+                 JOptionPane.showMessageDialog(this," Invalid Email id  ");
+        }         
+        
+            
+        
+        else
+        {  
+                JOptionPane.showMessageDialog(this," Donor Details Updated ");
+                
+                
+             
+                
+
+
+
+            txtDonarContact.setText("");
+            txtDonarDOB.setText("");
+            txtDonarEmail.setText("");
+            txtDonarName.setText("");
+            txtDonarPassword.setText("");
+            txtDonarStreet.setText("");
+            txtDonarUsername.setText("");
+            txtDonarZip.setText("");
+            
+
+
+       } 
+        
+        
     }//GEN-LAST:event_DonarUpdateBtnActionPerformed
 
     private void txtDonarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonarEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDonarEmailActionPerformed
 
+    private void txtDonarNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarNameKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtDonarName.setEditable(true);
+        }else{
+            txtDonarName.setEditable(false);
+        }
+        
+        
+        
+    }//GEN-LAST:event_txtDonarNameKeyPressed
+
+    private void txtDonarStreetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarStreetKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtDonarStreet.setEditable(true);
+        }else{
+            txtDonarStreet.setEditable(false);
+        }
+        
+        
+    }//GEN-LAST:event_txtDonarStreetKeyPressed
+
+    private void txtDonarZipKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarZipKeyPressed
+        // TODO add your handling code here:
+        String age= txtDonarZip.getText();
+        
+        // get length of the string 
+        int length = age.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<5){
+                //editable true 
+                txtDonarZip.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtDonarZip.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtDonarZip.setEditable(true);
+            }else{
+                txtDonarZip.setEditable(false);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_txtDonarZipKeyPressed
+
+    private void txtDonarContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarContactKeyPressed
+        // TODO add your handling code here:
+        //action when key is pressed 
+        String cell_no= txtDonarContact.getText();
+        
+        // get length of the string 
+        int length = cell_no.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<10){
+                //editable true 
+                txtDonarContact.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtDonarContact.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtDonarContact.setEditable(true);
+            }else{
+                txtDonarContact.setEditable(false);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_txtDonarContactKeyPressed
+
+    private void DonarUpdateBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarUpdateBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DonarUpdateBtn1ActionPerformed
+
+    private void DonarUpdateBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarUpdateBtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DonarUpdateBtn2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DonarUpdateBtn;
+    private javax.swing.JButton DonarUpdateBtn1;
+    private javax.swing.JButton DonarUpdateBtn2;
     private javax.swing.JButton Logout1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_address;
     private javax.swing.JLabel lbl_dob;
     private javax.swing.JLabel lbl_dob1;

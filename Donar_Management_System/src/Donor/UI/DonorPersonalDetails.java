@@ -5,6 +5,10 @@
 package Donor.UI;
 
 import Patient.UI.*;
+import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +19,16 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegistration1
      */
+    
+    //for validating email id format 
+    String PATTERN= "^[a-zA-Z0-9]{0,30}@[a-zA-Z0-9]{0,20}[.][a-zA-Z]{0,5}$";
+    Pattern patt= Pattern.compile(PATTERN);
+    
+    //for validating date format 
+    String PATTERNEI = "^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$";
+    Pattern pattei = Pattern.compile(PATTERNEI);
+    
+    
     public DonorPersonalDetails() {
         initComponents();
     }
@@ -64,6 +78,8 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
             }
         });
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");
 
@@ -90,6 +106,29 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
                 txtDonarNameActionPerformed(evt);
             }
         });
+        txtDonarName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarNameKeyPressed(evt);
+            }
+        });
+
+        txtDonarStreet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarStreetKeyPressed(evt);
+            }
+        });
+
+        txtDonarContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarContactKeyPressed(evt);
+            }
+        });
+
+        txtDonarZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDonarZipKeyPressed(evt);
+            }
+        });
 
         txtDonarDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +150,7 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        DonarUpdateBtn.setBackground(new java.awt.Color(0, 204, 204));
+        DonarUpdateBtn.setBackground(new java.awt.Color(0, 102, 102));
         DonarUpdateBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         DonarUpdateBtn.setText("Update");
         DonarUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -250,11 +289,170 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
 
     private void DonarUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarUpdateBtnActionPerformed
         // TODO add your handling code here:
+        String cn= txtDonarContact.getText();        
+        int celllength = cn.length();
+        
+        //for validating email address
+        Matcher match=patt.matcher(txtDonarEmail.getText());
+        
+        //for validating date 
+        Matcher matchei=pattei.matcher(txtDonarDOB.getText());
+        
+        if(txtDonarContact.getText().equals("") || txtDonarDOB.getText().equals("") 
+                || txtDonarContact.getText().equals("") || txtDonarName.getText().equals("") || 
+                txtDonarEmail.getText().equals("") || txtDonarPassword.getText().equals("") || 
+                txtDonarStreet.getText().equals("") || txtDonarUsername.getText().equals("") || 
+                txtDonarZip.getText().equals("")){ 
+         
+            JOptionPane.showMessageDialog(this," All details are not Filled ");
+            
+        }    
+        else if(!matchei.matches())
+                {
+                 JOptionPane.showMessageDialog(this," Invalid Date format (Valid Format is DD/MM/YYYY)");    
+        }
+                
+                
+                
+        else if(celllength<10)
+                {
+                JOptionPane.showMessageDialog(this," Enter 10 digit cell phone number ");
+                
+            }
+        
+        else if(!match.matches()){
+                 JOptionPane.showMessageDialog(this," Invalid Email id  ");
+        }         
+        
+            
+        
+        else
+        {  
+                JOptionPane.showMessageDialog(this," Donor Details Updated ");
+                
+                
+             
+                
+
+
+
+            txtDonarContact.setText("");
+            txtDonarDOB.setText("");
+            txtDonarEmail.setText("");
+            txtDonarName.setText("");
+            txtDonarPassword.setText("");
+            txtDonarStreet.setText("");
+            txtDonarUsername.setText("");
+            txtDonarZip.setText("");
+            
+
+
+       } 
+        
+        
     }//GEN-LAST:event_DonarUpdateBtnActionPerformed
 
     private void txtDonarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonarEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDonarEmailActionPerformed
+
+    private void txtDonarNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarNameKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtDonarName.setEditable(true);
+        }else{
+            txtDonarName.setEditable(false);
+        }
+        
+        
+        
+    }//GEN-LAST:event_txtDonarNameKeyPressed
+
+    private void txtDonarStreetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarStreetKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtDonarStreet.setEditable(true);
+        }else{
+            txtDonarStreet.setEditable(false);
+        }
+        
+        
+    }//GEN-LAST:event_txtDonarStreetKeyPressed
+
+    private void txtDonarZipKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarZipKeyPressed
+        // TODO add your handling code here:
+        String age= txtDonarZip.getText();
+        
+        // get length of the string 
+        int length = age.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<5){
+                //editable true 
+                txtDonarZip.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtDonarZip.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtDonarZip.setEditable(true);
+            }else{
+                txtDonarZip.setEditable(false);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_txtDonarZipKeyPressed
+
+    private void txtDonarContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarContactKeyPressed
+        // TODO add your handling code here:
+        //action when key is pressed 
+        String cell_no= txtDonarContact.getText();
+        
+        // get length of the string 
+        int length = cell_no.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<10){
+                //editable true 
+                txtDonarContact.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtDonarContact.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtDonarContact.setEditable(true);
+            }else{
+                txtDonarContact.setEditable(false);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_txtDonarContactKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,10 +6,12 @@ package UserInterface;
 
 import Administration.UI.AdministratorLoginPage;
 import Administration.UI.AdministratorSplitPage;
+import BloodDonorBank.UI.BankLoginPage;
 import BloodDonorBank.UI.BankSplitPage;
 import Donor.UI.DonorLoginPage;
 import Donor.UI.DonorSplitPage;
 import Hospital.UI.HospitalSplitPage;
+import Lab.UI.LabLoginPage;
 import Lab.UI.LabSplitPage;
 import Patient.UI.PatientSplitPage;
 import javax.swing.JFrame;
@@ -63,6 +65,7 @@ public class MainFrame extends javax.swing.JFrame {
         Lab = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         fundraiser = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         Patient = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         Patient1 = new javax.swing.JLabel();
@@ -70,7 +73,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         admin1.setBackground(new java.awt.Color(0, 204, 204));
         admin1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,6 +150,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-microsoft-admin-48.png"))); // NOI18N
+
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Administration");
@@ -174,6 +181,8 @@ public class MainFrame extends javax.swing.JFrame {
                 hospitaljPanel4MouseClicked(evt);
             }
         });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-hospital-sign-48.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,6 +216,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-charity-48.png"))); // NOI18N
+
         bank.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         bank.setForeground(new java.awt.Color(255, 255, 255));
         bank.setText("Blood & Organ Bank");
@@ -238,6 +249,8 @@ public class MainFrame extends javax.swing.JFrame {
                 jPanel7MouseClicked(evt);
             }
         });
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-lab-items-48.png"))); // NOI18N
 
         Lab.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Lab.setForeground(new java.awt.Color(255, 255, 255));
@@ -275,21 +288,25 @@ public class MainFrame extends javax.swing.JFrame {
         fundraiser.setForeground(new java.awt.Color(255, 255, 255));
         fundraiser.setText("Fund Raiser");
 
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-checklist-50.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(fundraiser, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 201, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(fundraiser)
                 .addGap(14, 14, 14))
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
         );
 
         Patient.setBackground(new java.awt.Color(0, 204, 204));
@@ -298,6 +315,8 @@ public class MainFrame extends javax.swing.JFrame {
                 PatientMouseClicked(evt);
             }
         });
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-handle-with-care-48.png"))); // NOI18N
 
         Patient1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Patient1.setForeground(new java.awt.Color(255, 255, 255));
@@ -308,11 +327,10 @@ public class MainFrame extends javax.swing.JFrame {
         PatientLayout.setHorizontalGroup(
             PatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PatientLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Patient1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 196, Short.MAX_VALUE))
         );
         PatientLayout.setVerticalGroup(
             PatientLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,6 +347,8 @@ public class MainFrame extends javax.swing.JFrame {
                 donarjPanel4MouseClicked(evt);
             }
         });
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-heart-plus-50.png"))); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -385,33 +405,34 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Patient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(donar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jLabel1.setText("jLabel1");
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(398, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(411, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setText("           DONOR MANAGEMENT SYSTEM");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hospital.gif"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 800, 510));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-close-50.png"))); // NOI18N
+        jLabel17.setText("jLabel17");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 40));
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -458,15 +479,15 @@ public class MainFrame extends javax.swing.JFrame {
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
         //Donor Bank
-       BankSplitPage pjf =  new BankSplitPage();
-        pjf.show();
+       BankLoginPage alp = new BankLoginPage();
+       jSplitPane1.setRightComponent(alp);
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
         // TODO add your handling code here:
         //Laboratory
-        LabSplitPage pjf =  new LabSplitPage();
-        pjf.show();
+        LabLoginPage alp = new LabLoginPage();
+        jSplitPane1.setRightComponent(alp);
         
     }//GEN-LAST:event_jPanel7MouseClicked
 
@@ -497,6 +518,12 @@ public class MainFrame extends javax.swing.JFrame {
         pjf.show();
         
     }//GEN-LAST:event_donarjPanel4MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        dispose();
+        
+    }//GEN-LAST:event_jLabel17MouseClicked
 
     /**
      * @param args the command line arguments
@@ -551,6 +578,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

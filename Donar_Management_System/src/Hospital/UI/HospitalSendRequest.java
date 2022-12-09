@@ -31,6 +31,8 @@ public class HospitalSendRequest extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jButton12 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Send Request To Blood/Organ Bank");
 
@@ -47,7 +49,7 @@ public class HospitalSendRequest extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        jButton12.setBackground(new java.awt.Color(0, 204, 204));
+        jButton12.setBackground(new java.awt.Color(0, 102, 102));
         jButton12.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jButton12.setText("Sent Request");
         jButton12.addActionListener(new java.awt.event.ActionListener() {

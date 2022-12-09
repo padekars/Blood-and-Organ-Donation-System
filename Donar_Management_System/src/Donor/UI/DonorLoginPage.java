@@ -32,21 +32,30 @@ public class DonorLoginPage extends javax.swing.JPanel {
         txtpassword = new javax.swing.JPasswordField();
         lbl_pswd = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(1509, 999));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 235, 197, -1));
 
         lbl_username.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_username.setText("Username:");
+        add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 209, -1, -1));
 
         lbl_Hosptitle.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_Hosptitle.setText("Donor Login");
+        add(lbl_Hosptitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 250, 70));
 
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordActionPerformed(evt);
             }
         });
+        add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 305, 197, -1));
 
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
+        add(lbl_pswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 279, -1, -1));
 
         btn_login.setBackground(new java.awt.Color(0, 204, 204));
         btn_login.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -56,46 +65,11 @@ public class DonorLoginPage extends javax.swing.JPanel {
                 btn_loginActionPerformed(evt);
             }
         });
+        add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 368, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 270, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lbl_Hosptitle, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_username)
-                                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_login))))
-                    .addGap(0, 271, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 481, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 92, Short.MAX_VALUE)
-                    .addComponent(lbl_Hosptitle)
-                    .addGap(93, 93, 93)
-                    .addComponent(lbl_username)
-                    .addGap(12, 12, 12)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(22, 22, 22)
-                    .addComponent(lbl_pswd)
-                    .addGap(12, 12, 12)
-                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(41, 41, 41)
-                    .addComponent(btn_login)
-                    .addGap(0, 92, Short.MAX_VALUE)))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Donor2.v4.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-370, -110, 1460, 730));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
@@ -129,6 +103,7 @@ public class DonorLoginPage extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Hosptitle;
     private javax.swing.JLabel lbl_pswd;
     private javax.swing.JLabel lbl_username;

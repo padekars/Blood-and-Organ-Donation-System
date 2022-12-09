@@ -34,22 +34,29 @@ public class AdministratorLoginPage extends javax.swing.JPanel {
         txtpassword = new javax.swing.JPasswordField();
         lbl_pswd = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 236, 197, -1));
 
         lbl_username.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_username.setText("Username:");
+        add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
         lbl_Hosptitle.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_Hosptitle.setText("Administration");
+        add(lbl_Hosptitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 230, 40));
 
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordActionPerformed(evt);
             }
         });
+        add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 302, 197, -1));
 
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
+        add(lbl_pswd, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 276, -1, -1));
 
         btn_login.setBackground(new java.awt.Color(0, 204, 204));
         btn_login.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -59,44 +66,11 @@ public class AdministratorLoginPage extends javax.swing.JPanel {
                 btn_loginActionPerformed(evt);
             }
         });
+        add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 366, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Admin.v1.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_login)
-                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_pswd, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_username)
-                    .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_Hosptitle, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 291, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_Hosptitle))
-                .addGap(89, 89, 89)
-                .addComponent(lbl_username)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_pswd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btn_login)
-                .addGap(0, 93, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Admin.v1.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1160, 670));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
@@ -133,7 +107,7 @@ public class AdministratorLoginPage extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_Hosptitle;
     private javax.swing.JLabel lbl_pswd;
     private javax.swing.JLabel lbl_username;

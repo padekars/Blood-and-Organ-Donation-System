@@ -17,6 +17,11 @@
       </Events>
     </Component>
   </NonVisualComponents>
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="cc" green="cc" red="0" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -213,15 +218,25 @@
     <Component class="javax.swing.JTextField" name="txtDonarName">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDonarNameActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDonarNameKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDonarStreet">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDonarStreetKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDonarPassword">
     </Component>
     <Component class="javax.swing.JTextField" name="txtDonarContact">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDonarContactKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDonarZip">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDonarZipKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDonarDOB">
       <Events>
@@ -300,10 +315,10 @@
     <Component class="javax.swing.JButton" name="DonarSignUpBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="0" type="rgb"/>
+          <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="2"/>
+          <Font name="Segoe UI" size="18" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SIGN UP"/>
       </Properties>
