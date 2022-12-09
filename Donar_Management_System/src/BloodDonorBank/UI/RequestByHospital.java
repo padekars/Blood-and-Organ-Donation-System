@@ -35,13 +35,13 @@ public class RequestByHospital extends javax.swing.JPanel {
 
         RequestByHospitalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Patient Name", "Blood/Organ", "Entity Type"
+                "Hospital Name", "Patient Name", "Blood/Organ", "Entity Type", "Status"
             }
         ));
         jScrollPane2.setViewportView(RequestByHospitalTable);

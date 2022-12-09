@@ -5,13 +5,15 @@
 package Patient.UI;
 
 import javax.swing.JOptionPane;
+import model.ServicePatient;
 
 /**
  *
  * @author Gayatri
  */
 public class PatientSendRequest extends javax.swing.JPanel {
-
+        String organ = "";
+        
     /**
      * Creates new form PatientSendRequest
      */
@@ -50,6 +52,11 @@ public class PatientSendRequest extends javax.swing.JPanel {
         });
 
         KidneyRequestBtn.setText("KIDNEY");
+        KidneyRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                KidneyRequestBtnMouseClicked(evt);
+            }
+        });
 
         EyesRequestBtn.setText("EYES");
         EyesRequestBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +133,16 @@ public class PatientSendRequest extends javax.swing.JPanel {
 
     private void PatientSendRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientSendRequestBtnActionPerformed
         // TODO add your handling code here:
+        if(this.organ.equals("")){
+            
+        JOptionPane.showMessageDialog(this," Please select a organ");
+        }
+        else{
+            ServicePatient s1 = new ServicePatient();
+            s1.sendRequest( organ,  "hname",  "pusername",  "entitytype", "entityvalue");
+        }
+        
+        
         JOptionPane.showMessageDialog(this," Request Submitted!");
     }//GEN-LAST:event_PatientSendRequestBtnActionPerformed
 
@@ -136,6 +153,16 @@ public class PatientSendRequest extends javax.swing.JPanel {
     private void IntestineRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntestineRequestBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IntestineRequestBtnActionPerformed
+
+    private void KidneyRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KidneyRequestBtnMouseClicked
+        // TODO add your handling code here:
+        
+        this.organ = "Kidney";
+        
+        
+        
+        
+    }//GEN-LAST:event_KidneyRequestBtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,14 +5,19 @@
 package Patient.UI;
 import model.*;
 import java.sql.*;
-
-
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import model.patient.Patient;
 import java.awt.event.KeyEvent;
 
 /**
  *
  * @author Gayatri
  */
+
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -20,13 +25,16 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-public class PatientSignUpPage extends javax.swing.JPanel {
 
+
+public class PatientSignUpPage extends javax.swing.JPanel {
+Connection con;
     /**
      * Creates new form PatientRegistration1
      * 
      * 
      */
+
     
     //for validating email id format 
     String PATTERN= "^[a-zA-Z0-9]{0,30}@[a-zA-Z0-9]{0,20}[.][a-zA-Z]{0,5}$";
@@ -37,8 +45,34 @@ public class PatientSignUpPage extends javax.swing.JPanel {
     Pattern pattei = Pattern.compile(PATTERNEI);
     
     
-    public PatientSignUpPage() {
+  
+
+    public PatientSignUpPage() throws SQLException {
+        
+
         initComponents();
+        try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+        
+           Statement stmt = con.createStatement();
+         
+          String sql = "select hospital_name from hospital"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              txtPatientHospital.addItem(rs.getString(1));
+          }
+        
+        
     }
 
     /**
@@ -371,6 +405,7 @@ public class PatientSignUpPage extends javax.swing.JPanel {
              
                 
 
+
 //        String pname = txtPatientName.getText();
 //        String pusername = txtPatientUsername.getText();
 //        String ppassword = txtPatientPassword.getText();
@@ -405,6 +440,24 @@ public class PatientSignUpPage extends javax.swing.JPanel {
 
 
        }
+
+         Patient p = new Patient();
+        p.setPname(txtPatientName.getText());
+        p.setPusername(txtPatientUsername.getText());
+        p.setPpassword(txtPatientPassword.getText());
+        p.setPstreetname(txtPatientStreet.getText());
+        p.setPcommunity(txtPatientCommunity.getSelectedItem().toString());
+        p.setPzipcode(Integer.parseInt(txtPatientZip.getText()));
+        p.setPgender(txtPatientGender.getSelectedItem().toString());
+        p.setPdateofbirth(txtPatientDOB.getText());
+        p.setPbloodgroup(txtPatientBG.getSelectedItem().toString());
+        p.setPphonenumber(Long.valueOf(txtPatientContact.getText()));
+        p.setPemailid(txtPatientEmail.getText());
+        
+        ServicePatient s = new ServicePatient();
+        System.out.println("patient sign up button clicked");
+        s.addpatientdetails(p);
+
         
     }                                        
                                 

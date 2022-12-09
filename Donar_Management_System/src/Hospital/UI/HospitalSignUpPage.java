@@ -5,7 +5,12 @@
 package Hospital.UI;
 
 import Patient.UI.*;
+
 import java.awt.event.KeyEvent;
+
+import model.ServiceHospital;
+import model.hospital.Hospital;
+
 
 /**
  *
@@ -207,6 +212,19 @@ public class HospitalSignUpPage extends javax.swing.JPanel {
 
     private void HospitalSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalSignUpBtnActionPerformed
         // TODO add your handling code here:
+        
+        
+        Hospital h = new Hospital();
+        h.setHname(txtHospitalName.getText());
+        h.setHusername(txtHospitalUsername.getText());
+        h.setHpassword(txtHospitalPassword.getText());
+        h.setHstreetname(txtHospitalStreet.getText());
+        h.setHcommunity(txtHospitalCommunity.getSelectedItem().toString());
+        h.setHzipcode(Integer.parseInt(txtHospitalZip.getText()));
+        System.out.println(h.getHname());
+        ServiceHospital s1 = new ServiceHospital();
+        s1.addhospitaldetails(h);
+        
     }//GEN-LAST:event_HospitalSignUpBtnActionPerformed
 
     private void txtHospitalStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalStreetActionPerformed

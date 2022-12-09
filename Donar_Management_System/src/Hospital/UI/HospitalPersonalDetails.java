@@ -5,7 +5,15 @@
 package Hospital.UI;
 
 import Patient.UI.*;
+
 import java.awt.event.KeyEvent;
+
+import java.sql.SQLException;
+import model.ServiceHospital;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -16,10 +24,48 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegistration1
      */
-    public HospitalPersonalDetails() {
+    String user;
+    String pass;
+    Connection con;
+    public HospitalPersonalDetails(String username, String password) throws SQLException {
+        
         initComponents();
-    }
+         try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+              
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }
+        user = username;
+        pass = password;
+        ServiceHospital sh = new ServiceHospital();
+        sh.viewhtable(user,pass);
+        
+        Statement stmt = con.createStatement();
+        String sql = "select * from hospital where hospital_username = '" + username + "' and hospital_password = '" + password+ "'"; 
 
+            ResultSet results = stmt.executeQuery(sql);
+
+            while (results.next()) {
+            String name = results.getString(1);
+            String uname =  results.getString(2);
+            String pass = results.getString(3) ;
+            String streetname = results.getString(4);
+            String community = results.getString(5) ;
+            String zipcode = results.getString(6) ;
+            txtHospitalName.setText(name);
+            txtHospitalUsername.setText(uname);
+            txtHospitalPassword.setText(pass);
+            txtHospitalStreet.setText(streetname);
+            txtHospitalCommunity.setSelectedItem(community);
+            txtHospitalZip.setText(zipcode);
+            
+    }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -206,9 +252,28 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
     }//GEN-LAST:event_Logout1ActionPerformed
 
     private void HospitalUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtnActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            String name =txtHospitalName.getText();
+            String uname =txtHospitalUsername.getText();
+            String pass = txtHospitalPassword.getText();
+            String streetname = txtHospitalStreet.getText();
+            String community = txtHospitalCommunity.getSelectedItem().toString();
+            String zipcode = txtHospitalZip.getText();
+            PreparedStatement stmt = con.prepareStatement("update hospital set hospital_name=?,hospital_password=?,hospital_streetname=?,hospital_community=?,hospital_zipcode=? where hospital_username=?");
+            stmt.setString(1, name);
+            stmt.setString(2, String.valueOf(pass));
+            stmt.setString(3, String.valueOf(streetname));
+            stmt.setString(4, String.valueOf(community));
+            stmt.setString(5, String.valueOf(zipcode));
+            stmt.setString(6, String.valueOf(uname));
+            stmt.executeUpdate();
+     
     }//GEN-LAST:event_HospitalUpdateBtnActionPerformed
-
+    catch (SQLException ex) {
+            Logger.getLogger(HospitalPersonalDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void txtHospitalStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalStreetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalStreetActionPerformed

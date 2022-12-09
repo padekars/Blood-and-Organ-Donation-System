@@ -38,7 +38,7 @@ public class SendRequestToLab extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Patient Name", "Blood/Organ", "Entity Type"
+                "Blood/Organ", "Entity Value", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(RequestByHospitalTable);

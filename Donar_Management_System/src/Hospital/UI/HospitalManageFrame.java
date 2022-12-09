@@ -8,7 +8,11 @@ package Hospital.UI;
 import Patient.UI.*;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import model.ServiceHospital;
 
 /**
  *
@@ -19,10 +23,16 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     /**
      * Creates new form AdministratorSplitPage
      */
-    public HospitalManageFrame() {
+    String huser;
+    String pass;
+    public HospitalManageFrame(String username, String password) {
         initComponents();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+         huser = username;
+         pass = password;
+         
+        System.out.println("logged in hospital "+huser+ pass);
     }
 
     /**
@@ -145,9 +155,16 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
-        // TODO add your handling code here:
-        HospitalPersonalDetails alp = new HospitalPersonalDetails();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            
+            System.out.println("in hospital details  "+huser+ pass);
+            HospitalPersonalDetails alp = new HospitalPersonalDetails(huser,pass);
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         
     }//GEN-LAST:event_PersonalDetailsActionPerformed
@@ -159,9 +176,14 @@ public class HospitalManageFrame extends javax.swing.JFrame {
 
     private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
-        
+        ServiceHospital s1 = new ServiceHospital();
         HospitalPatientTable alp = new HospitalPatientTable();
         jSplitPane1.setRightComponent(alp);
+        try {
+            s1.loadpatientrequests();
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_SendRequestActionPerformed
 
@@ -203,11 +225,11 @@ public class HospitalManageFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HospitalManageFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new HospitalManageFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
