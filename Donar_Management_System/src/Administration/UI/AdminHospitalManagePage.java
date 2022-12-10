@@ -6,6 +6,7 @@ package Administration.UI;
 
 import Hospital.UI.*;
 import Patient.UI.*;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -44,6 +45,10 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
         txtHospitalName = new javax.swing.JTextField();
         txtHospitalUsername = new javax.swing.JTextField();
         txtHospitalPassword = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        HospitalUpdateBtn1 = new javax.swing.JButton();
+        HospitalUpdateBtn2 = new javax.swing.JButton();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
         Logout1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -56,7 +61,7 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
 
         HospitalUpdateBtn.setBackground(new java.awt.Color(0, 204, 204));
         HospitalUpdateBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        HospitalUpdateBtn.setText("Update");
+        HospitalUpdateBtn.setText("Save");
         HospitalUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HospitalUpdateBtnActionPerformed(evt);
@@ -68,13 +73,23 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
                 txtHospitalStreetActionPerformed(evt);
             }
         });
+        txtHospitalStreet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHospitalStreetKeyPressed(evt);
+            }
+        });
 
         lbl_title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbl_title.setText("                Hospital Sign Up");
+        lbl_title.setText("                     Hospital Details");
 
         txtHospitalZip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHospitalZipActionPerformed(evt);
+            }
+        });
+        txtHospitalZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHospitalZipKeyPressed(evt);
             }
         });
 
@@ -82,6 +97,11 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
         jLabel1.setText("   Hospital Name:");
 
         txtHospitalCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allston", "Back Bay", "Bay Village", "Beacon Hill", "Brighton", "Charlestown", "Chinatown – Leather District", "Dorchester", "Downtown", "East Boston", "Fenway-Kenmore", "Hyde Park", "Jamaica Plain", "Mattapan", "Mid-Dorchester", "Mission Hill", "North End", "Roslindale", "Roxbury", "South Boston", "South End", "West End", "West Roxbury", " ", " ", " " }));
+        txtHospitalCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHospitalCommunityActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("    Username:");
@@ -103,6 +123,11 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
                 txtHospitalNameActionPerformed(evt);
             }
         });
+        txtHospitalName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHospitalNameKeyPressed(evt);
+            }
+        });
 
         txtHospitalUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,69 +141,113 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Hospital Name", "Street Name", "Community", "Zipcode"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        HospitalUpdateBtn1.setBackground(new java.awt.Color(0, 204, 204));
+        HospitalUpdateBtn1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        HospitalUpdateBtn1.setText("View");
+        HospitalUpdateBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HospitalUpdateBtn1ActionPerformed(evt);
+            }
+        });
+
+        HospitalUpdateBtn2.setBackground(new java.awt.Color(0, 204, 204));
+        HospitalUpdateBtn2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        HospitalUpdateBtn2.setText("Delete");
+        HospitalUpdateBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HospitalUpdateBtn2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(HospitalUpdateBtn)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(255, 255, 255)
-                            .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(277, 277, 277)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(50, 50, 50)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtHospitalName)
-                                .addComponent(txtHospitalUsername)
-                                .addComponent(txtHospitalPassword)
-                                .addComponent(txtHospitalStreet)
-                                .addComponent(txtHospitalZip)
-                                .addComponent(txtHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(300, 300, 300))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(277, 277, 277)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(HospitalUpdateBtn)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtHospitalName)
+                                    .addComponent(txtHospitalUsername)
+                                    .addComponent(txtHospitalPassword)
+                                    .addComponent(txtHospitalStreet)
+                                    .addComponent(txtHospitalZip)
+                                    .addComponent(txtHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(HospitalUpdateBtn1)
+                        .addGap(264, 264, 264)
+                        .addComponent(HospitalUpdateBtn2)))
+                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(22, 22, 22)
                 .addComponent(lbl_title)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtHospitalUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtHospitalPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtHospitalStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtHospitalZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
+                .addGap(20, 20, 20)
                 .addComponent(HospitalUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(HospitalUpdateBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HospitalUpdateBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -212,9 +281,91 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalPasswordActionPerformed
 
+    private void txtHospitalNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalNameKeyPressed
+        // TODO add your handling code here:
+        
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtHospitalName.setEditable(true);
+        }else{
+            txtHospitalName.setEditable(false);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_txtHospitalNameKeyPressed
+
+    private void txtHospitalStreetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalStreetKeyPressed
+        // TODO add your handling code here:
+        
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtHospitalStreet.setEditable(true);
+        }else{
+            txtHospitalStreet.setEditable(false);
+        }
+        
+    }//GEN-LAST:event_txtHospitalStreetKeyPressed
+
+    private void txtHospitalZipKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalZipKeyPressed
+        // TODO add your handling code here:
+        
+        String age= txtHospitalZip.getText();
+        
+        // get length of the string 
+        int length = age.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<5){
+                //editable true 
+                txtHospitalZip.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtHospitalZip.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtHospitalZip.setEditable(true);
+            }else{
+                txtHospitalZip.setEditable(false);
+            }
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_txtHospitalZipKeyPressed
+
+    private void txtHospitalCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalCommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHospitalCommunityActionPerformed
+
+    private void HospitalUpdateBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HospitalUpdateBtn1ActionPerformed
+
+    private void HospitalUpdateBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HospitalUpdateBtn2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton HospitalUpdateBtn;
+    private javax.swing.JButton HospitalUpdateBtn1;
+    private javax.swing.JButton HospitalUpdateBtn2;
     private javax.swing.JButton Logout1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -222,6 +373,8 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_title;
     private javax.swing.JComboBox<String> txtHospitalCommunity;
     private javax.swing.JTextField txtHospitalName;

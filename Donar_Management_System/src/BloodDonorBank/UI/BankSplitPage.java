@@ -8,6 +8,9 @@ package BloodDonorBank.UI;
 import Patient.UI.*;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -39,7 +42,6 @@ public class BankSplitPage extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -65,25 +67,16 @@ public class BankSplitPage extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(0, 204, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setText("Donor Details");
+        jButton4.setText("Bank Inventory");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(0, 204, 204));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setText("Patient Details");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton6.setText("Send Request to Labarotary");
+        jButton6.setText("Send Request to Laboratory");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -104,7 +97,6 @@ public class BankSplitPage extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton6)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40))
         );
@@ -113,13 +105,11 @@ public class BankSplitPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(68, 68, 68)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(57, 57, 57)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
+                .addGap(188, 188, 188)
                 .addComponent(Logout)
                 .addGap(18, 18, 18))
         );
@@ -165,30 +155,36 @@ public class BankSplitPage extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        RequestByHospital alp = new RequestByHospital();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            RequestByHospital alp = new RequestByHospital();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(BankSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        
-        BankDonorTable alp = new BankDonorTable();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            
+            BankDonorTable alp = new BankDonorTable();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(BankSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        BankPatientTable alp = new BankPatientTable();
-        jSplitPane1.setRightComponent(alp);
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        SendRequestToLab alp = new SendRequestToLab();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            SendRequestToLab alp = new SendRequestToLab();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(BankSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -261,7 +257,6 @@ public class BankSplitPage extends javax.swing.JFrame {
     private javax.swing.JButton Logout;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

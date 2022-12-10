@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -102,6 +103,8 @@ public class HospitalSendRequest extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jButton12 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Send Request To Blood/Organ Bank");
 
@@ -120,7 +123,7 @@ public class HospitalSendRequest extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jButton12.setBackground(new java.awt.Color(0, 204, 204));
+        jButton12.setBackground(new java.awt.Color(0, 102, 102));
         jButton12.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jButton12.setText("Sent Request");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +164,7 @@ public class HospitalSendRequest extends javax.swing.JPanel {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         try {
             // TODO add your handling code here:
-            System.out.println("send reuqest to bank button clicked");
+            System.out.println("send request to bank button clicked");
                 reqstatus = "Sent to Bank";
                 Statement stmt = con.createStatement();
             
@@ -172,7 +175,7 @@ public class HospitalSendRequest extends javax.swing.JPanel {
 
          
             }
-                String sql = "update patientrequests set request_status = '" + reqstatus +"' where patient_username ='" + puname+"' and patient_requesttype ='"+  selectedentitytype + "and patient_requestvalue='" + selectedentityvalue +"'";  
+                String sql = "update patientrequests set request_status = '" + reqstatus +"' where patient_username ='" + puname+"' and patient_requesttype ='"+  selectedentitytype + "' and patient_requestvalue='" + selectedentityvalue +"' and request_status = 'Open'" ;  
                 
                 PreparedStatement statement = con.prepareStatement(sql);
                 
@@ -192,7 +195,7 @@ public class HospitalSendRequest extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(HospitalSendRequest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        JOptionPane.showMessageDialog(this, "Request sent to Bank");
         
     }//GEN-LAST:event_jButton12ActionPerformed
 

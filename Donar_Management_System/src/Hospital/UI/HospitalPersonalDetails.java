@@ -5,11 +5,15 @@
 package Hospital.UI;
 
 import Patient.UI.*;
+
+import java.awt.event.KeyEvent;
+
 import java.sql.SQLException;
 import model.ServiceHospital;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  *
@@ -96,7 +100,9 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
             }
         });
 
-        HospitalUpdateBtn.setBackground(new java.awt.Color(0, 204, 204));
+        setBackground(new java.awt.Color(0, 204, 204));
+
+        HospitalUpdateBtn.setBackground(new java.awt.Color(0, 102, 102));
         HospitalUpdateBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         HospitalUpdateBtn.setText("Update");
         HospitalUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +116,11 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
                 txtHospitalStreetActionPerformed(evt);
             }
         });
+        txtHospitalStreet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHospitalStreetKeyPressed(evt);
+            }
+        });
 
         lbl_title.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_title.setText("                Hospital Sign Up");
@@ -117,6 +128,11 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
         txtHospitalZip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHospitalZipActionPerformed(evt);
+            }
+        });
+        txtHospitalZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHospitalZipKeyPressed(evt);
             }
         });
 
@@ -145,6 +161,11 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
                 txtHospitalNameActionPerformed(evt);
             }
         });
+        txtHospitalName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtHospitalNameKeyPressed(evt);
+            }
+        });
 
         txtHospitalUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,13 +184,10 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(HospitalUpdateBtn)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(HospitalUpdateBtn)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(255, 255, 255)
-                            .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(277, 277, 277)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,14 +204,17 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
                                 .addComponent(txtHospitalPassword)
                                 .addComponent(txtHospitalStreet)
                                 .addComponent(txtHospitalZip)
-                                .addComponent(txtHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtHospitalCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(300, 300, 300))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(lbl_title)
+                .addGap(30, 30, 30)
+                .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -272,6 +293,74 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
     private void txtHospitalPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalPasswordActionPerformed
+
+    private void txtHospitalNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalNameKeyPressed
+        // TODO add your handling code here:
+        
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtHospitalName.setEditable(true);
+        }else{
+            txtHospitalName.setEditable(false);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_txtHospitalNameKeyPressed
+
+    private void txtHospitalStreetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalStreetKeyPressed
+        // TODO add your handling code here:
+        
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+            //iso control for edit operation(delete key and backspace key allow)
+            //if enter character is letter, space and isocontrol char than allow to edit
+            txtHospitalStreet.setEditable(true);
+        }else{
+            txtHospitalStreet.setEditable(false);
+        }
+        
+    }//GEN-LAST:event_txtHospitalStreetKeyPressed
+
+    private void txtHospitalZipKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalZipKeyPressed
+        // TODO add your handling code here:
+        
+        String age= txtHospitalZip.getText();
+        
+        // get length of the string 
+        int length = age.length();
+        
+        char c = evt.getKeyChar();
+        
+        //check for number 0 to 9 
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            //check for length not more than 10 digit 
+            if(length<5){
+                //editable true 
+                txtHospitalZip.setEditable(true);
+                //JOptionPane.showMessageDialog(this," Invalid Cell Number ");
+                
+            }else{
+                //not editable if length is more than 10 digit
+                txtHospitalZip.setEditable(false);
+            }
+        }else{
+            //not allow keys 'backspace' and 'delete' for edit
+            if(evt.getExtendedKeyCode()== KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()== KeyEvent.VK_DELETE){
+                //than allow editable 
+                txtHospitalZip.setEditable(true);
+            }else{
+                txtHospitalZip.setEditable(false);
+            }
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_txtHospitalZipKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

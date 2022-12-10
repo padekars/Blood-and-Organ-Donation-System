@@ -4,6 +4,13 @@
  */
 package BloodDonorBank.UI;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import model.ServiceHospital;
+
 /**
  *
  * @author Gayatri
@@ -13,8 +20,28 @@ public class SendRequestToLab extends javax.swing.JPanel {
     /**
      * Creates new form SendRequestToLab
      */
-    public SendRequestToLab() {
+    
+            ServiceHospital sh;
+    String selectedhname, selectedpname  ,selectedentitytype,selectedentityvalue,reqstatus;
+    int selectedquantity;
+    public SendRequestToLab() throws SQLException {
         initComponents();
+        
+        String temp[]= null;
+        
+        ServiceHospital sh = new ServiceHospital();
+           ArrayList<String> temp1 = sh.loadBankRequests();
+            for (int i =0; i< temp1.size();i++){
+                
+        DefaultTableModel tblmodel = (DefaultTableModel) RequestByHospitalTable.getModel();
+
+            temp = temp1.get(i).split(",");
+             tblmodel.addRow(temp);
+            }
+        
+        
+        
+        
     }
 
     /**
@@ -32,15 +59,25 @@ public class SendRequestToLab extends javax.swing.JPanel {
 
         RequestByHospitalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Blood/Organ", "Entity Value", "Quantity"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        RequestByHospitalTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RequestByHospitalTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(RequestByHospitalTable);
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
@@ -75,8 +112,46 @@ public class SendRequestToLab extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+                try {
+                    // TODO add your handling code here:
+                    
+                    String temp[]= null;
+                    
+                    ServiceHospital sh = new ServiceHospital();
+                    sh.insertRequests(selectedentitytype, selectedentityvalue, selectedquantity, reqstatus);
+                    
+                        DefaultTableModel tblmodel = (DefaultTableModel) RequestByHospitalTable.getModel();
+                      while (tblmodel.getRowCount()>0)
+                        {
+                           tblmodel.removeRow(0);
+                        }
+                    ArrayList<String> temp1=sh.loadBankRequests();
+                    for (int i =0; i< temp1.size();i++){
+                        
+                        tblmodel = (DefaultTableModel) RequestByHospitalTable.getModel();
+                        temp = temp1.get(i).split(",");
+                        tblmodel.addRow(temp);
+                    }   } catch (SQLException ex) {
+                    Logger.getLogger(SendRequestToLab.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void RequestByHospitalTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RequestByHospitalTableMouseClicked
+        // TODO add your handling code here:
+        
+        DefaultTableModel tblmodel = (DefaultTableModel) RequestByHospitalTable.getModel();
+        
+         selectedentitytype = tblmodel.getValueAt(RequestByHospitalTable.getSelectedRow(),0).toString();
+         selectedentityvalue = tblmodel.getValueAt(RequestByHospitalTable.getSelectedRow(),1).toString();
+         selectedquantity = Integer.parseInt(tblmodel.getValueAt(RequestByHospitalTable.getSelectedRow(),2).toString());
+         reqstatus = tblmodel.getValueAt(RequestByHospitalTable.getSelectedRow(),3).toString();
+        System.out.println(selectedpname+ selectedentitytype+selectedentityvalue);
+        
+        
+    }//GEN-LAST:event_RequestByHospitalTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

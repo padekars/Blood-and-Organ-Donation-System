@@ -47,6 +47,8 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
         ManageHospital.setBackground(new java.awt.Color(0, 204, 204));
         ManageHospital.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         ManageHospital.setText("Manage Hospital");
@@ -74,7 +76,7 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
             }
         });
 
-        Logout.setBackground(new java.awt.Color(153, 0, 153));
+        Logout.setBackground(new java.awt.Color(204, 204, 0));
         Logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Logout.setText("Logout");
         Logout.addActionListener(new java.awt.event.ActionListener() {
@@ -106,51 +108,50 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ManageHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(50, 50, 50))
+                .addGap(176, 176, 176)
+                .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(30, 30, 30)
                 .addComponent(ManageHospital)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jButton7)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addGap(90, 90, 90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
                 .addComponent(Logout)
-                .addGap(84, 84, 84))
+                .addGap(15, 15, 15))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
+            .addGap(0, 634, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+            .addGap(0, 509, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -161,7 +162,7 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -210,7 +211,7 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         
-        AdminHospitalManagePage alp = new AdminHospitalManagePage();
+        AdminDonorManagePage alp = new AdminDonorManagePage();
         jSplitPane1.setRightComponent(alp);
     }//GEN-LAST:event_jButton7ActionPerformed
 
