@@ -7,8 +7,14 @@ package Patient.UI;
 //import Hospital.UI.AdminHospitalManageFrame;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import Hospital.UI.HospitalManageFrame;
+import Hospital.UI.HospitalPersonalDetails;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import model.ServicePatient;
 
 /**
  *
@@ -19,10 +25,16 @@ public class PatientManageFrame extends javax.swing.JFrame {
     /**
      * Creates new form AdministratorSplitPage
      */
-    public PatientManageFrame() {
+      String puser;
+    String pass;
+    public PatientManageFrame(String username, String password) {
         initComponents();
         
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+         puser = username;
+         pass = password;
+         
+        System.out.println("logged in patient "+puser+ pass);
     }
 
     /**
@@ -158,9 +170,16 @@ public class PatientManageFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
-        // TODO add your handling code here:
-        PatientPersonalDetails alp = new PatientPersonalDetails();
-        jSplitPane1.setRightComponent(alp);
+          try {
+              // TODO add your handling code here:
+              
+              System.out.println("in patient details  "+puser+ pass);
+              PatientPersonalDetails alp = new PatientPersonalDetails(puser,pass);
+              jSplitPane1.setRightComponent(alp);
+          } catch (SQLException ex) {
+              Logger.getLogger(PatientManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        
         
         
     }//GEN-LAST:event_PersonalDetailsActionPerformed
@@ -172,21 +191,31 @@ public class PatientManageFrame extends javax.swing.JFrame {
 
     private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
-        PatientSendRequest alp = new PatientSendRequest();
+        PatientSendRequest alp = new PatientSendRequest(puser,pass);
         jSplitPane1.setRightComponent(alp);
         
     }//GEN-LAST:event_SendRequestActionPerformed
 
     private void SendRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest1ActionPerformed
-        // TODO add your handling code here:
+          try {
+              // TODO add your handling code here:
+              
+              PatientBloodRequest alp = new PatientBloodRequest();
+              jSplitPane1.setRightComponent(alp);
+              ServicePatient sp = new ServicePatient();
+              sp.sendBloodRequest(puser,pass);
+              JOptionPane.showMessageDialog(this,"Request Sent for Blood!");
+          } catch (SQLException ex) {
+              Logger.getLogger(PatientManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+          }
         
-        PatientBloodRequest alp = new PatientBloodRequest();
-        jSplitPane1.setRightComponent(alp);
-        JOptionPane.showMessageDialog(this,"Request Sent for Blood!");
+        
     }//GEN-LAST:event_SendRequest1ActionPerformed
 
     private void SendRequest2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest2ActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_SendRequest2ActionPerformed
 
     /**
@@ -218,11 +247,11 @@ public class PatientManageFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PatientManageFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new PatientManageFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

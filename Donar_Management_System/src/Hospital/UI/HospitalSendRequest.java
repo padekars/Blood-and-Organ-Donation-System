@@ -4,6 +4,16 @@
  */
 package Hospital.UI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Gayatri
@@ -13,10 +23,71 @@ public class HospitalSendRequest extends javax.swing.JPanel {
     /**
      * Creates new form HospitalPatientTable
      */
-    public HospitalSendRequest() {
+    
+    String huser;
+    String pass;
+    Connection con;
+    String reqstatus;
+    String hname ="";
+    String selectedpname;
+    String selectedentitytype ;
+    String selectedentityvalue;
+    String puname;
+    Statement stmt;
+    public HospitalSendRequest(String username, String password) throws SQLException {
         initComponents();
-    }
+        huser = username;
+        pass = password;
+        
+          try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+             stmt = con.createStatement();
+            String queryString = "SELECT hospital_name FROM hospital where hospital_username = '" + huser + "'" ;
+            ResultSet results = stmt.executeQuery(queryString);
 
+            while (results.next()) {
+             hname = results.getString(1);
+
+         
+            }
+          loadtable(stmt);
+            
+        
+        
+    }
+    public void loadtable(Statement stmt) throws SQLException{
+        String queryString2 = "SELECT patient_name, patient_requesttype, patient_requestvalue, request_status FROM patientrequests where hospital_username = '" + hname + "'";
+            ResultSet results2 = stmt.executeQuery(queryString2);
+            String pname;
+            String retype;
+            String reqvalue;
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+             while (model.getRowCount()>0)
+          {
+             model.removeRow(0);
+          }
+            while (results2.next()) {
+             pname = results2.getString(1);
+             retype = results2.getString(2);
+             reqvalue = results2.getString(3);
+             reqstatus = results2.getString(4);
+             model = (DefaultTableModel) jTable1.getModel();
+             
+             String data1[] = {pname, retype,reqvalue,reqstatus};
+             
+             model.addRow(data1);
+         
+            }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,15 +107,17 @@ public class HospitalSendRequest extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Patient Name", "Blood/Organ", "Entity Type", "Status"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jButton12.setBackground(new java.awt.Color(0, 204, 204));
@@ -86,8 +159,56 @@ public class HospitalSendRequest extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            System.out.println("send reuqest to bank button clicked");
+                reqstatus = "Sent to Bank";
+                Statement stmt = con.createStatement();
+            
+                String queryString = "SELECT patient_username FROM patient where patient_name = '" + selectedpname + "'" ;
+                ResultSet results = stmt.executeQuery(queryString);
+            while (results.next()) {
+             puname = results.getString(1);
+
+         
+            }
+                String sql = "update patientrequests set request_status = '" + reqstatus +"' where patient_username ='" + puname+"' and patient_requesttype ='"+  selectedentitytype + "and patient_requestvalue='" + selectedentityvalue +"'";  
+                
+                PreparedStatement statement = con.prepareStatement(sql);
+                
+                
+                int i = statement.executeUpdate();
+                
+        System.out.println("inserted into request" + i);
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalSendRequest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          System.out.println("in button end"+selectedpname+ selectedentitytype+selectedentityvalue);
+         
+        try {
+            //again retrive from patient request
+            //insert into jtable
+            loadtable(this.stmt);
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalSendRequest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        
+        DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
+        
+         selectedpname = tblmodel.getValueAt(jTable1.getSelectedRow(),0).toString();
+         selectedentitytype = tblmodel.getValueAt(jTable1.getSelectedRow(),1).toString();
+         selectedentityvalue = tblmodel.getValueAt(jTable1.getSelectedRow(),2).toString();
+         reqstatus = tblmodel.getValueAt(jTable1.getSelectedRow(),3).toString();
+        System.out.println(selectedpname+ selectedentitytype+selectedentityvalue);
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

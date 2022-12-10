@@ -178,10 +178,11 @@ public class HospitalManageFrame extends javax.swing.JFrame {
 
     private void SendRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequestActionPerformed
         // TODO add your handling code here:
-        ServiceHospital s1 = new ServiceHospital();
-        HospitalPatientTable alp = new HospitalPatientTable();
-        jSplitPane1.setRightComponent(alp);
         try {
+            
+        ServiceHospital s1 = new ServiceHospital();
+        HospitalPatientTable alp = new HospitalPatientTable(huser,pass);
+        jSplitPane1.setRightComponent(alp);
             s1.loadpatientrequests();
         } catch (SQLException ex) {
             Logger.getLogger(HospitalManageFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -190,9 +191,13 @@ public class HospitalManageFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_SendRequestActionPerformed
 
     private void SendRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest1ActionPerformed
-        // TODO add your handling code here:
-        HospitalSendRequest alp = new HospitalSendRequest();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            HospitalSendRequest alp = new HospitalSendRequest(huser,pass);
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_SendRequest1ActionPerformed
 

@@ -4,6 +4,18 @@
  */
 package Patient.UI;
 
+import Hospital.UI.HospitalPersonalDetails;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.ServiceHospital;
+import model.ServicePatient;
+
 /**
  *
  * @author Gayatri
@@ -13,8 +25,63 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegistration1
      */
-    public PatientPersonalDetails() {
+    
+    String user;
+    String pass;
+    Connection con;
+    public PatientPersonalDetails(String username, String password) throws SQLException {
         initComponents();
+        
+         try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+              
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }
+        user = username;
+        pass = password;
+        ServicePatient sh = new ServicePatient();
+        sh.viewptable(user,pass);
+        
+        
+        Statement stmt = con.createStatement();
+        String sql = "select * from patient where patient_username = '" + username + "' and patient_password = '" + password+ "'"; 
+
+            ResultSet results = stmt.executeQuery(sql);
+
+            while (results.next()) {
+            String name = results.getString(1);
+            String uname =  results.getString(2);
+            String pass = results.getString(3) ;
+            String streetname = results.getString(4);
+            String community = results.getString(5) ;
+            String zipcode = results.getString(6) ;
+            String hospname = results.getString(12);
+            String gender = results.getString(7);
+            String dob = results.getString(9) ;
+            String bloodgroup = results.getString(10) ;
+            String phonenumber = results.getString(8);
+            String emailid = results.getString(11);
+                    
+            txtPatientName.setText(name);
+            txtPatientUsername.setText(uname);
+            txtPatientPassword.setText(pass);
+            txtPatientStreet.setText(streetname);
+            txtPatientCommunity.setSelectedItem(community);
+            txtPatientZip.setText(zipcode);
+            txtPatientHospital.setSelectedItem(hospname);
+            txtPatientGender.setSelectedItem(gender);
+            txtPatientDOB.setText(dob);
+            txtPatientBG.setSelectedItem(bloodgroup);
+            txtPatientContact.setText(phonenumber);
+            txtPatientEmail.setText(emailid);
+            
+    }
+        
     }
 
     /**
@@ -265,6 +332,42 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
 
     private void PatientUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientUpdateBtnActionPerformed
         // TODO add your handling code here:
+        
+         try {
+            // TODO add your handling code here:
+            String name =txtPatientName.getText();
+            String uname =txtPatientUsername.getText();
+            String pass = txtPatientPassword.getText();
+            String streetname = txtPatientStreet.getText();
+            String community = txtPatientCommunity.getSelectedItem().toString();
+            String zipcode = txtPatientZip.getText();
+            String hospname = txtPatientHospital.getSelectedItem().toString();
+            String gender = txtPatientGender.getSelectedItem().toString();
+            String dob = txtPatientDOB.getText();
+            String bloodgroup = txtPatientBG.getSelectedItem().toString();
+            String phonenumber = txtPatientContact.getText();
+            String email = txtPatientEmail.getText();
+            PreparedStatement stmt = con.prepareStatement("update patient set patient_name =?, patient_password =?,\n" +
+"patient_streetname =?, patient_community =?, patient_zipcode =?, \n" +
+"patient_gender =?, patient_dateofbirth =?,patient_bloodgroup =?,patient_phonenumber =?, patient_emailid = ?,patient_hospital = ? where patient_username=?");
+            stmt.setString(1, name);
+            stmt.setString(2, String.valueOf(pass));
+            stmt.setString(3, String.valueOf(streetname));
+            stmt.setString(4, String.valueOf(community));
+            stmt.setString(5, String.valueOf(zipcode));
+            stmt.setString(6, gender);
+            stmt.setString(7, String.valueOf(dob));
+            stmt.setString(8, String.valueOf(bloodgroup));
+            stmt.setString(9, String.valueOf(phonenumber));
+            stmt.setString(10, String.valueOf(email));
+            stmt.setString(12, String.valueOf(uname));
+            stmt.setString(11, String.valueOf(hospname));
+            stmt.executeUpdate();
+     
+    }                                                 
+    catch (SQLException ex) {
+            Logger.getLogger(HospitalPersonalDetails.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_PatientUpdateBtnActionPerformed
 
     private void txtPatientEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientEmailActionPerformed

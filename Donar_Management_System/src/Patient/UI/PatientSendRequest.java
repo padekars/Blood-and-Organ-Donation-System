@@ -4,6 +4,9 @@
  */
 package Patient.UI;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.ServicePatient;
 
@@ -17,8 +20,16 @@ public class PatientSendRequest extends javax.swing.JPanel {
     /**
      * Creates new form PatientSendRequest
      */
-    public PatientSendRequest() {
+        
+    String puser;
+    String pass;
+    public PatientSendRequest(String username, String password) {
         initComponents();
+        
+         puser = username;
+         pass = password;
+         
+        System.out.println("logged in patient "+puser+ pass);
     }
 
     /**
@@ -57,8 +68,18 @@ public class PatientSendRequest extends javax.swing.JPanel {
                 KidneyRequestBtnMouseClicked(evt);
             }
         });
+        KidneyRequestBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KidneyRequestBtnActionPerformed(evt);
+            }
+        });
 
         EyesRequestBtn.setText("EYES");
+        EyesRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EyesRequestBtnMouseClicked(evt);
+            }
+        });
         EyesRequestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EyesRequestBtnActionPerformed(evt);
@@ -66,10 +87,25 @@ public class PatientSendRequest extends javax.swing.JPanel {
         });
 
         LiverRequestBtn.setText("LIVER");
+        LiverRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LiverRequestBtnMouseClicked(evt);
+            }
+        });
 
         PancreasRequestBtn.setText("PANCREAS");
+        PancreasRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PancreasRequestBtnMouseClicked(evt);
+            }
+        });
 
         IntestineRequestBtn.setText("INTESTINE");
+        IntestineRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IntestineRequestBtnMouseClicked(evt);
+            }
+        });
         IntestineRequestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IntestineRequestBtnActionPerformed(evt);
@@ -77,6 +113,11 @@ public class PatientSendRequest extends javax.swing.JPanel {
         });
 
         LungRequestBtn.setText("LUNG");
+        LungRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LungRequestBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -138,8 +179,12 @@ public class PatientSendRequest extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this," Please select a organ");
         }
         else{
-            ServicePatient s1 = new ServicePatient();
-            s1.sendRequest( organ,  "hname",  "pusername",  "entitytype", "entityvalue");
+            try {
+                ServicePatient s1 = new ServicePatient();
+                s1.sendOrganRequest(puser,pass,organ);
+            } catch (SQLException ex) {
+                Logger.getLogger(PatientSendRequest.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         
@@ -148,10 +193,12 @@ public class PatientSendRequest extends javax.swing.JPanel {
 
     private void EyesRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EyesRequestBtnActionPerformed
         // TODO add your handling code here:
+    
     }//GEN-LAST:event_EyesRequestBtnActionPerformed
 
     private void IntestineRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntestineRequestBtnActionPerformed
         // TODO add your handling code here:
+     
     }//GEN-LAST:event_IntestineRequestBtnActionPerformed
 
     private void KidneyRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KidneyRequestBtnMouseClicked
@@ -163,6 +210,35 @@ public class PatientSendRequest extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_KidneyRequestBtnMouseClicked
+
+    private void KidneyRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KidneyRequestBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KidneyRequestBtnActionPerformed
+
+    private void EyesRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EyesRequestBtnMouseClicked
+        // TODO add your handling code here:
+        this.organ = "Eyes";
+    }//GEN-LAST:event_EyesRequestBtnMouseClicked
+
+    private void LiverRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LiverRequestBtnMouseClicked
+        // TODO add your handling code here:
+        this.organ = "Liver";
+    }//GEN-LAST:event_LiverRequestBtnMouseClicked
+
+    private void PancreasRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PancreasRequestBtnMouseClicked
+        // TODO add your handling code here:
+        this.organ = "Pancreas";
+    }//GEN-LAST:event_PancreasRequestBtnMouseClicked
+
+    private void IntestineRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IntestineRequestBtnMouseClicked
+        // TODO add your handling code here:
+        this.organ = "Intestine";
+    }//GEN-LAST:event_IntestineRequestBtnMouseClicked
+
+    private void LungRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LungRequestBtnMouseClicked
+        // TODO add your handling code here:
+        this.organ = "Lungs";
+    }//GEN-LAST:event_LungRequestBtnMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

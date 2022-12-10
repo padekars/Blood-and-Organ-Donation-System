@@ -109,6 +109,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KidneyRequestBtnMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KidneyRequestBtnActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EyesRequestBtn">
@@ -116,6 +117,7 @@
         <Property name="text" type="java.lang.String" value="EYES"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EyesRequestBtnMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EyesRequestBtnActionPerformed"/>
       </Events>
     </Component>
@@ -123,17 +125,24 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="LIVER"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LiverRequestBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="PancreasRequestBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="PANCREAS"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PancreasRequestBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="IntestineRequestBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="INTESTINE"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntestineRequestBtnMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IntestineRequestBtnActionPerformed"/>
       </Events>
     </Component>
@@ -141,6 +150,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="LUNG"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LungRequestBtnMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

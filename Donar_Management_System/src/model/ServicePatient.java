@@ -38,15 +38,14 @@ public class ServicePatient {
      
      public void addpatientdetails(Patient p){
          
-         
         System.out.println("in add patient");
         Statement stmt;
         try {    
                 System.out.println("patient Connection established!");
                 String sql = "insert into patient (patient_name, patient_username, patient_password , \n" +
 "patient_streetname, patient_community , patient_zipcode , \n" +
-"patient_gender, patient_phonenumber, patient_dateofbirth , patient_emailid,\n" +
-"patient_hospitalname) values (?,?,?,?,?,?,?,?,?,?,?)";  
+"patient_gender, patient_phonenumber, patient_dateofbirth ,patient_bloodgroup, patient_emailid,\n" +
+"patient_hospitalname) values (?,?,?,?,?,?,?,?,?,?,?,?)";  
                 PreparedStatement statement = con.prepareStatement(sql);
                 statement.setString(1, p.getPname());
                 statement.setString(2, p.getPusername());
@@ -55,10 +54,11 @@ public class ServicePatient {
                 statement.setString(5, p.getPcommunity());
                 statement.setInt(6, p.getPzipcode());
                 statement.setString(7, p.getPgender());
-                statement.setLong(8, p.getPphonenumber());
                 statement.setString(9, p.getPdateofbirth());
-                statement.setString(10, p.getPemailid());
-                statement.setString(11, p.getPhospital());
+                statement.setLong(8, p.getPphonenumber());
+                statement.setString(10, p.getPbloodgroup());
+                statement.setString(11, p.getPemailid());
+                statement.setString(12, p.getPhospital());
         
                 int i = statement.executeUpdate();
                 
@@ -69,21 +69,77 @@ public class ServicePatient {
         }
          
      }
-    public void sendRequest(String organ, String hname, String pusername, String entitytype, String entityvalue){
-        
-        System.out.println("in add patient");
-        Statement stmt;
+    public void sendBloodRequest(String pusername, String password) throws SQLException{
+
+        Statement stmt = con.createStatement();
+        String hname = "";
+        String pname = "";
+        String puname = "";
+        String pbg = "";
         try {    
                 System.out.println("patient Connection established!");
+                String queryString = "SELECT patient_hospitalname, patient_name, patient_username, patient_bloodgroup FROM patient where patient_username = '" + pusername + "' and patient_password = '" + password+"'";
+                ResultSet results = stmt.executeQuery(queryString);
+
+                while (results.next()) {
+                 hname = results.getString(1);
+                 pname =  results.getString(2);
+                 puname = results.getString(3);
+                 pbg = results.getString(4);
+                }
+                
+                
                 String sql = "insert into patientrequests (hospital_username, patient_name, patient_username, patient_requesttype , \n" +
 "patient_requestvalue, request_status ) values (?,?,?,?,?,?)";  
-                String req = "opened";
+                String req = "Open";
                 PreparedStatement statement = con.prepareStatement(sql);
                 statement.setString(1, hname);
-                statement.setString(2, pusername);
+                statement.setString(2, pname);
                 statement.setString(3, pusername);
-                statement.setString(4, entitytype);
-                statement.setString(5, entityvalue);
+                statement.setString(4, "Blood");
+                statement.setString(5, pbg);
+                statement.setString(6, req);
+        
+                int i = statement.executeUpdate();
+                
+        System.out.println("inserted patient request" + i);
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    public void sendOrganRequest(String pusername, String password, String organ) throws SQLException{
+
+        Statement stmt = con.createStatement();
+        String hname = "";
+        String pname = "";
+        String puname = "";
+        String pbg = "";
+        String org = organ;
+        try {    
+                String queryString = "SELECT patient_hospitalname, patient_name, patient_username, patient_bloodgroup FROM patient where patient_username = '" + pusername + "' and patient_password = '" + password+"'";
+                ResultSet results = stmt.executeQuery(queryString);
+
+                while (results.next()) {
+                 hname = results.getString(1);
+                 pname =  results.getString(2);
+                 puname = results.getString(3);
+                 pbg = results.getString(4);
+                }
+                
+                
+                String sql = "insert into patientrequests (hospital_username, patient_name, patient_username, patient_requesttype , \n" +
+"patient_requestvalue, request_status ) values (?,?,?,?,?,?)";  
+                String req = "Open";
+                PreparedStatement statement = con.prepareStatement(sql);
+                statement.setString(1, hname);
+                statement.setString(2, pname);
+                statement.setString(3, pusername);
+                statement.setString(4, "Organ");
+                statement.setString(5, organ);
                 statement.setString(6, req);
         
                 int i = statement.executeUpdate();
@@ -134,9 +190,34 @@ public class ServicePatient {
               System.out.println(rs.getString(9) );
               System.out.println(rs.getString(10) );
               System.out.println(rs.getString(11) );
+              System.out.println(rs.getString(12) );
           }
         
                
      }
+    
+      public void viewptable(String username, String password) throws SQLException{ 
+         Statement stmt = con.createStatement();
+         
+            System.out.println("in view details  "+username+ password);
+          String sql = "select * from patient where patient_username = '" + username + "' and patient_password = '" + password+"'"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              System.out.println(rs.getString(2) );
+              System.out.println(rs.getString(3) );
+              System.out.println(rs.getString(4) );
+              System.out.println(rs.getString(5) );
+              System.out.println(rs.getString(6) );
+              System.out.println(rs.getString(7) );
+              System.out.println(rs.getString(8) );
+              System.out.println(rs.getString(9) );
+              System.out.println(rs.getString(10) );
+              System.out.println(rs.getString(11) );
+              System.out.println(rs.getString(12) );
+          }
+     }
+     
+     
     
 }

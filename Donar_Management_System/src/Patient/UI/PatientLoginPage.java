@@ -131,7 +131,7 @@ public class PatientLoginPage extends javax.swing.JPanel {
           if(i ==1)
                 {
 
-                    PatientManageFrame pjf =  new PatientManageFrame();
+                    PatientManageFrame pjf =  new PatientManageFrame(username,password);
                     pjf.show();
 
                 }
