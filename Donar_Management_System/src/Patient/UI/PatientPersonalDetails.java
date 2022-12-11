@@ -88,6 +88,8 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
             }
         });
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");
 
@@ -163,7 +165,7 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        PatientSignUpBtn.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSignUpBtn.setBackground(new java.awt.Color(0, 102, 102));
         PatientSignUpBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         PatientSignUpBtn.setText("SIGN UP");
         PatientSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -212,8 +214,9 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
                 .addComponent(PatientSignUpBtn)
                 .addGap(189, 189, 189))
             .addGroup(layout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(90, 90, 90)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txt_Zip1)
@@ -242,10 +245,7 @@ public class PatientPersonalDetails extends javax.swing.JPanel {
                             .addComponent(txtPatientPassword, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPatientUsername, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPatientName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPatientEmail)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lbl_title, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPatientEmail))))
                 .addGap(200, 200, 200))
         );
         layout.setVerticalGroup(

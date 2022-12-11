@@ -3,18 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Donor/UI/DonorPersonalDetails.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Donor/UI/DonorSplitPage.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Hospital/UI/HospitalManageFrame.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Hospital/UI/HospitalPatientTable.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Hospital/UI/HospitalSendRequest.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Donor/UI/DonorBloodDonate.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Hospital/UI/HospitalSplitPage.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Donor/UI/DonorManageFrame.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/UserInterface/MainFrame.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Donor/UI/DonorSignUpPage.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Hospital/UI/HospitalSignUpPage.java</file>
-            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Donor/UI/DonorOrganDonate.java</file>
+            <file>file:/C:/Users/Gayatri/OneDrive/Desktop/AED/AED_Final_Project/Donar_Management_System/src/Patient/UI/PatientSplitPage.java</file>
         </group>
     </open-files>
 </project-private>

@@ -33,6 +33,8 @@ public class RequestByHospital extends javax.swing.JPanel {
         DonarMatchTable = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         RequestByHospitalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

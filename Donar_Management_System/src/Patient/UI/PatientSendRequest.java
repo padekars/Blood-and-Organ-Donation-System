@@ -32,17 +32,25 @@ public class PatientSendRequest extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         PatientSendRequestBtn = new javax.swing.JButton();
-        KidneyRequestBtn = new javax.swing.JButton();
-        EyesRequestBtn = new javax.swing.JButton();
-        LiverRequestBtn = new javax.swing.JButton();
-        PancreasRequestBtn = new javax.swing.JButton();
-        IntestineRequestBtn = new javax.swing.JButton();
-        LungRequestBtn = new javax.swing.JButton();
+        DonarKidneyBtn = new javax.swing.JButton();
+        DonarEyesBtn = new javax.swing.JButton();
+        DonarLiverBtn = new javax.swing.JButton();
+        DonarPancreasBtn = new javax.swing.JButton();
+        DonarIntestineBtn = new javax.swing.JButton();
+        DonarLungBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Send Request For Organ");
 
-        PatientSendRequestBtn.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSendRequestBtn.setBackground(new java.awt.Color(0, 102, 102));
         PatientSendRequestBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         PatientSendRequestBtn.setText("Send Request");
         PatientSendRequestBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -51,83 +59,126 @@ public class PatientSendRequest extends javax.swing.JPanel {
             }
         });
 
-        KidneyRequestBtn.setText("KIDNEY");
-        KidneyRequestBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                KidneyRequestBtnMouseClicked(evt);
-            }
-        });
+        DonarKidneyBtn.setBackground(new java.awt.Color(255, 102, 153));
+        DonarKidneyBtn.setText("KIDNEY");
 
-        EyesRequestBtn.setText("EYES");
-        EyesRequestBtn.addActionListener(new java.awt.event.ActionListener() {
+        DonarEyesBtn.setBackground(new java.awt.Color(255, 153, 153));
+        DonarEyesBtn.setText("EYES");
+        DonarEyesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EyesRequestBtnActionPerformed(evt);
+                DonarEyesBtnActionPerformed(evt);
             }
         });
 
-        LiverRequestBtn.setText("LIVER");
+        DonarLiverBtn.setBackground(new java.awt.Color(255, 102, 0));
+        DonarLiverBtn.setText("LIVER");
 
-        PancreasRequestBtn.setText("PANCREAS");
+        DonarPancreasBtn.setBackground(new java.awt.Color(255, 204, 0));
+        DonarPancreasBtn.setText("PANCREAS");
 
-        IntestineRequestBtn.setText("INTESTINE");
-        IntestineRequestBtn.addActionListener(new java.awt.event.ActionListener() {
+        DonarIntestineBtn.setBackground(new java.awt.Color(204, 0, 204));
+        DonarIntestineBtn.setText("INTESTINE");
+        DonarIntestineBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IntestineRequestBtnActionPerformed(evt);
+                DonarIntestineBtnActionPerformed(evt);
             }
         });
 
-        LungRequestBtn.setText("LUNG");
+        DonarLungBtn.setBackground(new java.awt.Color(0, 153, 255));
+        DonarLungBtn.setText("LUNG");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-kidney-vector-illustration-754700143 (2).jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-human-eye-isolated-on-white-photo-realistic-vector-illustration-250674166 (1).jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-realistic-liver-anatomy-structure-vector-hepatic-system-organ-digestive-gallbladder-organ-human-1794723994 (1).jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-pancreas-isolated-on-white-background-medicine-concept-flat-vector-cartoon-illustration-1911536488 (1).jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-human-intestines-organ-anatomy-medicine-concept-healthcare-internal-organs-of-the-human-design-1384580939 (1).jpg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-lung-cancer-diagram-in-detail-illustration-308751308 (1).jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PatientSendRequestBtn)
-                .addGap(112, 112, 112))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DonarLungBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DonarLiverBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(190, 190, 190)
+                                .addComponent(DonarPancreasBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DonarKidneyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(190, 190, 190)
+                                .addComponent(DonarEyesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(DonarIntestineBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 2, Short.MAX_VALUE)))
+                .addGap(189, 189, 189))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(467, 467, 467)
+                        .addComponent(PatientSendRequestBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(IntestineRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(200, 200, 200)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(LiverRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(KidneyRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(175, 175, 175)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EyesRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PancreasRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(LungRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(200, 200, 200))
+                        .addGap(231, 231, 231)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
-                .addGap(67, 67, 67)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(KidneyRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EyesRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PancreasRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LiverRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LungRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(IntestineRequestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DonarKidneyBtn)
+                    .addComponent(DonarEyesBtn))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DonarLiverBtn)
+                    .addComponent(DonarPancreasBtn))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DonarLungBtn)
+                    .addComponent(DonarIntestineBtn))
+                .addGap(50, 50, 50)
                 .addComponent(PatientSendRequestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,33 +197,29 @@ public class PatientSendRequest extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this," Request Submitted!");
     }//GEN-LAST:event_PatientSendRequestBtnActionPerformed
 
-    private void EyesRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EyesRequestBtnActionPerformed
+    private void DonarEyesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarEyesBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EyesRequestBtnActionPerformed
+    }//GEN-LAST:event_DonarEyesBtnActionPerformed
 
-    private void IntestineRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IntestineRequestBtnActionPerformed
+    private void DonarIntestineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarIntestineBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IntestineRequestBtnActionPerformed
-
-    private void KidneyRequestBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KidneyRequestBtnMouseClicked
-        // TODO add your handling code here:
-        
-        this.organ = "Kidney";
-        
-        
-        
-        
-    }//GEN-LAST:event_KidneyRequestBtnMouseClicked
+    }//GEN-LAST:event_DonarIntestineBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EyesRequestBtn;
-    private javax.swing.JButton IntestineRequestBtn;
-    private javax.swing.JButton KidneyRequestBtn;
-    private javax.swing.JButton LiverRequestBtn;
-    private javax.swing.JButton LungRequestBtn;
-    private javax.swing.JButton PancreasRequestBtn;
+    private javax.swing.JButton DonarEyesBtn;
+    private javax.swing.JButton DonarIntestineBtn;
+    private javax.swing.JButton DonarKidneyBtn;
+    private javax.swing.JButton DonarLiverBtn;
+    private javax.swing.JButton DonarLungBtn;
+    private javax.swing.JButton DonarPancreasBtn;
     private javax.swing.JButton PatientSendRequestBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

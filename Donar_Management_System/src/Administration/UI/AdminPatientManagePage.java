@@ -93,6 +93,8 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
             }
         });
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");
 
@@ -174,7 +176,7 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        PatientSignUpBtn.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSignUpBtn.setBackground(new java.awt.Color(0, 102, 102));
         PatientSignUpBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         PatientSignUpBtn.setText("SAVE");
         PatientSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +232,7 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        PatientSignUpBtn1.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSignUpBtn1.setBackground(new java.awt.Color(0, 102, 102));
         PatientSignUpBtn1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         PatientSignUpBtn1.setText("VIEW");
         PatientSignUpBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +241,7 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
             }
         });
 
-        PatientSignUpBtn2.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSignUpBtn2.setBackground(new java.awt.Color(0, 102, 102));
         PatientSignUpBtn2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         PatientSignUpBtn2.setText("DELETE");
         PatientSignUpBtn2.addActionListener(new java.awt.event.ActionListener() {

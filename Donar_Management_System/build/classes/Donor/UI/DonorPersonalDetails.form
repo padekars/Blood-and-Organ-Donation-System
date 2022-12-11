@@ -143,7 +143,7 @@
                   <Component id="lbl_telenum1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDonarEmail" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="DonarUpdateBtn" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
