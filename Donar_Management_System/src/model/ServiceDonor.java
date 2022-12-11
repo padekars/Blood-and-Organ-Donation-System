@@ -54,9 +54,9 @@ public class ServiceDonor {
                 statement.setString(3, d.getDpassword());
                 statement.setString(4, d.getDstreetname());
                 statement.setString(5, d.getDcommunity());
-                statement.setInt(6, d.getDzipcode());
+                statement.setString(6, d.getDzipcode());
                 statement.setString(7, d.getDgender());
-                statement.setLong(8, d.getDphonenumber());
+                statement.setString(8, d.getDphonenumber());
                 statement.setString(9, d.getDdateofbirth());
         
                 int i = statement.executeUpdate();

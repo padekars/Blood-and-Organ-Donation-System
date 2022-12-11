@@ -4,6 +4,8 @@
  */
 package model.patient;
 
+import java.util.Date;
+
 /**
  *
  * @author snehal
@@ -14,13 +16,37 @@ public class Patient {
     String ppassword;
     String pstreetname;
     String pcommunity;
-    String pzipcode;
+    int zipcode;
     String pgender;
-    String pphonenumber;
-    String pdateofbirth;
+    long phonenumber;
+    Date pbirth_date;
+
+    public Date getPbirth_date() {
+        return pbirth_date;
+    }
+
+    public void setPbirth_date(Date pbirth_date) {
+        this.pbirth_date = pbirth_date;
+    }
     String pbloodgroup;
     String phospital;
     String pemailid;
+
+    public int getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(int zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public long getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(long phonenumber) {
+        this.phonenumber = phonenumber;
+    }
 
     public String getPname() {
         return pname;
@@ -37,7 +63,7 @@ public class Patient {
     public void setPusername(String pusername) {
         this.pusername = pusername;
     }
-
+    String pdateofbirth;
     public String getPpassword() {
         return ppassword;
     }
@@ -61,6 +87,7 @@ public class Patient {
     public void setPcommunity(String pcommunity) {
         this.pcommunity = pcommunity;
     }
+    String pzipcode;
 
     public String getPzipcode() {
         return pzipcode;
@@ -77,7 +104,7 @@ public class Patient {
     public void setPgender(String pgender) {
         this.pgender = pgender;
     }
-
+    String pphonenumber;
     public String getPphonenumber() {
         return pphonenumber;
     }

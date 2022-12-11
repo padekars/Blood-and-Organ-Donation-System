@@ -10,4 +10,33 @@ package model.bank;
  */
 public class Bank {
     
+    String bankname;
+    String bankusername;
+    String bankpassword;
+
+    public String getBankname() {
+        return bankname;
+    }
+
+    public void setBankname(String bankname) {
+        this.bankname = bankname;
+    }
+
+    public String getBankusername() {
+        return bankusername;
+    }
+
+    public void setBankusername(String bankusername) {
+        this.bankusername = bankusername;
+    }
+
+    public String getBankpassword() {
+        return bankpassword;
+    }
+
+    public void setBankpassword(String bankpassword) {
+        this.bankpassword = bankpassword;
+    }
+    
+    
 }
