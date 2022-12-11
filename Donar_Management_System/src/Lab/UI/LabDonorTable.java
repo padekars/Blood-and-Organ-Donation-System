@@ -28,12 +28,8 @@ public class LabDonorTable extends javax.swing.JPanel {
         //add coded
         
         ServiceDonor sh = new ServiceDonor();
-        
-        
-        
         try {
             String temp[]= null;
-            
             ArrayList<String> temp1 = sh.loadDonorDonationsTable();
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
              while (model.getRowCount()>0)
@@ -50,6 +46,23 @@ public class LabDonorTable extends javax.swing.JPanel {
             Logger.getLogger(RequestByHospital.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        try {
+            String temp[]= null;
+            ArrayList<String> temp1 = sh.loadDonorTable();
+            DefaultTableModel model = (DefaultTableModel) HospitalPatientTable.getModel();
+             while (model.getRowCount()>0)
+          {
+             model.removeRow(0);
+          }
+            for (int i =0; i< temp1.size();i++){
+                
+                model = (DefaultTableModel) HospitalPatientTable.getModel();
+                temp = temp1.get(i).split(",");
+                model.addRow(temp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestByHospital.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     
     }

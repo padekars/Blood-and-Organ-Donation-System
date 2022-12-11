@@ -428,14 +428,14 @@ Connection con;
 //                while(rs.next())  
 //                System.out.println(rs.getString(1)+"  "+rs.getString(2));
 
-            txtPatientContact.setText("");
-            txtPatientDOB.setText("");
-            txtPatientEmail.setText("");
-            txtPatientName.setText("");
-            txtPatientPassword.setText("");
-            txtPatientStreet.setText("");
-            txtPatientUsername.setText("");
-            txtPatientZip.setText("");
+//            txtPatientContact.setText("");
+//            txtPatientDOB.setText("");
+//            txtPatientEmail.setText("");
+//            txtPatientName.setText("");
+//            txtPatientPassword.setText("");
+//            txtPatientStreet.setText("");
+//            txtPatientUsername.setText("");
+//            txtPatientZip.setText("");
             
 
 
@@ -447,11 +447,11 @@ Connection con;
         p.setPpassword(txtPatientPassword.getText());
         p.setPstreetname(txtPatientStreet.getText());
         p.setPcommunity(txtPatientCommunity.getSelectedItem().toString());
-        p.setPzipcode(Integer.parseInt(txtPatientZip.getText()));
+        p.setPzipcode(txtPatientZip.getText());
         p.setPgender(txtPatientGender.getSelectedItem().toString());
         p.setPdateofbirth(txtPatientDOB.getText());
         p.setPbloodgroup(txtPatientBG.getSelectedItem().toString());
-        p.setPphonenumber(Long.valueOf(txtPatientContact.getText()));
+        p.setPphonenumber(txtPatientContact.getText());
         p.setPemailid(txtPatientEmail.getText());
         p.setPhospital(txtPatientHospital.getSelectedItem().toString());
         

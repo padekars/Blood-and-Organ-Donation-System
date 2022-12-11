@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import model.patient.Patient;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,10 +53,10 @@ public class ServicePatient {
                 statement.setString(3, p.getPpassword());
                 statement.setString(4, p.getPstreetname());
                 statement.setString(5, p.getPcommunity());
-                statement.setInt(6, p.getPzipcode());
+                statement.setString(6, p.getPzipcode());
                 statement.setString(7, p.getPgender());
                 statement.setString(9, p.getPdateofbirth());
-                statement.setLong(8, p.getPphonenumber());
+                statement.setString(8, p.getPphonenumber());
                 statement.setString(10, p.getPbloodgroup());
                 statement.setString(11, p.getPemailid());
                 statement.setString(12, p.getPhospital());
@@ -217,6 +218,23 @@ public class ServicePatient {
               System.out.println(rs.getString(12) );
           }
      }
+      
+      public ArrayList<String> loadPatientRequestsTable() throws SQLException{
+            Statement stmt = con.createStatement();
+            String queryString = "select patient_requesttype ,\n" +
+"patient_requestvalue , request_status  from patientrequests";
+            ResultSet results = stmt.executeQuery(queryString);
+
+             ArrayList<String> ar = new ArrayList<String>();
+            while (results.next()) {
+            String type = results.getString(1);
+            String value = results.getString(2);
+            String status =  results.getString(3);
+            
+            ar.add(type.concat(",").concat(value).concat(",").concat(status));
+            }
+            return ar;
+            }
      
      
     

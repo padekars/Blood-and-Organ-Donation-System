@@ -195,13 +195,29 @@ public class ServiceDonor {
             String value =  results.getString(3);
             String avail = results.getString(4);
             
-               ar.add(dname.concat(",").concat(type).concat(",").concat(value).concat(",").concat(avail));
-               
-    
-     }
+            ar.add(dname.concat(",").concat(type).concat(",").concat(value).concat(",").concat(avail));
+            }
+            return ar;
+            }
+         
+            public ArrayList<String> loadDonorTable() throws SQLException{
+            Statement stmt = con.createStatement();
+            String queryString = "select donor_name ,\n" +
+" donor_community , \n" +
+"donor_gender , donor_phonenumber , donor_emailid ,donor_bloodgroup from donor";
+            ResultSet results = stmt.executeQuery(queryString);
+
+             ArrayList<String> ar = new ArrayList<String>();
+            while (results.next()) {
+            String dname = results.getString(1);
+            String community = results.getString(2);
+            String gender =  results.getString(3);
+            String phonenumber = results.getString(4);
+            String emailid =  results.getString(5);
             
-     
-     return ar;
-     }
+            ar.add(dname.concat(",").concat(community).concat(",").concat(gender).concat(",").concat(phonenumber).concat(",").concat(emailid));
+            }
+            return ar;
+            }
     
 }

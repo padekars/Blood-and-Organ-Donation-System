@@ -14,9 +14,9 @@ public class Patient {
     String ppassword;
     String pstreetname;
     String pcommunity;
-    int pzipcode;
+    String pzipcode;
     String pgender;
-    long pphonenumber;
+    String pphonenumber;
     String pdateofbirth;
     String pbloodgroup;
     String phospital;
@@ -62,11 +62,11 @@ public class Patient {
         this.pcommunity = pcommunity;
     }
 
-    public int getPzipcode() {
+    public String getPzipcode() {
         return pzipcode;
     }
 
-    public void setPzipcode(int pzipcode) {
+    public void setPzipcode(String pzipcode) {
         this.pzipcode = pzipcode;
     }
 
@@ -78,11 +78,11 @@ public class Patient {
         this.pgender = pgender;
     }
 
-    public long getPphonenumber() {
+    public String getPphonenumber() {
         return pphonenumber;
     }
 
-    public void setPphonenumber(long pphonenumber) {
+    public void setPphonenumber(String pphonenumber) {
         this.pphonenumber = pphonenumber;
     }
 
