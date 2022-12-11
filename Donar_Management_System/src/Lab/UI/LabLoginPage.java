@@ -195,6 +195,18 @@ public class LabLoginPage extends javax.swing.JPanel {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
         // TODO add your handling code here:
+        
+        String username = txtusername.getText();
+       String password = txtpassword.getText();
+       if(username.equals("lab") && password.equals("lab")){
+           LabSplitPage asp = new LabSplitPage();
+           asp.show();
+           
+       }
+       else{
+           
+                JOptionPane.showMessageDialog(null, "Lab username and password does not exist");
+       }
 
 
         

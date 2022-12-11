@@ -194,7 +194,17 @@ public class BankLoginPage extends javax.swing.JPanel {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
         // TODO add your handling code here:
-
+        String username = txtusername.getText();
+       String password = txtpassword.getText();
+       if(username.equals("bank") && password.equals("bank")){
+           BankSplitPage asp = new BankSplitPage();
+           asp.show();
+           
+       }
+       else{
+           
+                JOptionPane.showMessageDialog(null, "Bank username and password does not exist");
+       }
 
         
     }//GEN-LAST:event_btn_loginActionPerformed

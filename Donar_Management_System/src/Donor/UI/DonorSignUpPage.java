@@ -337,17 +337,37 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         else
         {  
                 JOptionPane.showMessageDialog(this," New Donar Details Added ");
-          
-//
-//            txtDonarContact.setText("");
-//            txtDonarDOB.setText("");
-//            txtDonarEmail.setText("");
-//            txtDonarName.setText("");
-//            txtDonarPassword.setText("");
-//            txtDonarStreet.setText("");
-//            txtDonarUsername.setText("");
-//            txtDonarZip.setText("");
-//            
+          Donor d = new Donor();
+        d.setDname(txtDonarName.getText());
+        d.setDusername(txtDonarUsername.getText());
+        d.setDpassword(txtDonarPassword.getText());
+        d.setDstreetname(txtDonarStreet.getText());
+        d.setDcommunity(txtDonarCommunity.getSelectedItem().toString());
+        d.setDzipcode(txtDonarZip.getText());
+        d.setDgender(txtDonarGender.getSelectedItem().toString());
+        d.setDdateofbirth(txtDonarDOB.getText());
+        d.setDbloodgroup(txtDonarBG.getSelectedItem().toString());
+        d.setDphonenumber(txtDonarContact.getText());
+        d.setDemailid(txtDonarEmail.getText());
+        
+        ServiceDonor s = new ServiceDonor();
+        System.out.println("donor sign up button clicked");
+        
+        System.out.println("name "+txtDonarName.getText());
+        
+        System.out.println("pass"+txtDonarPassword.getText());
+        s.adddonordetails(d);
+
+            txtDonarContact.setText("");
+            txtDonarDOB.setText("");
+            txtDonarEmail.setText("");
+            txtDonarName.setText("");
+            txtDonarPassword.setText("");
+            txtDonarStreet.setText("");
+            txtDonarUsername.setText("");
+            txtDonarZip.setText("");
+            
+            
 
 
        } 
@@ -358,26 +378,7 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         
 
         
-        Donor d = new Donor();
-        d.setDname(txtDonarName.getText());
-        d.setDusername(txtDonarUsername.getText());
-        d.setDpassword(txtDonarPassword.getText());
-        d.setDstreetname(txtDonarStreet.getText());
-        d.setDcommunity(txtDonarCommunity.getSelectedItem().toString());
-        //d.setDzipcode(Integer.parseInt(txtDonarZip.getText()));
-        d.setDgender(txtDonarGender.getSelectedItem().toString());
-        d.setDdateofbirth(txtDonarDOB.getText());
-        d.setDbloodgroup(txtDonarBG.getSelectedItem().toString());
-        //d.setDphonenumber(Long.valueOf(txtDonarContact.getText()));
-        d.setDemailid(txtDonarEmail.getText());
         
-        ServiceDonor s = new ServiceDonor();
-        System.out.println("donor sign up button clicked");
-        
-        System.out.println("name "+txtDonarName.getText());
-        
-        System.out.println("pass"+txtDonarPassword.getText());
-        s.adddonordetails(d);
 
         
     }//GEN-LAST:event_DonarSignUpBtnActionPerformed

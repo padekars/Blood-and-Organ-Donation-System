@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Patient.UI;
+import Utilities.SendEmail;
 import model.*;
 import java.sql.*;
 import java.sql.ResultSet;
@@ -360,7 +361,7 @@ Connection con;
 
     private void PatientSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // TODO add your handling code here:
-
+        String emailid = txtPatientEmail.getText();
         // to check cell phone no. length
         String cn= txtPatientContact.getText();        
         int celllength = cn.length();
@@ -460,6 +461,19 @@ Connection con;
         ServicePatient s = new ServicePatient();
         System.out.println("patient sign up button clicked");
         s.addpatientdetails(p);
+        String subject = "Signup - Donor Management System";
+        String text = "Hey!! Welcome to Donor Management System.";
+        boolean result = false;
+        
+        	try {
+            	result = SendEmail.sendEmail(emailid, subject, text);
+        	} catch (Exception ex) {
+            	java.util.logging.Logger.getLogger(PatientSignUpPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        	}
+                
+        	if(result == false){
+                    JOptionPane.showMessageDialog(this, "Email does not exists");
+        	}
 
         
     }                                        

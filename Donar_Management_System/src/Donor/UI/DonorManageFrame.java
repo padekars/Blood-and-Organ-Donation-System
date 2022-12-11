@@ -164,9 +164,13 @@ public class DonorManageFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalDetailsActionPerformed
-        // TODO add your handling code here:
-        DonorPersonalDetails alp = new DonorPersonalDetails();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            DonorPersonalDetails alp = new DonorPersonalDetails(donorusername,donorpassword);
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(DonorManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
     }//GEN-LAST:event_PersonalDetailsActionPerformed

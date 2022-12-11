@@ -195,7 +195,17 @@ public class AdministratorLoginPage extends javax.swing.JPanel {
 
         // TODO add your handling code here:
 
-
+       String username = txtusername.getText();
+       String password = txtpassword.getText();
+       if(username.equals("admin") && password.equals("admin")){
+           AdministratorSplitPage asp = new AdministratorSplitPage();
+           asp.show();
+           
+       }
+       else{
+           
+                JOptionPane.showMessageDialog(null, "Admin username and password does not exist");
+       }
         
        
 

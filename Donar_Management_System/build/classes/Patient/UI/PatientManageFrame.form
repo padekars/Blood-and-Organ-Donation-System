@@ -68,7 +68,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
                               <Component id="Logout" min="-2" pref="95" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="SendRequest2" alignment="0" max="32767" attributes="0"/>
                       </Group>

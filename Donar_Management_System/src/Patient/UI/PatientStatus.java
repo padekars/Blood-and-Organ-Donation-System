@@ -22,14 +22,15 @@ public class PatientStatus extends javax.swing.JPanel {
     /**
      * Creates new form PatientStatus
      */
-    public PatientStatus() {
+    public PatientStatus(String pusername, String ppassword) {
         initComponents();
         
-        
+        String puser = pusername;
+        String ppass = ppassword;
         ServicePatient sh = new ServicePatient();
         try {
             String temp[]= null;
-            ArrayList<String> temp1 = sh.loadPatientRequestsTable();
+            ArrayList<String> temp1 = sh.loadPatientRequestsTable(puser,ppass);
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
              while (model.getRowCount()>0)
           {
@@ -91,7 +92,7 @@ public class PatientStatus extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents

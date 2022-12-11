@@ -22,6 +22,8 @@ import javax.swing.JOptionPane;
  */
 public class ServiceHospital {
     Connection con;
+    String entityquantity ;
+    String entityname ;
     public ServiceHospital(){
         try{  
                 Class.forName("com.mysql.jdbc.Driver");  
@@ -51,11 +53,11 @@ public class ServiceHospital {
             String reqstatus;
             int i = 0;
             while (results2.next()) {
-             pname = results2.getString(1);
-             retype = results2.getString(2);
-             reqvalue = results2.getString(3);
-             huname = results2.getString(4);
-             reqstatus = results2.getString(5);
+            pname = results2.getString(1);
+            retype = results2.getString(2);
+            reqvalue = results2.getString(3);
+            huname = results2.getString(4);
+            reqstatus = results2.getString(5);
              
             
                ar.add(huname.concat(",").concat(pname).concat(",").concat(retype).concat(",").concat(reqvalue).concat(",").concat(reqstatus));
@@ -67,31 +69,33 @@ public class ServiceHospital {
             return ar;
      }
             
-     public void addhospitaldetails(Hospital h){
+     public void addhospitaldetails(Hospital h) throws SQLException{
          
          
         System.out.println("in add hospital");
-        try 
-        {    
-                System.out.println("Connection established!");
-                String sql = "insert into hospital(hospital_name, hospital_username, hospital_password, hospital_streetname , \n" +
-                        "hospital_community, hospital_zipcode) values (?, ?, ?, ?, ?, ?)"; 
-                PreparedStatement statement = con.prepareStatement(sql);
-                statement.setString(1, h.getHname());
-                statement.setString(2, h.getHusername());
-                statement.setString(3, h.getHpassword());
-                statement.setString(4, h.getHstreetname());
-                statement.setString(5, h.getHcommunity());
-                statement.setInt(6, h.getHzipcode());
-                int i = statement.executeUpdate();
+       
+                  
+                //Statement stmt = con.createStatement();
+                //String query = "SELECT hospital_username FROM hospital";
                 
-        System.out.println("inserted hospital" + i);
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(HospitalSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-     }
+                        String sql = "insert into hospital(hospital_name, hospital_username, hospital_password, hospital_streetname , \n" +
+                                "hospital_community, hospital_zipcode) values (?, ?, ?, ?, ?, ?)"; 
+                        PreparedStatement statement = con.prepareStatement(sql);
+                        statement.setString(1, h.getHname());
+                        statement.setString(2, h.getHusername());
+                        statement.setString(3, h.getHpassword());
+                        statement.setString(4, h.getHstreetname());
+                        statement.setString(5, h.getHcommunity());
+                        statement.setInt(6, h.getHzipcode());
+                        int i = statement.executeUpdate();
+                        
+                        
+                        }
+                        
+                
+                
+                
+        
      public void loadpatientrequests() throws SQLException{
          Statement stmt = con.createStatement();
          
@@ -119,8 +123,7 @@ public class ServiceHospital {
             String pass =  results.getString(2);
 
                if ((username.equals(uname)) && (password.equals(pass))) {
-
-                  JOptionPane.showMessageDialog(null, "Hospital Username and Password exist");  
+ 
                   return 1;
             }
         
@@ -160,18 +163,24 @@ public class ServiceHospital {
      }
      
      
-     public void checkForMatch(String selectedhname,String selectedpname,String selectedentitytype,String selectedentityvalue,String reqstatus){
-         try {
+     public void checkForMatch(String selectedhname,String selectedpname,String selectedentitytype,String selectedentityvalue,String reqstatus) throws SQLException{
+         
             // TODO add your handling code here:
             reqstatus ="Closed";
             Statement stmt = con.createStatement();
             
-            String queryString2 = "update bankinventory set entityquantity = entityquantity -1 where entityname = '"+selectedentitytype +"' and entityvalue = '" + selectedentityvalue +"' and entityquantity >0 " ;
-            int rowsupdated = stmt.executeUpdate(queryString2);
+              String queryString = "SELECT entityquantity, entityname, entityvalue FROM bankinventory where entityname = '" +  selectedentitytype + "' and entityvalue = '"+ selectedentityvalue +"'";
+                ResultSet results = stmt.executeQuery(queryString);
+            while (results.next()) {
+             entityquantity = results.getString(1);
+            entityname = results.getString(2);
+            String entityvalue = results.getString(3);
            
-            if(rowsupdated>0){
+            if(results.next()){
                 //update stastus to closed and load table again
                 
+            String queryString2 = "update bankinventory set entityquantity = entityquantity -1 where entityname = '"+selectedentitytype +"' and entityvalue = '" + selectedentityvalue +"' and entityquantity >0 " ;
+            int rowsupdated = stmt.executeUpdate(queryString2);
                 String sql = "update patientrequests set request_status = '" + reqstatus +"' where patient_name ='" + selectedpname +"' and hospital_username = '"+selectedhname + "' and patient_requesttype ='"+  selectedentitytype + "' and patient_requestvalue='" + selectedentityvalue +"' and request_status = 'Sent to Bank'" ;  
                 
                 PreparedStatement statement = con.prepareStatement(sql);
@@ -200,13 +209,11 @@ public class ServiceHospital {
                   JOptionPane.showMessageDialog(null, "Request sent to lab"); 
             }
       
-        } catch (SQLException ex) {
-            Logger.getLogger(RequestByHospital.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         
         
      }
-     
+     }     
      
      public ArrayList<String> loadInventoryTable() throws SQLException{
             Statement stmt = con.createStatement();

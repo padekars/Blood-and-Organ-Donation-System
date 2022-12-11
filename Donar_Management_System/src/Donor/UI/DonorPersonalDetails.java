@@ -6,9 +6,19 @@ package Donor.UI;
 
 import Patient.UI.*;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import model.ServiceDonor;
+import model.ServiceHospital;
 
 /**
  *
@@ -28,9 +38,58 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
     String PATTERNEI = "^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$";
     Pattern pattei = Pattern.compile(PATTERNEI);
     
+    String user;
+    String pass;
+    Connection con;
     
-    public DonorPersonalDetails() {
+    public DonorPersonalDetails(String username, String password) throws SQLException {
         initComponents();
+         try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+              
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }
+        user = username;
+        pass = password;
+        ServiceDonor sh = new ServiceDonor();
+        sh.viewdtable(user,pass);
+        
+        Statement stmt = con.createStatement();
+        String sql = "select * from donor where donor_username = '" + username + "' and donor_password = '" + password+ "'"; 
+
+            ResultSet results = stmt.executeQuery(sql);
+
+            while (results.next()) {
+            String name = results.getString(1);
+            String uname =  results.getString(2);
+            String pass = results.getString(3) ;
+            String streetname = results.getString(4);
+            String community = results.getString(5) ;
+            String zipcode = results.getString(6) ;
+            String dob = results.getString(7);
+            String gender = results.getString(8) ;
+            String phonenumber = results.getString(9);
+            String emailid = results.getString(10) ;
+            String bg = results.getString(11) ;
+            System.out.println("DOB-"+dob);
+            txtDonarName.setText(name);
+            txtDonarUsername.setText(uname);
+            txtDonarPassword.setText(pass);
+            txtDonarStreet.setText(streetname);
+            txtDonarCommunity.setSelectedItem(community);
+            txtDonarZip.setText(zipcode);
+            txtDonarGender.setSelectedItem(gender);
+            txtDonarContact.setText(phonenumber);
+            txtDonarEmail.setText(emailid);
+            txtDonarBG.setSelectedItem(bg);
+            txtDonarDOB.setText(dob);
+            
+    }
     }
 
     /**
@@ -328,22 +387,49 @@ public class DonorPersonalDetails extends javax.swing.JPanel {
         
         else
         {  
+            try {
                 JOptionPane.showMessageDialog(this," Donor Details Updated ");
                 
                 
-             
+                String name =txtDonarName.getText();
+                String uname =txtDonarUsername.getText();
+                String pass = txtDonarPassword.getText();
+                String streetname = txtDonarStreet.getText();
+                String community = txtDonarCommunity.getSelectedItem().toString();
+                String zipcode = txtDonarZip.getText();
+                String gender = txtDonarGender.getSelectedItem().toString(); ;
+                String phonenumber = txtDonarContact.getText();
+                String emailid = txtDonarEmail.getText() ;
+                String bg = txtDonarBG.getSelectedItem().toString() ;
+                String dob = txtDonarDOB.getText();
+                PreparedStatement stmt = con.prepareStatement("update donor set donor_name=?,donor_password=?,donor_streetname=?,donor_community=?,donor_zipcode=?,donor_gender=?,donor_phonenumber=?,donor_emailid=?,donor_bloodgroup=?,donor_dob=? where donor_username=?");
+                stmt.setString(1, name);
+                stmt.setString(2, String.valueOf(pass));
+                stmt.setString(3, String.valueOf(streetname));
+                stmt.setString(4, String.valueOf(community));
+                stmt.setString(5, zipcode);
+                stmt.setString(6, String.valueOf(gender));
+                stmt.setString(7, String.valueOf(phonenumber));
+                stmt.setString(8, String.valueOf(emailid));
+                stmt.setString(9, String.valueOf(bg));
+                stmt.setString(10, String.valueOf(dob));
+                stmt.setString(11, String.valueOf(uname));
+                stmt.executeUpdate();
                 
-
-
-
-            txtDonarContact.setText("");
-            txtDonarDOB.setText("");
-            txtDonarEmail.setText("");
-            txtDonarName.setText("");
-            txtDonarPassword.setText("");
-            txtDonarStreet.setText("");
-            txtDonarUsername.setText("");
-            txtDonarZip.setText("");
+                
+                
+                
+                txtDonarContact.setText("");
+                txtDonarDOB.setText("");
+                txtDonarEmail.setText("");
+                txtDonarName.setText("");
+                txtDonarPassword.setText("");
+                txtDonarStreet.setText("");
+                txtDonarUsername.setText("");
+                txtDonarZip.setText("");
+            } catch (SQLException ex) {
+                Logger.getLogger(DonorPersonalDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
 
 

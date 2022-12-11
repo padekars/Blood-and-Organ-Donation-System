@@ -46,18 +46,21 @@ public class ServiceDonor {
         try {    
                 System.out.println("Donor Connection established!");
                 String sql = "insert into donor (donor_name , donor_username , donor_password ,\n" +
-                            "donor_streetname , donor_community , donor_zipcode ,\n" +
-                            "donor_gender , donor_phonenumber , donor_emailid) values (?,?,?,?,?,?,?,?,?)";  
+                            "donor_streetname , donor_community , donor_zipcode ,donor_dob,\n" +
+                            "donor_gender , donor_phonenumber , donor_emailid,donor_bloodgroup) values (?,?,?,?,?,?,?,?,?,?,?)";  
                 PreparedStatement statement = con.prepareStatement(sql);
                 statement.setString(1, d.getDname());
                 statement.setString(2, d.getDusername());
                 statement.setString(3, d.getDpassword());
                 statement.setString(4, d.getDstreetname());
                 statement.setString(5, d.getDcommunity());
-                statement.setInt(6, d.getDzipcode());
-                statement.setString(7, d.getDgender());
-                statement.setLong(8, d.getDphonenumber());
-                statement.setString(9, d.getDdateofbirth());
+                statement.setString(6, d.getDzipcode());
+                statement.setString(7, d.getDdateofbirth());
+                statement.setString(8, d.getDgender());
+                statement.setString(9, d.getDphonenumber());
+                statement.setString(10, d.getDdateofbirth());
+                
+                statement.setString(11, d.getDbloodgroup());
         
                 int i = statement.executeUpdate();
                 
@@ -83,7 +86,6 @@ public class ServiceDonor {
 
                if ((username.equals(uname)) && (password.equals(pass))) {
 
-                  JOptionPane.showMessageDialog(null, "Donor Username and Password exist");  
                   return 1;
             }
         
@@ -194,6 +196,7 @@ public class ServiceDonor {
             String type =  results.getString(2); 
             String value =  results.getString(3);
             String avail = results.getString(4);
+            System.out.println(dname +type+value+avail);
             
             ar.add(dname.concat(",").concat(type).concat(",").concat(value).concat(",").concat(avail));
             }
@@ -219,5 +222,26 @@ public class ServiceDonor {
             }
             return ar;
             }
+            
+            public void viewdtable(String username, String password) throws SQLException{ 
+         Statement stmt = con.createStatement();
+         
+            System.out.println("in view details  "+username+ password);
+          String sql = "select * from donor where donor_username = '" + username + "' and donor_password = '" + password+"'"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              System.out.println(rs.getString(2) );
+              System.out.println(rs.getString(3) );
+              System.out.println(rs.getString(4) );
+              System.out.println(rs.getString(5) );
+              System.out.println(rs.getString(6) );
+              System.out.println(rs.getString(7) );
+              System.out.println(rs.getString(8) );
+              System.out.println(rs.getString(9) );
+              System.out.println(rs.getString(10) );
+              System.out.println(rs.getString(11) );
+          }
+     }
     
 }

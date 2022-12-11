@@ -198,9 +198,32 @@ public class PatientLoginPage extends javax.swing.JPanel {
 
         // TODO add your handling code here:
 
-//                    PatientManageFrame pjf =  new PatientManageFrame(username,password);
-//                    pjf.show();
+                   
+        try {
+           
+            String username = txtusername.getText();
+            int i ;
+            String password = txtpassword.getText();
+            ServicePatient sp = new ServicePatient();
 
+            i = sp.checklogin(username,password);
+            if(i ==1)
+            {
+
+                
+                PatientManageFrame pjf =  new PatientManageFrame(username,password);
+                pjf.show();
+
+            }
+            else{
+
+                JOptionPane.showMessageDialog(null, "Patient Username and Password does not exist");
+            }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(HospitalLoginPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+        
 
 
         

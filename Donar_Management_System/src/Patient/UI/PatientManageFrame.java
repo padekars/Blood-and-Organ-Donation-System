@@ -219,7 +219,8 @@ public class PatientManageFrame extends javax.swing.JFrame {
     private void SendRequest2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendRequest2ActionPerformed
         // TODO add your handling code here:
         
-        
+        PatientStatus ps = new PatientStatus(puser,pass);
+        jSplitPane1.setRightComponent(ps);
         
         
         

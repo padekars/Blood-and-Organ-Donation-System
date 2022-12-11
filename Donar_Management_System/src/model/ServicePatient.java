@@ -165,8 +165,7 @@ public class ServicePatient {
             String pass =  results.getString(2);
 
                if ((username.equals(uname)) && (password.equals(pass))) {
-
-                  JOptionPane.showMessageDialog(null, "Patient Username and Password exist");  
+  
                   return 1;
             }
         
@@ -219,10 +218,10 @@ public class ServicePatient {
           }
      }
       
-      public ArrayList<String> loadPatientRequestsTable() throws SQLException{
+      public ArrayList<String> loadPatientRequestsTable(String puser,String ppass) throws SQLException{
             Statement stmt = con.createStatement();
             String queryString = "select patient_requesttype ,\n" +
-"patient_requestvalue , request_status  from patientrequests";
+"patient_requestvalue , request_status  from patientrequests where patient_username = '" + puser + "'";
             ResultSet results = stmt.executeQuery(queryString);
 
              ArrayList<String> ar = new ArrayList<String>();

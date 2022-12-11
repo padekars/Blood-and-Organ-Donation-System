@@ -7,6 +7,10 @@ package Hospital.UI;
 import Patient.UI.*;
 
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 import model.ServiceHospital;
 import model.hospital.Hospital;
@@ -211,19 +215,24 @@ public class HospitalSignUpPage extends javax.swing.JPanel {
     }//GEN-LAST:event_Logout1ActionPerformed
 
     private void HospitalSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalSignUpBtnActionPerformed
-        // TODO add your handling code here:
-        
-        
-        Hospital h = new Hospital();
-        h.setHname(txtHospitalName.getText());
-        h.setHusername(txtHospitalUsername.getText());
-        h.setHpassword(txtHospitalPassword.getText());
-        h.setHstreetname(txtHospitalStreet.getText());
-        h.setHcommunity(txtHospitalCommunity.getSelectedItem().toString());
-        h.setHzipcode(Integer.parseInt(txtHospitalZip.getText()));
-        System.out.println(h.getHname());
-        ServiceHospital s1 = new ServiceHospital();
-        s1.addhospitaldetails(h);
+        try {
+            // TODO add your handling code here:
+            
+            
+            Hospital h = new Hospital();
+            h.setHname(txtHospitalName.getText());
+            h.setHusername(txtHospitalUsername.getText());
+            h.setHpassword(txtHospitalPassword.getText());
+            h.setHstreetname(txtHospitalStreet.getText());
+            h.setHcommunity(txtHospitalCommunity.getSelectedItem().toString());
+            h.setHzipcode(Integer.parseInt(txtHospitalZip.getText()));
+            System.out.println(h.getHname());
+            ServiceHospital s1 = new ServiceHospital();
+            s1.addhospitaldetails(h);
+        } catch (SQLException ex) {
+            Logger.getLogger(HospitalSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
         
     }//GEN-LAST:event_HospitalSignUpBtnActionPerformed
 
