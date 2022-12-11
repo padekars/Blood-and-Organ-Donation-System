@@ -338,26 +338,6 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         {  
                 JOptionPane.showMessageDialog(this," New Donar Details Added ");
           
-//
-//            txtDonarContact.setText("");
-//            txtDonarDOB.setText("");
-//            txtDonarEmail.setText("");
-//            txtDonarName.setText("");
-//            txtDonarPassword.setText("");
-//            txtDonarStreet.setText("");
-//            txtDonarUsername.setText("");
-//            txtDonarZip.setText("");
-//            
-
-
-       } 
-        
-        
-        
-        
-        
-
-        
         Donor d = new Donor();
         d.setDname(txtDonarName.getText());
         d.setDusername(txtDonarUsername.getText());
@@ -378,6 +358,28 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         
         System.out.println("pass"+txtDonarPassword.getText());
         s.adddonordetails(d);
+        
+        
+
+            txtDonarContact.setText("");
+            txtDonarDOB.setText("");
+            txtDonarEmail.setText("");
+            txtDonarName.setText("");
+            txtDonarPassword.setText("");
+            txtDonarStreet.setText("");
+            txtDonarUsername.setText("");
+            txtDonarZip.setText("");       
+
+
+       } 
+        
+        
+        
+        
+        
+
+        
+        
 
         
     }//GEN-LAST:event_DonarSignUpBtnActionPerformed

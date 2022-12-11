@@ -404,46 +404,7 @@ Connection con;
                 JOptionPane.showMessageDialog(this," New Patient Details Added ");
                 
                 
-             
-                
-
-
-//        String pname = txtPatientName.getText();
-//        String pusername = txtPatientUsername.getText();
-//        String ppassword = txtPatientPassword.getText();
-//        String streetname = txtPatientStreet.getText();
-//        String community = txtPatientCommunity.getSelectedItem().toString();
-//        String zipcode = jTextField8.getText();
-//        String phospital = jTextField9.getText().toString();
-//        String gender = cmb_gender.getSelectedItem().toString();
-//        String pphno = txtPatientContact.getText().toString();
-//        String pdob = txtPatientDOB.getText().toString();
-//        Connection con;
-//        Statement stmt;
-//        try {
-//            stmt = con.createStatement();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//                System.out.println("Connection established!");
-//                ResultSet rs=stmt.executeQuery("select * from admin");  
-//                while(rs.next())  
-//                System.out.println(rs.getString(1)+"  "+rs.getString(2));
-
-//            txtPatientContact.setText("");
-//            txtPatientDOB.setText("");
-//            txtPatientEmail.setText("");
-//            txtPatientName.setText("");
-//            txtPatientPassword.setText("");
-//            txtPatientStreet.setText("");
-//            txtPatientUsername.setText("");
-//            txtPatientZip.setText("");
-            
-
-
-       }
-
-         Patient p = new Patient();
+           Patient p = new Patient();
         p.setPname(txtPatientName.getText());
         p.setPusername(txtPatientUsername.getText());
         p.setPpassword(txtPatientPassword.getText());
@@ -460,7 +421,26 @@ Connection con;
         ServicePatient s = new ServicePatient();
         System.out.println("patient sign up button clicked");
         s.addpatientdetails(p);
+   
+                
 
+
+
+
+            txtPatientContact.setText("");
+            txtPatientDOB.setText("");
+            txtPatientEmail.setText("");
+            txtPatientName.setText("");
+            txtPatientPassword.setText("");
+            txtPatientStreet.setText("");
+            txtPatientUsername.setText("");
+            txtPatientZip.setText("");
+            
+
+
+       }
+
+        
         
     }                                        
                                 

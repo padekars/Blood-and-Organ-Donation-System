@@ -7,6 +7,7 @@ package Hospital.UI;
 import Patient.UI.*;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 import model.ServiceHospital;
 import model.hospital.Hospital;
@@ -212,8 +213,16 @@ public class HospitalSignUpPage extends javax.swing.JPanel {
 
     private void HospitalSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalSignUpBtnActionPerformed
         // TODO add your handling code here:
-        
-        
+        if(txtHospitalName.getText().equals("") || txtHospitalPassword.getText().equals("") 
+                || txtHospitalStreet.getText().equals("") || txtHospitalUsername.getText().equals("") || 
+                txtHospitalZip.getText().equals("") ){ 
+         
+            JOptionPane.showMessageDialog(this," All details are not Filled ");
+            
+        }           
+        else
+        {  
+                JOptionPane.showMessageDialog(this," New Donar Details Added ");
         Hospital h = new Hospital();
         h.setHname(txtHospitalName.getText());
         h.setHusername(txtHospitalUsername.getText());
@@ -224,6 +233,18 @@ public class HospitalSignUpPage extends javax.swing.JPanel {
         System.out.println(h.getHname());
         ServiceHospital s1 = new ServiceHospital();
         s1.addhospitaldetails(h);
+        
+            txtHospitalName.setText("");
+            txtHospitalUsername.setText("");
+            txtHospitalPassword.setText("");
+            txtHospitalStreet.setText("");
+            txtHospitalZip.setText("");
+             
+          
+
+      }
+        
+        
         
     }//GEN-LAST:event_HospitalSignUpBtnActionPerformed
 
