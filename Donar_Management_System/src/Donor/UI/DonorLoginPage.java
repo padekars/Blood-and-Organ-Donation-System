@@ -197,6 +197,7 @@ public class DonorLoginPage extends javax.swing.JPanel {
         String username = txtusername.getText();
          int i ;
         String password = txtpassword.getText();
+        
         ServiceDonor sd = new ServiceDonor();
         
         try {
@@ -204,7 +205,7 @@ public class DonorLoginPage extends javax.swing.JPanel {
           if(i ==1)
                 {
 
-                    DonorManageFrame pjf =  new DonorManageFrame();
+                    DonorManageFrame pjf =  new DonorManageFrame(username,password);
                     pjf.show();
 
 

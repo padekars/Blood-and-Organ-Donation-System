@@ -4,6 +4,14 @@
  */
 package Hospital.UI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import model.ServiceHospital;
+
 /**
  *
  * @author Gayatri
@@ -13,10 +21,66 @@ public class HospitalPatientTable extends javax.swing.JPanel {
     /**
      * Creates new form HospitalPatientTable
      */
-    public HospitalPatientTable() {
+    
+    String huser;
+    String pass;
+    Connection con;
+    public HospitalPatientTable(String username, String password) throws SQLException {
         initComponents();
-    }
+          huser = username;
+          pass = password;
+            String hname ="";
+          try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+           Statement stmt = con.createStatement();
+            String queryString = "SELECT hospital_name FROM hospital where hospital_username = '" + huser + "'" ;
+            ResultSet results = stmt.executeQuery(queryString);
 
+            while (results.next()) {
+             hname = results.getString(1);
+
+         
+            }
+            String queryString1 = "SELECT patient_hospitalname, patient_name, patient_community, patient_gender, patient_phonenumber,patient_emailid FROM patient where patient_hospitalname = '" + hname + "'";
+            ResultSet results1 = stmt.executeQuery(queryString1);
+
+            while (results1.next()) {
+            String huname = results1.getString(1);
+            String pname =  results1.getString(2);
+            String pcommunity = results1.getString(3);
+            String gender = results1.getString(4);
+            String phonenumber = results1.getString(5);
+            String emailid = results1.getString(6);
+            System.out.println(hname +pname +emailid);
+            String data[] = {pname, pcommunity, huname, gender, phonenumber,emailid};
+            DefaultTableModel model = (DefaultTableModel) HospitalPatientTable.getModel();
+            model.addRow(data);
+            }
+            
+            String queryString2 = "SELECT patient_name, patient_requesttype, patient_requestvalue FROM patientrequests where hospital_username = '" + hname + "' and request_status = " + "'Open'";
+            ResultSet results2 = stmt.executeQuery(queryString2);
+            String pname;
+            String retype;
+            String reqvalue;
+            while (results2.next()) {
+             pname = results2.getString(1);
+             retype = results2.getString(2);
+             reqvalue = results2.getString(3);
+             String data1[] = {pname, retype,reqvalue};
+             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+             model.addRow(data1);
+         
+            }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,10 +100,7 @@ public class HospitalPatientTable extends javax.swing.JPanel {
 
         HospitalPatientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Patient Name", "Community", "Hospital Name", "Gender", "Phone No.", "Email Id"
@@ -52,10 +113,7 @@ public class HospitalPatientTable extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Patient Name", "Blood/Organ Type", "Blood/Organ Value"
@@ -100,4 +158,5 @@ public class HospitalPatientTable extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
 }

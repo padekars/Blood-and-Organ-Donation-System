@@ -146,6 +146,12 @@
         </Property>
         <Property name="text" type="java.lang.String" value="KIDNEY"/>
       </Properties>
+
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="KidneyRequestBtnMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KidneyRequestBtnActionPerformed"/>
+      </Events>
+
     </Component>
     <Component class="javax.swing.JButton" name="DonarEyesBtn">
       <Properties>
@@ -155,7 +161,11 @@
         <Property name="text" type="java.lang.String" value="EYES"/>
       </Properties>
       <Events>
+
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarEyesBtnActionPerformed"/>
+
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EyesRequestBtnMouseClicked"/>
+        
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarLiverBtn">
@@ -165,6 +175,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LIVER"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LiverRequestBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarPancreasBtn">
       <Properties>
@@ -173,6 +186,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="PANCREAS"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PancreasRequestBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarIntestineBtn">
       <Properties>
@@ -182,7 +198,11 @@
         <Property name="text" type="java.lang.String" value="INTESTINE"/>
       </Properties>
       <Events>
+
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarIntestineBtnActionPerformed"/>
+
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="IntestineRequestBtnMouseClicked"/>
+      
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarLungBtn">
@@ -192,6 +212,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LUNG"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LungRequestBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

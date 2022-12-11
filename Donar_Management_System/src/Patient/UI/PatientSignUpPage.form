@@ -362,13 +362,13 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="16">
             <StringItem index="0" value="A +ve "/>
-            <StringItem index="1" value="A  -ve"/>
+            <StringItem index="1" value="A -ve"/>
             <StringItem index="2" value="B +ve"/>
             <StringItem index="3" value="B -ve"/>
             <StringItem index="4" value="AB +ve"/>
             <StringItem index="5" value="AB -ve"/>
             <StringItem index="6" value="O +ve"/>
-            <StringItem index="7" value="O  -ve"/>
+            <StringItem index="7" value="O -ve"/>
             <StringItem index="8" value="Kidneys"/>
             <StringItem index="9" value="Liver"/>
             <StringItem index="10" value="Lungs"/>

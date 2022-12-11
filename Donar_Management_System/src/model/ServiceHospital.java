@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import BloodDonorBank.UI.RequestByHospital;
 import Hospital.UI.HospitalSignUpPage;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +14,7 @@ import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import model.hospital.Hospital;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -33,7 +35,38 @@ public class ServiceHospital {
                 
         }  
     }
-     
+     public ArrayList<String> displayhtable() throws SQLException{
+         Statement stmt = con.createStatement();
+            
+            
+             String data[] = {};
+             ArrayList<String> ar = new ArrayList<String>();
+             
+            String queryString2 = "SELECT patient_name, patient_requesttype, patient_requestvalue,hospital_username,request_status FROM patientrequests where request_status = " + "'Sent to Bank'";
+            ResultSet results2 = stmt.executeQuery(queryString2);
+            String pname;
+            String retype;
+            String reqvalue;
+            String huname;
+            String reqstatus;
+            int i = 0;
+            while (results2.next()) {
+             pname = results2.getString(1);
+             retype = results2.getString(2);
+             reqvalue = results2.getString(3);
+             huname = results2.getString(4);
+             reqstatus = results2.getString(5);
+             
+            
+               ar.add(huname.concat(",").concat(pname).concat(",").concat(retype).concat(",").concat(reqvalue).concat(",").concat(reqstatus));
+               
+            
+             
+              
+            }
+            return ar;
+     }
+            
      public void addhospitaldetails(Hospital h){
          
          
@@ -125,5 +158,136 @@ public class ServiceHospital {
               System.out.println(rs.getString(6) );
           }
      }
+     
+     
+     public void checkForMatch(String selectedhname,String selectedpname,String selectedentitytype,String selectedentityvalue,String reqstatus){
+         try {
+            // TODO add your handling code here:
+            reqstatus ="Closed";
+            Statement stmt = con.createStatement();
+            
+            String queryString2 = "update bankinventory set entityquantity = entityquantity -1 where entityname = '"+selectedentitytype +"' and entityvalue = '" + selectedentityvalue +"' and entityquantity >0 " ;
+            int rowsupdated = stmt.executeUpdate(queryString2);
+           
+            if(rowsupdated>0){
+                //update stastus to closed and load table again
+                
+                String sql = "update patientrequests set request_status = '" + reqstatus +"' where patient_name ='" + selectedpname +"' and hospital_username = '"+selectedhname + "' and patient_requesttype ='"+  selectedentitytype + "' and patient_requestvalue='" + selectedentityvalue +"' and request_status = 'Sent to Bank'" ;  
+                
+                PreparedStatement statement = con.prepareStatement(sql);
+                
+                
+                int i = statement.executeUpdate();
+                System.out.println("query "+sql);
+            
+                System.out.println("patient row updated to closed "+i);
+                
+                JOptionPane.showMessageDialog(null, "Request fullfilled by Bank ");
+                
+            }
+            else{
+                //send req to lab
+                reqstatus = "Sent to Lab";
+                String sql = "update patientrequests set request_status = '" + reqstatus +"' where patient_name ='" + selectedpname +"' and hospital_username = '"+selectedhname + "' and patient_requesttype ='"+  selectedentitytype + "' and patient_requestvalue='" + selectedentityvalue +"' and request_status = 'Sent to Bank'" ;  
+                
+                PreparedStatement statement = con.prepareStatement(sql);
+                
+                
+                int i = statement.executeUpdate();
+                
+                
+                
+                  JOptionPane.showMessageDialog(null, "Request sent to lab"); 
+            }
+      
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestByHospital.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+     }
+     
+     
+     public ArrayList<String> loadInventoryTable() throws SQLException{
+            Statement stmt = con.createStatement();
+            String queryString = "SELECT * FROM BANKINVENTORY";
+            ResultSet results = stmt.executeQuery(queryString);
+
+             ArrayList<String> ar = new ArrayList<String>();
+            while (results.next()) {
+            String TYPE = results.getString(1);
+            String VALUE =  results.getString(2); 
+            String quantity =  results.getString(3);
+            
+               ar.add(TYPE.concat(",").concat(VALUE).concat(",").concat(quantity));
+               
     
+     }
+     
+     return ar;
+     }
+         public ArrayList<String> loadBankRequests() throws SQLException{
+            Statement stmt = con.createStatement();
+            String queryString = "select count(*),patient_requesttype,patient_requestvalue,\"Open\" from patientrequests where request_status = 'Sent to Bank' group by patient_requesttype,patient_requestvalue";
+            ResultSet results = stmt.executeQuery(queryString);
+
+             ArrayList<String> ar = new ArrayList<String>();
+            while (results.next()) {
+            String count = results.getString(1);
+            String type =  results.getString(2); 
+            String value =  results.getString(3);
+            String status = results.getString(4);
+            
+               ar.add(type.concat(",").concat(value).concat(",").concat(count).concat(",").concat(status));
+               
+    
+     }
+            
+     
+     return ar;
+     }
+         
+      public ArrayList<String> loadLabRequests() throws SQLException{
+            Statement stmt = con.createStatement();
+            String queryString = "select hospital_username,patient_name,patient_requesttype, patient_requestvalue, request_status from patientrequests where request_status = 'Sent to Lab'";
+            ResultSet results = stmt.executeQuery(queryString);
+
+             ArrayList<String> ar = new ArrayList<String>();
+            while (results.next()) {
+            String hname = results.getString(1);
+            String pname =  results.getString(2); 
+            String type =  results.getString(3);
+            String value = results.getString(4);
+            String status = results.getString(5);
+            
+            ar.add(hname.concat(",").concat(pname).concat(",").concat(type).concat(",").concat(value).concat(",").concat(status));
+               
+    
+     }
+            
+    
+     return ar;
+     }    
+     
+     public void insertRequests(String selectedentitytype,String selectedentityvalue,int quantity,String reqstatus ){
+         reqstatus = "Sent to Lab";
+                
+                  try 
+                    {    
+                            System.out.println("Connection established!");
+                            String sql = "insert into bankrequests(patient_requesttype,patient_requestvalue , quantity , status) values (?, ?, ?, ?)"; 
+                            PreparedStatement statement = con.prepareStatement(sql);
+                            statement.setString(1, selectedentitytype);
+                            statement.setString(2, selectedentityvalue);
+                            statement.setInt(3, quantity);
+                            statement.setString(4, reqstatus);
+                            int i = statement.executeUpdate();
+
+                    System.out.println("inserted hospital" + i);
+                    }
+                    catch (SQLException ex) {
+                        Logger.getLogger(HospitalSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  
+     }
 }

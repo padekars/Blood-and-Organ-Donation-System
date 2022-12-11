@@ -180,6 +180,7 @@ public class PatientLoginPage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtusernameActionPerformed
 
+
     private void txtusernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtusernameFocusGained
         // TODO add your handling code here:
         txtusername.setText("");
@@ -196,6 +197,10 @@ public class PatientLoginPage extends javax.swing.JPanel {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
 
         // TODO add your handling code here:
+
+//                    PatientManageFrame pjf =  new PatientManageFrame(username,password);
+//                    pjf.show();
+
 
 
         

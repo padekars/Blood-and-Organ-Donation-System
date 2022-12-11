@@ -62,11 +62,16 @@
         </Property>
         <Property name="text" type="java.lang.String" value="KIDNEY"/>
       </Properties>
+
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="170" y="210" width="90" height="-1"/>
         </Constraint>
       </Constraints>
+
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarKidneyBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarEyesBtn">
       <Properties>
@@ -91,11 +96,16 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LIVER"/>
       </Properties>
+
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="170" y="350" width="90" height="-1"/>
         </Constraint>
       </Constraints>
+
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarLiverBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarPancreasBtn">
       <Properties>
@@ -104,11 +114,16 @@
         </Property>
         <Property name="text" type="java.lang.String" value="PANCREAS"/>
       </Properties>
+
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="460" y="350" width="90" height="-1"/>
         </Constraint>
       </Constraints>
+
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarPancreasBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarIntestineBtn">
       <Properties>
@@ -133,6 +148,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="LUNG"/>
       </Properties>
+
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="460" y="480" width="90" height="-1"/>
@@ -215,6 +231,10 @@
           <AbsoluteConstraints x="460" y="390" width="90" height="80"/>
         </Constraint>
       </Constraints>
+
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarLungBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

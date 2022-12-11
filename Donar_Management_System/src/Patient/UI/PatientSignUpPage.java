@@ -214,7 +214,7 @@ Connection con;
         lbl_dob2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_dob2.setText("Contact Details");
 
-        txtPatientBG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A +ve ", "A  -ve", "B +ve", "B -ve", "AB +ve", "AB -ve", "O +ve", "O  -ve", "Kidneys", "Liver", "Lungs", "Heart", "Pancreas", "Intestines", "Eyes", " " }));
+        txtPatientBG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A +ve ", "A -ve", "B +ve", "B -ve", "AB +ve", "AB -ve", "O +ve", "O -ve", "Kidneys", "Liver", "Lungs", "Heart", "Pancreas", "Intestines", "Eyes", " " }));
 
         lbl_telenum1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_telenum1.setText("Email ID:");
@@ -455,6 +455,7 @@ Connection con;
         p.setPbloodgroup(txtPatientBG.getSelectedItem().toString());
         p.setPphonenumber(Long.valueOf(txtPatientContact.getText()));
         p.setPemailid(txtPatientEmail.getText());
+        p.setPhospital(txtPatientHospital.getSelectedItem().toString());
         
         ServicePatient s = new ServicePatient();
         System.out.println("patient sign up button clicked");

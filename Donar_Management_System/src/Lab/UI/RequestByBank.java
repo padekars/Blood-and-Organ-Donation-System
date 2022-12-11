@@ -5,6 +5,10 @@
 package Lab.UI;
 
 import BloodDonorBank.UI.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.ServiceHospital;
 
 /**
  *
@@ -15,8 +19,22 @@ public class RequestByBank extends javax.swing.JPanel {
     /**
      * Creates new form RequestByHospital
      */
-    public RequestByBank() {
-        initComponents();
+    public RequestByBank() throws SQLException {
+            initComponents();
+        
+         
+            String temp[]= null;
+        
+            ServiceHospital sh = new ServiceHospital();
+            ArrayList<String> temp1 = sh.loadLabRequests();
+            for (int i =0; i< temp1.size();i++){
+                
+            DefaultTableModel tblmodel = (DefaultTableModel) RequestByHospitalTable.getModel();
+
+            temp = temp1.get(i).split(",");
+             tblmodel.addRow(temp);
+            }
+        
     }
 
     /**
@@ -39,13 +57,10 @@ public class RequestByBank extends javax.swing.JPanel {
 
         RequestByHospitalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Patient Name", "Blood/Organ", "Entity Type"
+                "Hospital Name", "Patient Name", "Blood/Organ", "Entity Value", "Status"
             }
         ));
         jScrollPane2.setViewportView(RequestByHospitalTable);
