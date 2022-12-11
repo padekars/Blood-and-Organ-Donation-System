@@ -53,6 +53,8 @@ public class RequestByBank extends javax.swing.JPanel {
         DonarMatchTable = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         RequestByHospitalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -63,7 +65,7 @@ public class RequestByBank extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(RequestByHospitalTable);
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
+        jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Check for Match in Lab");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +87,7 @@ public class RequestByBank extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(DonarMatchTable);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 153));
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Sent Matched Donar Information to Hospital ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

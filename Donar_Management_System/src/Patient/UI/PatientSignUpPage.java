@@ -122,6 +122,8 @@ Connection con;
             }
         });
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");
 
@@ -197,7 +199,7 @@ Connection con;
         lbl_pswd.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_pswd.setText("Password:");
 
-        PatientSignUpBtn.setBackground(new java.awt.Color(0, 204, 204));
+        PatientSignUpBtn.setBackground(new java.awt.Color(0, 102, 102));
         PatientSignUpBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         PatientSignUpBtn.setText("SIGN UP");
         PatientSignUpBtn.addActionListener(new java.awt.event.ActionListener() {

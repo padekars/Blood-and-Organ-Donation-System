@@ -72,6 +72,8 @@ public class RequestByHospital extends javax.swing.JPanel {
         RequestByHospitalTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         RequestByHospitalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

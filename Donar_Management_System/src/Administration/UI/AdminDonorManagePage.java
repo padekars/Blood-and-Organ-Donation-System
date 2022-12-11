@@ -83,7 +83,7 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
             }
         });
 
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(0, 204, 204));
 
         lbl_address.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbl_address.setText("Street Name:");

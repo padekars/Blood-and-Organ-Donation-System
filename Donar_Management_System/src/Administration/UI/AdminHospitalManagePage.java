@@ -59,6 +59,8 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
             }
         });
 
+        setBackground(new java.awt.Color(0, 204, 204));
+
         HospitalUpdateBtn.setBackground(new java.awt.Color(0, 204, 204));
         HospitalUpdateBtn.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         HospitalUpdateBtn.setText("Save");
