@@ -337,42 +337,17 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         else
         {  
                 JOptionPane.showMessageDialog(this," New Donar Details Added ");
-                
-                
-             
-                
-
-//        String pname = txtPatientName.getText();
-//        String pusername = txtPatientUsername.getText();
-//        String ppassword = txtPatientPassword.getText();
-//        String streetname = txtPatientStreet.getText();
-//        String community = txtPatientCommunity.getSelectedItem().toString();
-//        String zipcode = jTextField8.getText();
-//        String phospital = jTextField9.getText().toString();
-//        String gender = cmb_gender.getSelectedItem().toString();
-//        String pphno = txtPatientContact.getText().toString();
-//        String pdob = txtPatientDOB.getText().toString();
-//        Connection con;
-//        Statement stmt;
-//        try {
-//            stmt = con.createStatement();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//                System.out.println("Connection established!");
-//                ResultSet rs=stmt.executeQuery("select * from admin");  
-//                while(rs.next())  
-//                System.out.println(rs.getString(1)+"  "+rs.getString(2));
-
-            txtDonarContact.setText("");
-            txtDonarDOB.setText("");
-            txtDonarEmail.setText("");
-            txtDonarName.setText("");
-            txtDonarPassword.setText("");
-            txtDonarStreet.setText("");
-            txtDonarUsername.setText("");
-            txtDonarZip.setText("");
-            
+          
+//
+//            txtDonarContact.setText("");
+//            txtDonarDOB.setText("");
+//            txtDonarEmail.setText("");
+//            txtDonarName.setText("");
+//            txtDonarPassword.setText("");
+//            txtDonarStreet.setText("");
+//            txtDonarUsername.setText("");
+//            txtDonarZip.setText("");
+//            
 
 
        } 
@@ -389,15 +364,19 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         d.setDpassword(txtDonarPassword.getText());
         d.setDstreetname(txtDonarStreet.getText());
         d.setDcommunity(txtDonarCommunity.getSelectedItem().toString());
-        d.setDzipcode(Integer.parseInt(txtDonarZip.getText()));
+        //d.setDzipcode(Integer.parseInt(txtDonarZip.getText()));
         d.setDgender(txtDonarGender.getSelectedItem().toString());
         d.setDdateofbirth(txtDonarDOB.getText());
         d.setDbloodgroup(txtDonarBG.getSelectedItem().toString());
-        d.setDphonenumber(Long.valueOf(txtDonarContact.getText()));
+        //d.setDphonenumber(Long.valueOf(txtDonarContact.getText()));
         d.setDemailid(txtDonarEmail.getText());
         
         ServiceDonor s = new ServiceDonor();
         System.out.println("donor sign up button clicked");
+        
+        System.out.println("name "+txtDonarName.getText());
+        
+        System.out.println("pass"+txtDonarPassword.getText());
         s.adddonordetails(d);
 
         
@@ -409,14 +388,14 @@ public class DonorSignUpPage extends javax.swing.JPanel {
 
     private void txtDonarNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonarNameKeyPressed
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
-            //iso control for edit operation(delete key and backspace key allow)
-            //if enter character is letter, space and isocontrol char than allow to edit
-            txtDonarName.setEditable(true);
-        }else{
-            txtDonarName.setEditable(false);
-        }
+//        char c = evt.getKeyChar();
+//        if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)){
+//            //iso control for edit operation(delete key and backspace key allow)
+//            //if enter character is letter, space and isocontrol char than allow to edit
+//            txtDonarName.setEditable(true);
+//        }else{
+//            txtDonarName.setEditable(false);
+//        }
         
     }//GEN-LAST:event_txtDonarNameKeyPressed
 

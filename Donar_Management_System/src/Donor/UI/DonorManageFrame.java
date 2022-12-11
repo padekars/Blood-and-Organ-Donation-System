@@ -8,8 +8,12 @@ package Donor.UI;
 import Patient.UI.*;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import model.ServiceDonor;
 
 /**
  *
@@ -20,9 +24,12 @@ public class DonorManageFrame extends javax.swing.JFrame {
     /**
      * Creates new form AdministratorSplitPage
      */
-    public DonorManageFrame() {
+    String donorusername;
+    String donorpassword;
+    public DonorManageFrame(String duname, String dpass) {
         initComponents();
-        
+         donorusername = duname;
+         donorpassword = dpass;
         setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
@@ -170,19 +177,33 @@ public class DonorManageFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void DonarDonateBloodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarDonateBloodActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            
+            DonorBloodDonate alp = new DonorBloodDonate();
+            jSplitPane1.setRightComponent(alp);
+            
+            ServiceDonor sd = new ServiceDonor();
+            sd.adddonordonations(donorusername);
+            
+            JOptionPane.showMessageDialog(this," Blood Donated!");
+        } catch (SQLException ex) {
+            Logger.getLogger(DonorManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        DonorBloodDonate alp = new DonorBloodDonate();
-        jSplitPane1.setRightComponent(alp);
-        JOptionPane.showMessageDialog(this," Blood Donated!");
+        
+        
         
         
     }//GEN-LAST:event_DonarDonateBloodActionPerformed
 
     private void DonarDonateBlood1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarDonateBlood1ActionPerformed
         // TODO add your handling code here:
-        DonorOrganDonate alp = new DonorOrganDonate();
+        DonorOrganDonate alp = new DonorOrganDonate(donorusername,donorpassword);
         jSplitPane1.setRightComponent(alp);
+        
+        
+        
         
     }//GEN-LAST:event_DonarDonateBlood1ActionPerformed
 
@@ -229,11 +250,11 @@ public class DonorManageFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DonorManageFrame().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new DonorManageFrame().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

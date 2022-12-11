@@ -9,6 +9,9 @@ import Hospital.UI.*;
 import Patient.UI.*;
 import Administration.UI.*;
 import Donor.UI.DonorSignUpPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -144,10 +147,14 @@ public class LabSplitPage extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        
-        RequestByBank alp = new RequestByBank();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            
+            RequestByBank alp = new RequestByBank();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(LabSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButton6ActionPerformed
 

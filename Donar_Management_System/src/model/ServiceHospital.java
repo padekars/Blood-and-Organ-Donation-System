@@ -249,7 +249,7 @@ public class ServiceHospital {
          
       public ArrayList<String> loadLabRequests() throws SQLException{
             Statement stmt = con.createStatement();
-            String queryString = "select hospital_username,patient_name,patient_requesttype, patient_requestvalue, requst_status from patientrequests where request_status = 'Sent to Lab' group by patient_requesttype,patient_requestvalue";
+            String queryString = "select hospital_username,patient_name,patient_requesttype, patient_requestvalue, request_status from patientrequests where request_status = 'Sent to Lab'";
             ResultSet results = stmt.executeQuery(queryString);
 
              ArrayList<String> ar = new ArrayList<String>();

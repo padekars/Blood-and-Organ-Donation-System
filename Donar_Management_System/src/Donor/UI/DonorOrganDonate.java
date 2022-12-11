@@ -5,7 +5,11 @@
 package Donor.UI;
 
 import Patient.UI.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.ServiceDonor;
 
 /**
  *
@@ -16,8 +20,12 @@ public class DonorOrganDonate extends javax.swing.JPanel {
     /**
      * Creates new form PatientSendRequest
      */
-    public DonorOrganDonate() {
+    String organ = "";
+    String duser = "";
+    String dpass ="";
+    public DonorOrganDonate(String dusername, String dpassword) {
         initComponents();
+        duser = dusername;
     }
 
     /**
@@ -53,6 +61,11 @@ public class DonorOrganDonate extends javax.swing.JPanel {
         });
 
         DonarKidneyBtn.setText("KIDNEY");
+        DonarKidneyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarKidneyBtnActionPerformed(evt);
+            }
+        });
 
         DonarEyesBtn.setText("EYES");
         DonarEyesBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +75,18 @@ public class DonorOrganDonate extends javax.swing.JPanel {
         });
 
         DonarLiverBtn.setText("LIVER");
+        DonarLiverBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarLiverBtnActionPerformed(evt);
+            }
+        });
 
         DonarPancreasBtn.setText("PANCREAS");
+        DonarPancreasBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarPancreasBtnActionPerformed(evt);
+            }
+        });
 
         DonarIntestineBtn.setText("INTESTINE");
         DonarIntestineBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +96,11 @@ public class DonorOrganDonate extends javax.swing.JPanel {
         });
 
         DonarLungBtn.setText("LUNG");
+        DonarLungBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DonarLungBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -124,17 +152,49 @@ public class DonorOrganDonate extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DonarSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarSubmitBtnActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this," Request Submitted!");
+        try {
+            // TODO add your handling code here:
+            
+            ServiceDonor sd = new ServiceDonor();
+            sd.adddonororgandonations(organ,duser);
+            
+            
+            
+            JOptionPane.showMessageDialog(this," Request Submitted!");
+        } catch (SQLException ex) {
+            Logger.getLogger(DonorOrganDonate.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_DonarSubmitBtnActionPerformed
 
     private void DonarEyesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarEyesBtnActionPerformed
         // TODO add your handling code here:
+         organ = "Eyes";
     }//GEN-LAST:event_DonarEyesBtnActionPerformed
 
     private void DonarIntestineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarIntestineBtnActionPerformed
         // TODO add your handling code here:
+         organ = "Intestine";
     }//GEN-LAST:event_DonarIntestineBtnActionPerformed
+
+    private void DonarKidneyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarKidneyBtnActionPerformed
+        // TODO add your handling code here:
+        organ = "Kidney";
+    }//GEN-LAST:event_DonarKidneyBtnActionPerformed
+
+    private void DonarLiverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarLiverBtnActionPerformed
+        // TODO add your handling code here:
+         organ = "Liver";
+    }//GEN-LAST:event_DonarLiverBtnActionPerformed
+
+    private void DonarPancreasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarPancreasBtnActionPerformed
+        // TODO add your handling code here:
+        organ = "Pancreas";
+    }//GEN-LAST:event_DonarPancreasBtnActionPerformed
+
+    private void DonarLungBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarLungBtnActionPerformed
+        // TODO add your handling code here:
+        organ = "Lungs";
+    }//GEN-LAST:event_DonarLungBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

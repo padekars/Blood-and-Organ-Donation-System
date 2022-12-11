@@ -105,6 +105,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="KIDNEY"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarKidneyBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarEyesBtn">
       <Properties>
@@ -118,11 +121,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="LIVER"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarLiverBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarPancreasBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="PANCREAS"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarPancreasBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="DonarIntestineBtn">
       <Properties>
@@ -136,6 +145,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="LUNG"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DonarLungBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

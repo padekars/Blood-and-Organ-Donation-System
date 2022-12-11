@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -109,4 +110,98 @@ public class ServiceDonor {
         
                
      }
+    
+    
+    public void adddonordonations(String duname) throws SQLException{
+         
+         Statement stmt = con.createStatement();
+        String dname = "";
+        String dbg = "";
+        try {    
+                String queryString = "SELECT donor_name,donor_bloodgroup from donor where donor_username = '" + duname +"'";
+                ResultSet results = stmt.executeQuery(queryString);
+
+                while (results.next()) {
+                 dname = results.getString(1);
+                 dbg = results.getString(2);
+                }
+                
+                
+                String sql = "insert into donordonations (donor_name , donor_username , donor_donationtype ,\n" +
+"donor_donationvalue , availability  ) values (?,?,?,?,?)";  
+                String req = "Open";
+                PreparedStatement statement = con.prepareStatement(sql);
+                statement.setString(1, dname);
+                statement.setString(2, duname);
+                statement.setString(3, "Blood");
+                statement.setString(4,dbg );
+                statement.setString(5, "Yes");
+        
+                int i = statement.executeUpdate();
+                
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         
+     }
+    
+    
+    public void adddonororgandonations(String organ,String duname) throws SQLException{
+         
+         Statement stmt = con.createStatement();
+        String dname = "";
+        String dbg = "";
+        try {    
+                String queryString = "SELECT donor_name from donor where donor_username = '" + duname +"'";
+                ResultSet results = stmt.executeQuery(queryString);
+
+                while (results.next()) {
+                 dname = results.getString(1);
+                }
+                
+                
+                String sql = "insert into donordonations (donor_name , donor_username , donor_donationtype ,\n" +
+"donor_donationvalue , availability  ) values (?,?,?,?,?)";  
+                String req = "Open";
+                PreparedStatement statement = con.prepareStatement(sql);
+                statement.setString(1, dname);
+                statement.setString(2, duname);
+                statement.setString(3, "Organ");
+                statement.setString(4,organ );
+                statement.setString(5, "Yes");
+        
+                int i = statement.executeUpdate();
+                
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         
+     }
+    
+            
+         public ArrayList<String> loadDonorDonationsTable() throws SQLException{
+            Statement stmt = con.createStatement();
+            String queryString = "select donor_name,donor_donationtype,donor_donationvalue,availability from donordonations";
+            ResultSet results = stmt.executeQuery(queryString);
+
+             ArrayList<String> ar = new ArrayList<String>();
+            while (results.next()) {
+            String dname = results.getString(1);
+            String type =  results.getString(2); 
+            String value =  results.getString(3);
+            String avail = results.getString(4);
+            
+               ar.add(dname.concat(",").concat(type).concat(",").concat(value).concat(",").concat(avail));
+               
+    
+     }
+            
+     
+     return ar;
+     }
+    
 }

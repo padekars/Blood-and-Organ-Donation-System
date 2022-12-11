@@ -4,7 +4,15 @@
  */
 package Lab.UI;
 
+import BloodDonorBank.UI.RequestByHospital;
 import Hospital.UI.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import model.ServiceDonor;
+import model.ServiceHospital;
 
 /**
  *
@@ -17,6 +25,33 @@ public class LabDonorTable extends javax.swing.JPanel {
      */
     public LabDonorTable() {
         initComponents();
+        //add coded
+        
+        ServiceDonor sh = new ServiceDonor();
+        
+        
+        
+        try {
+            String temp[]= null;
+            
+            ArrayList<String> temp1 = sh.loadDonorDonationsTable();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+             while (model.getRowCount()>0)
+          {
+             model.removeRow(0);
+          }
+            for (int i =0; i< temp1.size();i++){
+                
+                model = (DefaultTableModel) jTable1.getModel();
+                temp = temp1.get(i).split(",");
+                model.addRow(temp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestByHospital.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    
     }
 
     /**
@@ -52,13 +87,10 @@ public class LabDonorTable extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Donor Name", "Blood/Organ Type", "Blood/Organ Value"
+                "Donor Name", "Blood/Organ Type", "Blood/Organ Value", "Availability"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
