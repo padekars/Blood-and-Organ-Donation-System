@@ -14,6 +14,7 @@ import Hospital.UI.HospitalSplitPage;
 import Lab.UI.LabLoginPage;
 import Lab.UI.LabSplitPage;
 import Patient.UI.PatientSplitPage;
+import RewardSystem.UI.RewardSystemLoginPage;
 import javax.swing.JFrame;
 
 /**
@@ -286,7 +287,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         fundraiser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         fundraiser.setForeground(new java.awt.Color(255, 255, 255));
-        fundraiser.setText("Fund Raiser");
+        fundraiser.setText("Reward System");
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-checklist-50.png"))); // NOI18N
 
@@ -423,7 +424,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hospital.gif"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 800, 510));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 800, 510));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-close-50.png"))); // NOI18N
         jLabel17.setText("jLabel17");
@@ -432,7 +433,7 @@ public class MainFrame extends javax.swing.JFrame {
                 jLabel17MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 40));
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, 60, 40));
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -493,8 +494,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
         // TODO add your handling code here:
-        //Fund Raiser
-        
+      
+        RewardSystemLoginPage alp = new RewardSystemLoginPage();
+        jSplitPane1.setRightComponent(alp);        
     }//GEN-LAST:event_jPanel9MouseClicked
 
     private void admin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin1MouseClicked

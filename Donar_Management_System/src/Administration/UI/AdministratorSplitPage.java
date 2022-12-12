@@ -9,6 +9,9 @@ import BloodDonorBank.UI.BankSplitPage;
 import BloodDonorBank.UI.RequestByHospital;
 import Donor.UI.DonorManageFrame;
 import Lab.UI.LabSplitPage;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -172,10 +175,14 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ManageHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageHospitalActionPerformed
-        // TODO add your handling code here:
-        
-        AdminHospitalManagePage alp = new AdminHospitalManagePage();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            
+            AdminHospitalManagePage alp = new AdminHospitalManagePage();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministratorSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_ManageHospitalActionPerformed
 
@@ -198,16 +205,24 @@ public class AdministratorSplitPage extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        AdminPatientManagePage alp = new AdminPatientManagePage();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            AdminPatientManagePage alp = new AdminPatientManagePage();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministratorSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        
-        AdminDonorManagePage alp = new AdminDonorManagePage();
-        jSplitPane1.setRightComponent(alp);
+        try {
+            // TODO add your handling code here:
+            
+            AdminDonorManagePage alp = new AdminDonorManagePage();
+            jSplitPane1.setRightComponent(alp);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministratorSplitPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

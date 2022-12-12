@@ -190,6 +190,7 @@ public class DonorManageFrame extends javax.swing.JFrame {
             ServiceDonor sd = new ServiceDonor();
             sd.adddonordonations(donorusername);
             
+            
             JOptionPane.showMessageDialog(this," Blood Donated!");
         } catch (SQLException ex) {
             Logger.getLogger(DonorManageFrame.class.getName()).log(Level.SEVERE, null, ex);

@@ -110,9 +110,7 @@
               <EmptySpace pref="76" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
-              <Component id="PatientSignUpBtn1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="213" pref="678" max="32767" attributes="0"/>
               <Component id="PatientSignUpBtn2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
           </Group>
@@ -187,10 +185,7 @@
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="143" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="PatientSignUpBtn1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="PatientSignUpBtn2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-              </Group>
+              <Component id="PatientSignUpBtn2" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -467,7 +462,7 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="4">
+              <Table columnCount="10" rowCount="0">
                 <Column editable="true" title="Patient Name" type="java.lang.Object"/>
                 <Column editable="true" title="Street Name" type="java.lang.Object"/>
                 <Column editable="true" title="Community" type="java.lang.Object"/>
@@ -538,23 +533,12 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="PatientSignUpBtn1">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="0" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="2"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="VIEW"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PatientSignUpBtn1ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="PatientSignUpBtn2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

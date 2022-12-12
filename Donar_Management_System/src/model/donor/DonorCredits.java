@@ -9,7 +9,18 @@ package model.donor;
  * @author snehal
  */
 public class DonorCredits extends Donor {
+    
+    String donorno;
     String donorcredits;
+
+    public String getDonorno() {
+        return donorno;
+    }
+
+    public void setDonorno(String donorno) {
+        this.donorno = donorno;
+    }
+    
 
     public String getDonorcredits() {
         return donorcredits;

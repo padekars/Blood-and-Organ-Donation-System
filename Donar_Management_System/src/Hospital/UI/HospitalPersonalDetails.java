@@ -13,6 +13,7 @@ import model.ServiceHospital;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -253,7 +254,19 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
 
     private void HospitalUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtnActionPerformed
         try {
-            // TODO add your handling code here:
+            
+            
+             if(txtHospitalName.getText().equals("") || txtHospitalPassword.getText().equals("") 
+                || txtHospitalStreet.getText().equals("") || txtHospitalUsername.getText().equals("") || 
+                txtHospitalZip.getText().equals("") ){ 
+         
+            JOptionPane.showMessageDialog(this," All details are not Filled ");
+            
+        }           
+        else
+        {  
+                JOptionPane.showMessageDialog(this," New Donar Details Added ");
+          // TODO add your handling code here:
             String name =txtHospitalName.getText();
             String uname =txtHospitalUsername.getText();
             String pass = txtHospitalPassword.getText();
@@ -268,7 +281,21 @@ public class HospitalPersonalDetails extends javax.swing.JPanel {
             stmt.setString(5, String.valueOf(zipcode));
             stmt.setString(6, String.valueOf(uname));
             stmt.executeUpdate();
+            
+             txtHospitalName.setText("");
+            txtHospitalUsername.setText("");
+            txtHospitalPassword.setText("");
+            txtHospitalStreet.setText("");
+            txtHospitalZip.setText("");
+             
+            
+            
+            
+            
      
+
+      }
+            
     }//GEN-LAST:event_HospitalUpdateBtnActionPerformed
     catch (SQLException ex) {
             Logger.getLogger(HospitalPersonalDetails.class.getName()).log(Level.SEVERE, null, ex);

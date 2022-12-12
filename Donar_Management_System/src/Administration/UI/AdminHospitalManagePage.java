@@ -7,6 +7,17 @@ package Administration.UI;
 import Hospital.UI.*;
 import Patient.UI.*;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.ServiceHospital;
+import model.hospital.Hospital;
 
 /**
  *
@@ -17,10 +28,42 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegistration1
      */
-    public AdminHospitalManagePage() {
+    String selectedhname;
+    String selectedstreetname,selectedcommunity,selectedzipcode;
+    Connection con;
+    public AdminHospitalManagePage() throws SQLException {
         initComponents();
-    }
+    
+    try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+           Statement stmt = con.createStatement();
+           
+            String queryString1 = "SELECT hospital_name, hospital_streetname, hospital_community, hospital_zipcode from hospital";
+      
+            ResultSet results1 = stmt.executeQuery(queryString1);
 
+            while (results1.next()) {
+            String huname = results1.getString(1);
+            String streetname =  results1.getString(2);
+            String pcommunity = results1.getString(3);
+            String zipcode = results1.getString(4);
+            String data[] = {huname, streetname, pcommunity, zipcode};
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(data);
+            }
+            
+    
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +90,6 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
         txtHospitalPassword = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        HospitalUpdateBtn1 = new javax.swing.JButton();
         HospitalUpdateBtn2 = new javax.swing.JButton();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
@@ -145,25 +187,18 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Hospital Name", "Street Name", "Community", "Zipcode"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        HospitalUpdateBtn1.setBackground(new java.awt.Color(0, 204, 204));
-        HospitalUpdateBtn1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        HospitalUpdateBtn1.setText("View");
-        HospitalUpdateBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HospitalUpdateBtn1ActionPerformed(evt);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(jTable1);
 
         HospitalUpdateBtn2.setBackground(new java.awt.Color(0, 204, 204));
         HospitalUpdateBtn2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -206,9 +241,7 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
                         .addGap(82, 82, 82)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(HospitalUpdateBtn1)
-                        .addGap(264, 264, 264)
+                        .addGap(626, 626, 626)
                         .addComponent(HospitalUpdateBtn2)))
                 .addGap(68, 68, 68))
         );
@@ -246,9 +279,7 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HospitalUpdateBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HospitalUpdateBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(HospitalUpdateBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -260,9 +291,70 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
     }//GEN-LAST:event_Logout1ActionPerformed
 
     private void HospitalUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtnActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            
+            
+            if(txtHospitalName.getText().equals("") || txtHospitalPassword.getText().equals("")
+                    || txtHospitalStreet.getText().equals("") || txtHospitalUsername.getText().equals("") ||
+                    txtHospitalZip.getText().equals("") ){
+                
+                JOptionPane.showMessageDialog(this," All details are not Filled ");
+                
+            }
+            else
+            {
+                
+                try {
+                    JOptionPane.showMessageDialog(this," New Hospital Added ");
+                    Hospital h = new Hospital();
+                    h.setHname(txtHospitalName.getText());
+                    h.setHusername(txtHospitalUsername.getText());
+                    h.setHpassword(txtHospitalPassword.getText());
+                    h.setHstreetname(txtHospitalStreet.getText());
+                    h.setHcommunity(txtHospitalCommunity.getSelectedItem().toString());
+                    h.setHzipcode(Integer.parseInt(txtHospitalZip.getText()));
+                    System.out.println(h.getHname());
+                    ServiceHospital s1 = new ServiceHospital();
+                    s1.addhospitaldetails(h);
+                    
+                    
+                    txtHospitalName.setText("");
+                    txtHospitalUsername.setText("");
+                    txtHospitalPassword.setText("");
+                    txtHospitalStreet.setText("");
+                    txtHospitalZip.setText("");
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminHospitalManagePage.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            String queryString1 = "SELECT hospital_name, hospital_streetname, hospital_community, hospital_zipcode from hospital";
+            
+            Statement stmt = con.createStatement();
+            ResultSet results1 = stmt.executeQuery(queryString1);
+             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+             while (model.getRowCount()>0)
+          {
+             model.removeRow(0);
+          }
+            while (results1.next()) {
+                String huname = results1.getString(1);
+                String streetname =  results1.getString(2);
+                String pcommunity = results1.getString(3);
+                String zipcode = results1.getString(4);
+                String data[] = {huname, streetname, pcommunity, zipcode};
+                 model = (DefaultTableModel) jTable1.getModel();
+                model.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminHospitalManagePage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             
+        
+        
     }//GEN-LAST:event_HospitalUpdateBtnActionPerformed
-
+    
+    
     private void txtHospitalStreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalStreetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalStreetActionPerformed
@@ -355,18 +447,63 @@ public class AdminHospitalManagePage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalCommunityActionPerformed
 
-    private void HospitalUpdateBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HospitalUpdateBtn1ActionPerformed
-
     private void HospitalUpdateBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospitalUpdateBtn2ActionPerformed
-        // TODO add your handling code here:
+           
+        try {                                                   
+                Statement stmt = con.createStatement();
+                try {
+                    // TODO add your handling code here:
+                    
+                    
+                    
+                    String sql = "DELETE FROM hospital where hospital_name = '" +selectedhname+"' and hospital_streetname = '"+selectedstreetname+"' and hospital_community = '" +selectedcommunity+ "' and hospital_zipcode = '" +selectedzipcode +"'";
+                    int i = stmt.executeUpdate(sql);
+                    System.out.println(sql);
+                    System.out.println("updated rows"+i);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminHospitalManagePage.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Hospital record deleted");
+                String queryString1 = "SELECT hospital_name, hospital_streetname, hospital_community, hospital_zipcode from hospital";
+                
+                
+                ResultSet results1 = stmt.executeQuery(queryString1);
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                while (model.getRowCount()>0)
+                {
+                    model.removeRow(0);
+                }
+                while (results1.next()) {
+                    String huname = results1.getString(1);
+                    String streetname =  results1.getString(2);
+                    String pcommunity = results1.getString(3);
+                    String zipcode = results1.getString(4);
+                    String data[] = {huname, streetname, pcommunity, zipcode};
+                    model = (DefaultTableModel) jTable1.getModel();
+                    model.addRow(data);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminHospitalManagePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
     }//GEN-LAST:event_HospitalUpdateBtn2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
+        
+          selectedhname = tblmodel.getValueAt(jTable1.getSelectedRow(),0).toString();
+          selectedstreetname = tblmodel.getValueAt(jTable1.getSelectedRow(),1).toString();
+          selectedcommunity = tblmodel.getValueAt(jTable1.getSelectedRow(),2).toString();
+          selectedzipcode = tblmodel.getValueAt(jTable1.getSelectedRow(),3).toString();
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton HospitalUpdateBtn;
-    private javax.swing.JButton HospitalUpdateBtn1;
     private javax.swing.JButton HospitalUpdateBtn2;
     private javax.swing.JButton Logout1;
     private javax.swing.JLabel jLabel1;

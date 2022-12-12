@@ -71,14 +71,12 @@ public class DonorOrganDonate extends javax.swing.JPanel {
 
         DonarKidneyBtn.setBackground(new java.awt.Color(255, 102, 153));
         DonarKidneyBtn.setText("KIDNEY");
-
-        add(DonarKidneyBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 90, -1));
-
         DonarKidneyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DonarKidneyBtnActionPerformed(evt);
             }
         });
+        add(DonarKidneyBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 90, -1));
 
         DonarEyesBtn.setBackground(new java.awt.Color(255, 153, 153));
         DonarEyesBtn.setText("EYES");
@@ -91,27 +89,21 @@ public class DonorOrganDonate extends javax.swing.JPanel {
 
         DonarLiverBtn.setBackground(new java.awt.Color(255, 102, 0));
         DonarLiverBtn.setText("LIVER");
-
-        add(DonarLiverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 90, -1));
-
         DonarLiverBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DonarLiverBtnActionPerformed(evt);
             }
         });
-
+        add(DonarLiverBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 90, -1));
 
         DonarPancreasBtn.setBackground(new java.awt.Color(255, 204, 0));
         DonarPancreasBtn.setText("PANCREAS");
-
-        add(DonarPancreasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 90, -1));
-
         DonarPancreasBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DonarPancreasBtnActionPerformed(evt);
             }
         });
-
+        add(DonarPancreasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 90, -1));
 
         DonarIntestineBtn.setBackground(new java.awt.Color(204, 0, 204));
         DonarIntestineBtn.setText("INTESTINE");
@@ -124,15 +116,12 @@ public class DonorOrganDonate extends javax.swing.JPanel {
 
         DonarLungBtn.setBackground(new java.awt.Color(0, 153, 255));
         DonarLungBtn.setText("LUNG");
-
-        add(DonarLungBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 90, -1));
-
         DonarLungBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DonarLungBtnActionPerformed(evt);
             }
         });
-
+        add(DonarLungBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 90, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock-vector-kidney-vector-illustration-754700143 (2).jpg"))); // NOI18N
         jLabel2.setText("jLabel2");

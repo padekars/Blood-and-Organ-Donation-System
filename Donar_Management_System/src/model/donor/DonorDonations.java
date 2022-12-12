@@ -13,6 +13,7 @@ public class DonorDonations {
     String donationvalue;
 
     public String getDonationtype() {
+        
         return donationtype;
     }
 

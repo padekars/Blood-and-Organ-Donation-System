@@ -21,8 +21,13 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.patient.Patient;
 public class AdminPatientManagePage extends javax.swing.JPanel {
-
+        
+ Connection con;
+ 
+ String selectedpname,selectedstreetname,selectedcommunity,selectedzipcode;
     /**
      * Creates new form PatientRegistration1
      * 
@@ -38,8 +43,56 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
     Pattern pattei = Pattern.compile(PATTERNEI);
     
     
-    public AdminPatientManagePage() {
+    
+    public AdminPatientManagePage() throws SQLException {
         initComponents();
+        
+         
+        
+    try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+             Statement stmt = con.createStatement();
+         
+        
+          String sql = "select hospital_name from hospital"; 
+          ResultSet rs =  stmt.executeQuery(sql);
+          while(rs.next()){
+              System.out.println(rs.getString(1) );
+              txtPatientHospital.addItem(rs.getString(1));
+          }
+           
+            String queryString1 = "SELECT patient_name , \n" +
+"patient_streetname , patient_community , patient_zipcode , \n" +
+"patient_gender , patient_phonenumber , patient_dateofbirth , patient_bloodgroup ,\n" +
+" patient_emailid , patient_hospitalname from patient";
+      
+            ResultSet results1 = stmt.executeQuery(queryString1);
+
+            while (results1.next()) {
+            String pname = results1.getString(1);
+            String streetname =  results1.getString(2);
+            String pcommunity = results1.getString(3);
+            String zipcode = results1.getString(4);
+            String gender = results1.getString(5);
+            String phonenumber =  results1.getString(6);
+            String dob = results1.getString(7);
+            String bg = results1.getString(8);
+            String emailid = results1.getString(9);
+            String hosp = results1.getString(10);
+            String data[] = {pname, streetname, pcommunity, zipcode, gender, phonenumber, dob, bg, emailid, hosp};
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(data);
+            }
+            
     }
 
     /**
@@ -81,7 +134,6 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
         txtPatientHospital = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        PatientSignUpBtn1 = new javax.swing.JButton();
         PatientSignUpBtn2 = new javax.swing.JButton();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
@@ -218,28 +270,21 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Patient Name", "Street Name", "Community", "Zip Code", "Hospital Name", "Gender", "Date of Birth", "Blood Group", "Phone no.", "Email ID"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
-
-        PatientSignUpBtn1.setBackground(new java.awt.Color(0, 102, 102));
-        PatientSignUpBtn1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        PatientSignUpBtn1.setText("VIEW");
-        PatientSignUpBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PatientSignUpBtn1ActionPerformed(evt);
-            }
-        });
 
         PatientSignUpBtn2.setBackground(new java.awt.Color(0, 102, 102));
         PatientSignUpBtn2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -310,9 +355,7 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
                                 .addComponent(txtPatientEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(76, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(PatientSignUpBtn1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(213, 678, Short.MAX_VALUE)
                 .addComponent(PatientSignUpBtn2)
                 .addGap(241, 241, 241))
         );
@@ -372,9 +415,7 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PatientSignUpBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PatientSignUpBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(PatientSignUpBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(135, 135, 135))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -435,42 +476,75 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
         
         else
         {  
+            try {
                 JOptionPane.showMessageDialog(this," New Patient Details Added ");
+                Patient p = new Patient();
+                p.setPname(txtPatientName.getText());
+                p.setPusername(txtPatientUsername.getText());
+                p.setPpassword(txtPatientPassword.getText());
+                p.setPstreetname(txtPatientStreet.getText());
+                p.setPcommunity(txtPatientCommunity.getSelectedItem().toString());
+                p.setPzipcode(txtPatientZip.getText());
+                p.setPgender(txtPatientGender.getSelectedItem().toString());
+                p.setPdateofbirth(txtPatientDOB.getText());
+                p.setPbloodgroup(txtPatientBG.getSelectedItem().toString());
+                p.setPphonenumber(txtPatientContact.getText());
+                p.setPemailid(txtPatientEmail.getText());
+                p.setPhospital(txtPatientHospital.getSelectedItem().toString());
+                
+                ServicePatient s = new ServicePatient();
+                System.out.println("patient sign up button clicked");
+                s.addpatientdetails(p);
+                Statement stmt = con.createStatement();
                 
                 
-             
+                String sql = "select hospital_name from hospital";
+                ResultSet rs =  stmt.executeQuery(sql);
+                while(rs.next()){
+                    System.out.println(rs.getString(1) );
+                    txtPatientHospital.addItem(rs.getString(1));
+                }
                 
-
-//        String pname = txtPatientName.getText();
-//        String pusername = txtPatientUsername.getText();
-//        String ppassword = txtPatientPassword.getText();
-//        String streetname = txtPatientStreet.getText();
-//        String community = txtPatientCommunity.getSelectedItem().toString();
-//        String zipcode = jTextField8.getText();
-//        String phospital = jTextField9.getText().toString();
-//        String gender = cmb_gender.getSelectedItem().toString();
-//        String pphno = txtPatientContact.getText().toString();
-//        String pdob = txtPatientDOB.getText().toString();
-//        Connection con;
-//        Statement stmt;
-//        try {
-//            stmt = con.createStatement();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//                System.out.println("Connection established!");
-//                ResultSet rs=stmt.executeQuery("select * from admin");  
-//                while(rs.next())  
-//                System.out.println(rs.getString(1)+"  "+rs.getString(2));
-
-            txtPatientContact.setText("");
-            txtPatientDOB.setText("");
-            txtPatientEmail.setText("");
-            txtPatientName.setText("");
-            txtPatientPassword.setText("");
-            txtPatientStreet.setText("");
-            txtPatientUsername.setText("");
-            txtPatientZip.setText("");
+                String queryString1 = "SELECT patient_name , \n" +
+                        "patient_streetname , patient_community , patient_zipcode , \n" +
+                        "patient_gender , patient_phonenumber , patient_dateofbirth , patient_bloodgroup ,\n" +
+                        " patient_emailid , patient_hospitalname from patient";
+                
+                ResultSet results1 = stmt.executeQuery(queryString1);
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                while (model.getRowCount()>0)
+                {
+             model.removeRow(0);
+                }
+                while (results1.next()) {
+                    String pname = results1.getString(1);
+                    String streetname =  results1.getString(2);
+                    String pcommunity = results1.getString(3);
+                    String zipcode = results1.getString(4);
+                    String gender = results1.getString(5);
+                    String phonenumber =  results1.getString(6);
+                    String dob = results1.getString(7);
+                    String bg = results1.getString(8);
+                    String emailid = results1.getString(9);
+                    String hosp = results1.getString(10);
+                    String data[] = {pname, streetname, pcommunity, zipcode, gender, phonenumber, dob, bg, emailid, hosp};
+                     model = (DefaultTableModel) jTable1.getModel();
+                    model.addRow(data);
+                }
+                
+                
+                
+                txtPatientContact.setText("");
+                txtPatientDOB.setText("");
+                txtPatientEmail.setText("");
+                txtPatientName.setText("");
+                txtPatientPassword.setText("");
+                txtPatientStreet.setText("");
+                txtPatientUsername.setText("");
+                txtPatientZip.setText("");
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminPatientManagePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
 
 
@@ -605,20 +679,71 @@ public class AdminPatientManagePage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatientPasswordActionPerformed
 
-    private void PatientSignUpBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientSignUpBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PatientSignUpBtn1ActionPerformed
-
     private void PatientSignUpBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientSignUpBtn2ActionPerformed
-        // TODO add your handling code here:
+     try {
+         // TODO add your handling code here:
+         
+         
+         Statement stmt = con.createStatement();
+         
+         
+         
+         String sql = "DELETE FROM patient where patient_name = '" +selectedpname+"' and patient_streetname = '"+selectedstreetname+"' and patient_community = '" +selectedcommunity+ "' and patient_zipcode = '" +selectedzipcode +"'";
+         int i = stmt.executeUpdate(sql);
+         System.out.println(sql);
+         System.out.println("updated rows"+i);
+         
+                    JOptionPane.showMessageDialog(null, "Patient record deleted");
+         String queryString1 = "SELECT patient_name , \n" +
+                 "patient_streetname , patient_community , patient_zipcode , \n" +
+                 "patient_gender , patient_phonenumber , patient_dateofbirth , patient_bloodgroup ,\n" +
+                 " patient_emailid , patient_hospitalname from patient";
+         
+         ResultSet results1 = stmt.executeQuery(queryString1);
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+         while (model.getRowCount()>0)
+         {
+             model.removeRow(0);
+         }
+         while (results1.next()) {
+             String pname = results1.getString(1);
+             String streetname =  results1.getString(2);
+             String pcommunity = results1.getString(3);
+             String zipcode = results1.getString(4);
+             String gender = results1.getString(5);
+             String phonenumber =  results1.getString(6);
+             String dob = results1.getString(7);
+             String bg = results1.getString(8);
+             String emailid = results1.getString(9);
+             String hosp = results1.getString(10);
+             String data[] = {pname, streetname, pcommunity, zipcode, gender, phonenumber, dob, bg, emailid, hosp};
+             model = (DefaultTableModel) jTable1.getModel();
+             model.addRow(data);
+         }
+     } catch (SQLException ex) {
+         Logger.getLogger(AdminPatientManagePage.class.getName()).log(Level.SEVERE, null, ex);
+     }
+        
     }//GEN-LAST:event_PatientSignUpBtn2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        
+        DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
+        
+          selectedpname = tblmodel.getValueAt(jTable1.getSelectedRow(),0).toString();
+          selectedstreetname = tblmodel.getValueAt(jTable1.getSelectedRow(),1).toString();
+          selectedcommunity = tblmodel.getValueAt(jTable1.getSelectedRow(),2).toString();
+          selectedzipcode = tblmodel.getValueAt(jTable1.getSelectedRow(),3).toString();
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logout1;
     private javax.swing.JButton PatientSignUpBtn;
-    private javax.swing.JButton PatientSignUpBtn1;
     private javax.swing.JButton PatientSignUpBtn2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

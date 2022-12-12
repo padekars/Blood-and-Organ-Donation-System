@@ -7,16 +7,28 @@ package Administration.UI;
 import Donor.UI.*;
 import Patient.UI.*;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.ServiceDonor;
+import model.donor.Donor;
 
 /**
  *
  * @author Gayatri
  */
 public class AdminDonorManagePage extends javax.swing.JPanel {
-
+    
+ Connection con;
+ String selecteddname,selectedstreetname,selectedcommunity,selectedzipcode;
     /**
      * Creates new form PatientRegistration1
      */
@@ -30,8 +42,45 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
     Pattern pattei = Pattern.compile(PATTERNEI);
     
     
-    public AdminDonorManagePage() {
+    public AdminDonorManagePage() throws SQLException {
         initComponents();
+        
+        
+        
+    try{  
+                Class.forName("com.mysql.jdbc.Driver");  
+                 this.con=(Connection) DriverManager.getConnection(  
+                "jdbc:mysql://localhost:3306/AED_DB","root","Snehal1&");  
+                
+                
+            }
+        catch(Exception e){ 
+                System.out.println(e);
+                
+        }  
+           Statement stmt = con.createStatement();
+           
+            String queryString1 = "SELECT donor_name, donor_streetname, donor_community , donor_zipcode ,donor_dob ,\n" +
+"donor_gender , donor_phonenumber , donor_emailid ,donor_bloodgroup from donor";
+      
+            ResultSet results1 = stmt.executeQuery(queryString1);
+            
+            while (results1.next()) {
+            String dname = results1.getString(1);
+            String streetname =  results1.getString(2);
+            String pcommunity = results1.getString(3);
+            String zipcode = results1.getString(4);
+            String dob = results1.getString(5);
+            String gender =  results1.getString(6);
+            String phonenumber = results1.getString(7);
+            String emailid = results1.getString(8);
+            String bg = results1.getString(9);
+            String data[] = {dname, streetname, pcommunity, zipcode,dob,gender,phonenumber,emailid,bg};
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(data);
+            }
+            
+        
     }
 
     /**
@@ -71,7 +120,6 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
         txtDonarEmail = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        DonarUpdateBtn1 = new javax.swing.JButton();
         DonarUpdateBtn2 = new javax.swing.JButton();
 
         Logout1.setBackground(new java.awt.Color(153, 0, 153));
@@ -183,29 +231,22 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Donor Name", "Street Name", "Community", "Zipcode", "Gender", "Date of Birth", "Blood Group", "Phone no.", "Email ID"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        DonarUpdateBtn1.setBackground(new java.awt.Color(0, 51, 51));
-        DonarUpdateBtn1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        DonarUpdateBtn1.setText("VIEW");
-        DonarUpdateBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DonarUpdateBtn1ActionPerformed(evt);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(jTable1);
 
         DonarUpdateBtn2.setBackground(new java.awt.Color(0, 51, 51));
         DonarUpdateBtn2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        DonarUpdateBtn2.setText("UPDATE");
+        DonarUpdateBtn2.setText("DELETE");
         DonarUpdateBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DonarUpdateBtn2ActionPerformed(evt);
@@ -268,9 +309,7 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
                                             .addComponent(txtDonarContact, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                                             .addComponent(txtDonarEmail))))))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(200, 200, 200)
-                            .addComponent(DonarUpdateBtn1)
-                            .addGap(300, 300, 300)
+                            .addGap(572, 572, 572)
                             .addComponent(DonarUpdateBtn2))))
                 .addGap(100, 100, 100))
         );
@@ -320,9 +359,7 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DonarUpdateBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DonarUpdateBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(DonarUpdateBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(254, 254, 254))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -381,22 +418,73 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
         
         else
         {  
-                JOptionPane.showMessageDialog(this," Donor Details Updated ");
                 
                 
-             
+            try {
+                JOptionPane.showMessageDialog(this," New Donar Added ");
                 
-
-
-
-            txtDonarContact.setText("");
-            txtDonarDOB.setText("");
-            txtDonarEmail.setText("");
-            txtDonarName.setText("");
-            txtDonarPassword.setText("");
-            txtDonarStreet.setText("");
-            txtDonarUsername.setText("");
-            txtDonarZip.setText("");
+                Donor d = new Donor();
+                d.setDname(txtDonarName.getText());
+                d.setDusername(txtDonarUsername.getText());
+                d.setDpassword(txtDonarPassword.getText());
+                d.setDstreetname(txtDonarStreet.getText());
+                d.setDcommunity(txtDonarCommunity.getSelectedItem().toString());
+                
+                d.setDzipcode(txtDonarZip.getText());
+                d.setDgender(txtDonarGender.getSelectedItem().toString());
+                d.setDdateofbirth(txtDonarDOB.getText());
+                d.setDbloodgroup(txtDonarBG.getSelectedItem().toString());
+                d.setDphonenumber(txtDonarContact.getText());
+                d.setDemailid(txtDonarEmail.getText());
+                
+                ServiceDonor s = new ServiceDonor();
+                System.out.println("donor sign up button clicked");
+                
+                System.out.println("name "+txtDonarName.getText());
+                
+                System.out.println("pass"+txtDonarPassword.getText());
+                s.adddonordetails(d);
+                Statement stmt = con.createStatement();
+                
+                String queryString1 = "SELECT donor_name, donor_streetname, donor_community , donor_zipcode ,donor_dob ,\n" +
+                        "donor_gender , donor_phonenumber , donor_emailid ,donor_bloodgroup from donor";
+                
+                ResultSet results1 = stmt.executeQuery(queryString1);
+                
+             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                while (model.getRowCount()>0)
+                {
+             model.removeRow(0);
+                }
+                while (results1.next()) {
+                    String dname = results1.getString(1);
+                    String streetname =  results1.getString(2);
+                    String pcommunity = results1.getString(3);
+                    String zipcode = results1.getString(4);
+                    String dob = results1.getString(5);
+                    String gender =  results1.getString(6);
+                    String phonenumber = results1.getString(7);
+                    String emailid = results1.getString(8);
+                    String bg = results1.getString(9);
+                    String data[] = {dname, streetname, pcommunity, zipcode,dob,gender,phonenumber,emailid,bg};
+                     model = (DefaultTableModel) jTable1.getModel();
+                    model.addRow(data);
+                }
+                
+                
+                
+                
+                txtDonarContact.setText("");
+                txtDonarDOB.setText("");
+                txtDonarEmail.setText("");
+                txtDonarName.setText("");
+                txtDonarPassword.setText("");
+                txtDonarStreet.setText("");
+                txtDonarUsername.setText("");
+                txtDonarZip.setText("");
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminDonorManagePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
 
 
@@ -507,18 +595,76 @@ public class AdminDonorManagePage extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtDonarContactKeyPressed
 
-    private void DonarUpdateBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarUpdateBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DonarUpdateBtn1ActionPerformed
-
     private void DonarUpdateBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DonarUpdateBtn2ActionPerformed
-        // TODO add your handling code here:
+                try {
+                    // TODO add your handling code here:
+                    
+                    Statement stmt = con.createStatement();
+                    try {
+                        // TODO add your handling code here:
+                        
+                        
+                        
+                        String sql = "DELETE FROM donor where donor_name = '" +selecteddname+"' and donor_streetname = '"+selectedstreetname+"' and donor_community = '" +selectedcommunity+ "' and donor_zipcode = '" +selectedzipcode +"'";
+                        int i = stmt.executeUpdate(sql);
+                        System.out.println(sql);
+                        System.out.println("updated rows"+i);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AdminHospitalManagePage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(null, "Donor record deleted");
+                    
+                    
+                    String queryString1 = "SELECT donor_name, donor_streetname, donor_community , donor_zipcode ,donor_dob ,\n" +
+                            "donor_gender , donor_phonenumber , donor_emailid ,donor_bloodgroup from donor";
+                    
+                    ResultSet results1 = stmt.executeQuery(queryString1);
+                    
+                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                    while (model.getRowCount()>0)
+                    {
+                        model.removeRow(0);
+                    }
+                    while (results1.next()) {
+                        String dname = results1.getString(1);
+                        String streetname =  results1.getString(2);
+                        String pcommunity = results1.getString(3);
+                        String zipcode = results1.getString(4);
+                        String dob = results1.getString(5);
+                        String gender =  results1.getString(6);
+                        String phonenumber = results1.getString(7);
+                        String emailid = results1.getString(8);
+                        String bg = results1.getString(9);
+                        String data[] = {dname, streetname, pcommunity, zipcode,dob,gender,phonenumber,emailid,bg};
+                        model = (DefaultTableModel) jTable1.getModel();
+                        model.addRow(data);
+                    }
+                    
+                    
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminDonorManagePage.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+        
+        
     }//GEN-LAST:event_DonarUpdateBtn2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        DefaultTableModel tblmodel = (DefaultTableModel) jTable1.getModel();
+        
+          selecteddname = tblmodel.getValueAt(jTable1.getSelectedRow(),0).toString();
+          selectedstreetname = tblmodel.getValueAt(jTable1.getSelectedRow(),1).toString();
+          selectedcommunity = tblmodel.getValueAt(jTable1.getSelectedRow(),2).toString();
+          selectedzipcode = tblmodel.getValueAt(jTable1.getSelectedRow(),3).toString();
+        
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DonarUpdateBtn;
-    private javax.swing.JButton DonarUpdateBtn1;
     private javax.swing.JButton DonarUpdateBtn2;
     private javax.swing.JButton Logout1;
     private javax.swing.JScrollPane jScrollPane1;

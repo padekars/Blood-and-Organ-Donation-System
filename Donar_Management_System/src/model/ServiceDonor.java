@@ -55,12 +55,14 @@ public class ServiceDonor {
                 statement.setString(4, d.getDstreetname());
                 statement.setString(5, d.getDcommunity());
                 statement.setString(6, d.getDzipcode());
+
                 statement.setString(7, d.getDdateofbirth());
                 statement.setString(8, d.getDgender());
                 statement.setString(9, d.getDphonenumber());
                 statement.setString(10, d.getDdateofbirth());
                 
                 statement.setString(11, d.getDbloodgroup());
+
         
                 int i = statement.executeUpdate();
                 
@@ -141,6 +143,18 @@ public class ServiceDonor {
         
                 int i = statement.executeUpdate();
                 
+                String sql1 = "insert into donorcredits (donor_name , donor_username , donor_donationtype ,\n" +
+"donor_donationvalue , donor_credits  ) values (?,?,?,?,?)";  
+                
+                statement = con.prepareStatement(sql1);
+                statement.setString(1, dname);
+                statement.setString(2, duname);
+                statement.setString(3, "Blood");
+                statement.setString(4,dbg );
+                statement.setString(5, "1");
+        
+                int j = statement.executeUpdate();
+                
         } 
         catch (SQLException ex) {
             Logger.getLogger(PatientSignUpPage.class.getName()).log(Level.SEVERE, null, ex);
@@ -175,6 +189,19 @@ public class ServiceDonor {
                 statement.setString(5, "Yes");
         
                 int i = statement.executeUpdate();
+                
+                
+                String sql1 = "insert into donorcredits (donor_name , donor_username , donor_donationtype ,\n" +
+"donor_donationvalue , donor_credits  ) values (?,?,?,?,?)";  
+                
+                statement = con.prepareStatement(sql1);
+                statement.setString(1, dname);
+                statement.setString(2, duname);
+                statement.setString(3, "Organ");
+                statement.setString(4,organ );
+                statement.setString(5, "5");
+        
+                int j = statement.executeUpdate();
                 
         } 
         catch (SQLException ex) {

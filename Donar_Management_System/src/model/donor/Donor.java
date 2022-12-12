@@ -4,6 +4,8 @@
  */
 package model.donor;
 
+import java.util.Date;
+
 /**
  *
  * @author snehal
@@ -14,12 +16,26 @@ public class Donor {
     String dpassword;
     String dstreetname;
     String dcommunity;
-    String dzipcode;
+
+    int dzip;
     String dgender;
-    String ddateofbirth;
+    Date dbirth_date;
     String dbloodgroup;
-    String dphonenumber;
+
+    long dphone;
     String demailid;
+
+    public int getDzip() {
+        return dzip;
+    }
+
+    public Date getDbirth_date() {
+        return dbirth_date;
+    }
+
+    public void setDbirth_date(Date dbirth_date) {
+        this.dbirth_date = dbirth_date;
+    }
 
     public String getDdateofbirth() {
         return ddateofbirth;
@@ -28,6 +44,36 @@ public class Donor {
     public void setDdateofbirth(String ddateofbirth) {
         this.ddateofbirth = ddateofbirth;
     }
+
+    public void setDzip(int dzip) {
+        this.dzip = dzip;
+    }
+
+    public long getDphone() {
+        return dphone;
+    }
+
+    public void setDphone(long dphone) {
+        this.dphone = dphone;
+    }
+
+    public String getDzipcode() {
+        return dzipcode;
+    }
+
+    public void setDzipcode(String dzipcode) {
+        this.dzipcode = dzipcode;
+    }
+
+    public String getDphonenumber() {
+        return dphonenumber;
+    }
+
+    public void setDphonenumber(String dphonenumber) {
+        this.dphonenumber = dphonenumber;
+    }
+    String ddateofbirth;
+    
 
     public String getDbloodgroup() {
         return dbloodgroup;
@@ -86,28 +132,19 @@ public class Donor {
         this.dcommunity = dcommunity;
     }
 
-    public String getDzipcode() {
-        return dzipcode;
-    }
+    String dzipcode;
+    String dphonenumber;
 
-    public void setDzipcode(String dzipcode) {
-        this.dzipcode = dzipcode;
-    }
 
     public String getDgender() {
         return dgender;
     }
-
+    
     public void setDgender(String dgender) {
         this.dgender = dgender;
     }
 
-    public String getDphonenumber() {
-        return dphonenumber;
-    }
 
-    public void setDphonenumber(String dphonenumber) {
-        this.dphonenumber = dphonenumber;
-    }
+    
     
 }

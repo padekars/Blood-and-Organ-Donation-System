@@ -337,12 +337,14 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         else
         {  
                 JOptionPane.showMessageDialog(this," New Donar Details Added ");
+
           Donor d = new Donor();
         d.setDname(txtDonarName.getText());
         d.setDusername(txtDonarUsername.getText());
         d.setDpassword(txtDonarPassword.getText());
         d.setDstreetname(txtDonarStreet.getText());
         d.setDcommunity(txtDonarCommunity.getSelectedItem().toString());
+
         d.setDzipcode(txtDonarZip.getText());
         d.setDgender(txtDonarGender.getSelectedItem().toString());
         d.setDdateofbirth(txtDonarDOB.getText());
@@ -377,8 +379,8 @@ public class DonorSignUpPage extends javax.swing.JPanel {
         
         
 
-        
-        
+
+     
 
         
     }//GEN-LAST:event_DonarSignUpBtnActionPerformed
