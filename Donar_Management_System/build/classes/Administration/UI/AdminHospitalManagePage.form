@@ -37,43 +37,42 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="HospitalUpdateBtn" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel2" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="HospitalUpdateBtn2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="HospitalUpdateBtn" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel2" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel1" alignment="1" min="-2" pref="97" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel1" alignment="1" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtHospitalName" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtHospitalUsername" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtHospitalPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtHospitalStreet" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtHospitalZip" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtHospitalCommunity" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtHospitalName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtHospitalUsername" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtHospitalPassword" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtHospitalStreet" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtHospitalZip" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtHospitalCommunity" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lbl_title" alignment="1" min="-2" pref="399" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lbl_title" alignment="1" min="-2" pref="399" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="826" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="626" max="-2" attributes="0"/>
-                      <Component id="HospitalUpdateBtn2" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="826" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
@@ -119,9 +118,9 @@
               <Component id="HospitalUpdateBtn" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="180" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="HospitalUpdateBtn2" min="-2" pref="23" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="HospitalUpdateBtn2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,7 +129,7 @@
     <Component class="javax.swing.JButton" name="HospitalUpdateBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="0" type="rgb"/>
+          <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="2"/>
@@ -319,7 +318,7 @@
     <Component class="javax.swing.JButton" name="HospitalUpdateBtn2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="0" type="rgb"/>
+          <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="2"/>
