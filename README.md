@@ -5,13 +5,21 @@
 Our system's goal is to make finding blood and organs in an emergency as easy and automated as possible while also keeping track of blood and organ donors, patients, hospitals, and the bank's blood and organ supplies. Our objective is to offer a useful management solution to manage donor and patient records of city’s population. Our ecosystem's goal is to create a network of Boston that links a patient and donor to a hospital, a blood organ bank, and Laboratory.  We have created an ecosystem where we oversee the complete Donor management system for the general public. Upon receiving a patient's request, we first check the blood/organ bank for matching donors. If none are present, we next transmit the request to the laboratory, where we look for matches there. We have 7 organizations, 8 roles, and 4 enterprises. This illustrates how resilient our ecosystem is. For a safer world, we want to offer a simple and user-friendly approach. The features of our application are listed below.
 
 Administrators can manage hospitals, banks, patients, laboratories and reward systems.
+
 Patient can register and request blood and organs
+
 Hospital keeps patient information in its own hospital
+
 Hospital can send requests for its own patients for blood or organs
+
 Bank receives requests from different hospitals and checks in its inventory if a match is found. If found it will close the request else it will send the request to the laboratory.
+
 In the event that the bank does not have the match, request is sent to the laboratory, which attempts to find a match and sends information about the matched donor to the laboratory
+
 Patient can check the status of their request
+
 Donor can register, donate blood and organs, and receive credit for their donation
+
 All the donor details will be accessed by the laboratory as well.
 
 ### Enterprises:
